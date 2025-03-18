@@ -122,13 +122,13 @@
               </h6>
             </div>
             <div class="d-flex align-items-center mt-lg-3 gap-2">
-              <a href="calendar.html" class="icon-box md grd-success-light rounded-2">
+              <a href="" class="icon-box md grd-success-light rounded-2">
                 <i class="bi bi-calendar2-check fs-5 text-success"></i>
               </a>
-              <a href="events.html" class="icon-box md grd-info-light rounded-2">
+              <a href="" class="icon-box md grd-info-light rounded-2">
                 <i class="bi bi-stickies fs-5 text-info"></i>
               </a>
-              <a href="settings.html" class="icon-box md grd-danger-light rounded-2">
+              <a href="" class="icon-box md grd-danger-light rounded-2">
                 <i class="bi bi-whatsapp fs-5 text-danger"></i>
               </a>
             </div>
@@ -243,14 +243,11 @@
                       <table class="table m-0">
                         <thead>
                           <tr>
-                            <th>Customer ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                            <th>Items Bought</th>
-                            <th>Money Spent</th>
-                            <th>Last Login</th>
+                            <th>IP</th>
+                            <th>LOCATION</th>
+                            <th>TIME</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -260,9 +257,6 @@
                             <td>Willams</td>
                             <td>+143-148-60985</td>
                             <td>info@example.com</td>
-                            <td>250</td>
-                            <td>$4500</td>
-                            <td>10/10/2022 4:30pm</td>
                           </tr>
                           <tr class="grd-secondary-light">
                             <td>#00002</td>
@@ -270,9 +264,6 @@
                             <td>James</td>
                             <td>+278-119-88790</td>
                             <td>info@example.com</td>
-                            <td>390</td>
-                            <td>$3500</td>
-                            <td>12/10/2022 2:37am</td>
                           </tr>
                           <tr class="grd-info-light">
                             <td>#00003</td>
@@ -280,30 +271,8 @@
                             <td>Thomas</td>
                             <td>+125-117-88763</td>
                             <td>info@example.com</td>
-                            <td>135</td>
-                            <td>$2400</td>
-                            <td>14/10/2022 7:50pm</td>
                           </tr>
-                          <tr class="grd-success-light">
-                            <td>#00004</td>
-                            <td><a href="#" class="text-red">Steve</a></td>
-                            <td>Smitth</td>
-                            <td>+334-676-66530</td>
-                            <td>info@example.com</td>
-                            <td>765</td>
-                            <td>$7890</td>
-                            <td>18/10/2022 9:30pm</td>
-                          </tr>
-                          <tr class="grd-warning-light">
-                            <td>#00005</td>
-                            <td><a href="#" class="text-red">Kevin</a></td>
-                            <td>Oliver</td>
-                            <td>+435-667-99808</td>
-                            <td>info@example.com</td>
-                            <td>763</td>
-                            <td>$5690</td>
-                            <td>21/10/2022 3:20pm</td>
-                          </tr>
+
                         </tbody>
                       </table>
                     </div>
