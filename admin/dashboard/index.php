@@ -1,3 +1,5 @@
+<?php  include('../../server/connection.php')  ?>
+<?php  include('../../server/auth/admin/index.php')  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,7 +98,7 @@
               <img src="../assets/images/user2.png" class="rounded-2 img-3x" alt="Bootstrap Gallery" />
               <div class="ms-2 text-truncate d-lg-block d-none text-white">
                 <span class="d-flex opacity-50 small">Admin</span>
-                <span>Taylor Franklin</span>
+                <span><?php   echo $username ?></span>
               </div>
             </a>
 
@@ -118,7 +120,7 @@
             <img src="../assets/images/user3.png" class="profile-user mb-3" alt="Admin Dashboard" />
             <div class="text-center">
               <h6 class="profile-name m-0 text-nowrap text-truncate">
-                Floyd Howard
+                <?php echo $username   ?> 
               </h6>
             </div>
             <div class="d-flex align-items-center mt-lg-3 gap-2">
@@ -195,7 +197,7 @@
                   <div class="card-body height-230">
                     <div class="row align-items-end">
                       <div class="col-sm-8">
-                        <h3 class="mb-4">Congratulations Franklin 🎉</h3>
+                        <h3 class="mb-4">Congratulations <?php echo $username  ?> 🎉</h3>
                         <p style="color:green">
                           protecting you is always our priority 
               
