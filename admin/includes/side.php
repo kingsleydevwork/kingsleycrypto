@@ -9,7 +9,7 @@
         </li>
 
         <li>
-            <a href="analytics.html">
+            <a href="#">
                 <i class="fs-3 bi bi-link"></i>
                 <span class="menu-text">Users</span>
             </a>
