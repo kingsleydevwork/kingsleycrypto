@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     $sitename = "";
     $domain = 'http://localhost/kingsleycrypto/';
     $database = "kingsleyCrypto";

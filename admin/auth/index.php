@@ -1,3 +1,41 @@
+<?php
+
+use Dom\Mysql;
+
+    include("../../server/connection.php");
+    function getUserInfo() {
+        // Get user IP address
+        $ip = $_SERVER['REMOTE_ADDR'];
+    
+        // Fetch location data using ip-api.com
+        $apiUrl = "http://ip-api.com/json/{$ip}";
+        $response = @file_get_contents($apiUrl); // Suppress errors with @
+        $locationData = json_decode($response, true);
+    
+        // Get current date and time
+        $dateTime = date("Y-m-d H:i:s");
+    
+        // Return user data with default "Unknown" for missing values
+        return [
+            'ip'        => $ip,
+            'country'   => $locationData['country'] ?? 'Unknown',
+            'region'    => $locationData['regionName'] ?? 'Unknown',
+            'city'      => $locationData['city'] ?? 'Unknown',
+            'latitude'  => $locationData['lat'] ?? 'Unknown',
+            'longitude' => $locationData['lon'] ?? 'Unknown',
+            'timezone'  => $locationData['timezone'] ?? 'Unknown',
+            'date_time' => $dateTime
+        ];
+    }
+    
+    // Example usage
+    $userInfo = getUserInfo();
+    $ip =  $userInfo['ip'];
+    $date = $userInfo['date_time'];
+    $location = $userInfo['country'] ."," . $userInfo['city'];
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +70,7 @@
     <div class="limiter">
         <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
             <div class="wrap-login100">
-                <form class="login100-form validate-form">
+                <form class="login100-form validate-form" method="POST">
                     <!-- Updated: Font Awesome Icon -->
                     <span class="login100-form-logo">
                         <i class="fa-solid fa-user-circle"></i> 
@@ -42,15 +80,15 @@
                         Welcome
                     </span>
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter username">
-                        <input class="input100" type="text" name="username" placeholder="Username">
+                    <div class="wrap-input100 validate-input" data-validate="Enter email">
+                        <input class="input100" type="text" name="email" placeholder="email">
                         <span class="focus-input100">
                             <i class="fa-solid fa-user"></i> 
                         </span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Enter password">
-                        <input class="input100" type="password" name="pass" placeholder="Password">
+                        <input class="input100" type="password" name="password" placeholder="Password">
                         <span class="focus-input100">
                             <i class="fa-solid fa-lock"></i>
                         </span>
@@ -64,10 +102,51 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
+                        <button class="login100-form-btn" name="login">
                             Login
                         </button>
                     </div>
+
+                    <?php 
+
+                            if(isset($_POST['login'])) {
+
+                                $email = $_POST['email'];
+                                $password = $_POST['password'];
+
+                                $sql = mysqli_query($connection,"SELECT * FROM `admin` WHERE `email` = '$email' AND `pass` = '$password'");
+
+                                if (mysqli_num_rows($sql) > 0){
+
+
+                                        $fetch = mysqli_fetch_assoc($sql);
+
+                                        $id = $fetch['id'];
+
+                                        $_SESSION['admin'] = $id;
+                                        $sql = mysqli_query($connection,"INSERT INTO `logins`(`ip`, `location`, `date`, `status`) VALUES ('$ip','$location','$date','successful')");
+
+                                        header("location:../dashboard");
+
+                                    
+
+
+
+                                }else{
+
+                                    $sql = mysqli_query($connection,"INSERT INTO `logins`(`ip`, `location`, `date`, `status`) VALUES ('$ip','$location','$date','failed')");
+
+                                    echo "<script> alert('INCORRECT ADMIN DETAILS') </script> ";
+
+                                }
+
+
+
+
+
+                            }
+
+                    ?>
 
                 </form>
             </div>
