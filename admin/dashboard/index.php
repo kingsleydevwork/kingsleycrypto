@@ -117,6 +117,8 @@
 
           <!-- Sidebar profile starts -->
           <div class="sidebar-profile">
+
+            
             <img src="../assets/images/user3.png" class="profile-user mb-3" alt="Admin Dashboard" />
             <div class="text-center">
               <h6 class="profile-name m-0 text-nowrap text-truncate">
@@ -202,13 +204,19 @@
                           protecting you is always our priority 
               
                         </p>
+                        <?php
+
+                            $fail_login = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `logins` WHERE `status`='failed'"));
+                            $success_login = mysqli_num_rows( mysqli_query($connection,"SELECT * FROM `logins` WHERE `status`='successful'"))
+
+                        ?>
                         <div class="mt-4 d-flex flex-wrap gap-3">
                           <div class="d-flex align-items-center">
                             <div class="icon-box lg grd-info-light rounded-5 me-3">
                               <i class="bi bi-bag text-info fs-3"></i>
                             </div>
                             <div class="m-0">
-                              <h3 class="m-0 fw-semibold">0</h3>
+                              <h3 class="m-0 fw-semibold"><?php echo $success_login ?></h3>
                               <p class="m-0 text-secondary">Approved Login</p>
                             </div>
                           </div>
@@ -217,7 +225,7 @@
                               <i class="bi bi-bag text-danger fs-3"></i>
                             </div>
                             <div class="m-0">
-                              <h3 class="m-0 fw-semibold">0</h3>
+                              <h3 class="m-0 fw-semibold"><?php echo $fail_login ?></h3>
                               <p class="m-0 text-secondary">Failed Login </p>
                             </div>
                           </div>
