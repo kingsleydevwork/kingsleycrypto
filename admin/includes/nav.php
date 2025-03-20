@@ -1,3 +1,14 @@
+<?php
+
+    $users = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `users` "));
+    $deposit = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `deposits` WHERE `status`='0' "));
+    $withdraw = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `withdrawals`  WHERE `status`='0'"));
+    $kyc = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `kyc`  WHERE `status`='0'"));
+
+
+?>
+
+
 <div class="row gx-3">
   <!-- Total Users Card -->
   <div class="col-md-3 col-sm-6 col-12">
@@ -9,7 +20,7 @@
         </div>
         <div class="d-flex align-items-center justify-content-between">
           <h5 class="m-0 fw-normal">Total Users</h5>
-          <h3 class="m-0">0</h3>
+          <h3 class="m-0"><?php echo  $users ?> </h3>
         </div>
       </div>
     </div>
@@ -24,8 +35,8 @@
          
         </div>
         <div class="d-flex align-items-center justify-content-between">
-          <h5 class="m-0 fw-normal">Total Deposit</h5>
-          <h3 class="m-0">0</h3>
+          <h5 class="m-0 fw-normal">Pending Deposit</h5>
+          <h3 class="m-0"><?php echo  $deposit ?></h3>
         </div>
       </div>
     </div>
@@ -40,8 +51,8 @@
           
         </div>
         <div class="d-flex align-items-center justify-content-between">
-          <h5 class="m-0 fw-normal">Total Withdrawal</h5>
-          <h3 class="m-0">0</h3>
+          <h5 class="m-0 fw-normal">Pending Withdrawal</h5>
+          <h3 class="m-0"><?php echo  $withdraw ?></h3>
         </div>
       </div>
     </div>
@@ -56,8 +67,8 @@
           
         </div>
         <div class="d-flex align-items-center justify-content-between">
-          <h5 class="m-0 fw-normal">KYC</h5>
-          <h3 class="m-0">0</h3>
+          <h5 class="m-0 fw-normal">Pending KYC</h5>
+          <h3 class="m-0"><?php echo  $kyc ?></h3>
         </div>
       </div>
     </div>
