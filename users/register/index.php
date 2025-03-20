@@ -1,9 +1,8 @@
-<!-- meta tags and other links -->
+<?php include('../../server/connection.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from www.capitalmulti.com/users/register by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:51 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,22 +12,22 @@
 
 hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip script, advanced hyip script, hyip software, high yield investment program, hyip manager, hyip manager script, cheap hyip script, reliable hyip, secure hyip script, php hyip script, new hyip script, hyip program">
     <meta name="keywords" content="hyip,bitcoin,investment,hyip business,hyip script,best hyip,buy hyip script,advanced hyip script,hyip software,high yield investment program,hyip manager,hyip manager script,cheap hyip script,reliable hyip,secure hyip script,php hyip script,new hyip script,hyip program">
-    <link rel="shortcut icon" href="assets/images/logoIcon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $domain ?>users/assets/images/logoIcon/favicon.png" type="image/x-icon">
 
     
-    <link rel="apple-touch-icon" href="assets/images/logoIcon/logo.png">
+    <link rel="apple-touch-icon" href="<?php echo $domain ?>users/assets/images/logoIcon/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="capitalmulti - Sign Up">
     
     <meta itemprop="name" content="capitalmulti - Sign Up">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="assets/images/seo/66292e53481051713974867.png">
+    <meta itemprop="image" content="<?php echo $domain ?>users/assets/images/seo/66292e53481051713974867.png">
     
     <meta property="og:type" content="website">
     <meta property="og:title" content="capitalmulti.com - Complete HYIP Investment System">
     <meta property="og:description" content="capitalmulti.com - Complete HYIP Investment System . Most Advanced HYIP Investment System Script in codecanyon.">
-    <meta property="og:image" content="assets/images/seo/66292e53481051713974867.png"/>
+    <meta property="og:image" content="<?php echo $domain ?>users/assets/images/seo/66292e53481051713974867.png"/>
     <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="315" />
@@ -36,19 +35,19 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
     
     <meta name="twitter:card" content="summary_large_image">
   <!-- bootstrap 4  -->
-  <link rel="stylesheet" href="assets/templates/bit_gold/css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold/css/vendor/bootstrap.min.css">
   <!-- fontawesome 5  -->
-  <link rel="stylesheet" href="assets/templates/bit_gold/css/all.min.css">
+  <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold/css/all.min.css">
   <!-- line-awesome webfont -->
-  <link rel="stylesheet" href="assets/templates/bit_gold/css/line-awesome.min.css">
-  <link rel="stylesheet" href="assets/templates/bit_gold/css/vendor/animate.min.css">
+  <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold/css/line-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold/css/vendor/animate.min.css">
   <!-- slick slider css -->
-  <link rel="stylesheet" href="assets/templates/bit_gold/css/vendor/slick.css">
-  <link rel="stylesheet" href="assets/templates/bit_gold/css/vendor/dots.css">
+  <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold/css/vendor/slick.css">
+  <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold/css/vendor/dots.css">
       <!-- dashdoard main css -->
-  <link rel="stylesheet" href="assets/templates/bit_gold/css/main.css">
-  <link rel="stylesheet" href="assets/templates/bit_gold/css/custom.css">
-  <link rel="stylesheet" href="assets/templates/bit_gold/css/color9bce.css?color=CCA354&amp;secondColor=000000">
+  <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold/css/main.css">
+  <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold/css/custom.css">
+  <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold/css/color9bce.css?color=CCA354&amp;secondColor=000000">
   <style>
   .input-group-text{
     color: #fff;
@@ -81,7 +80,7 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
     <div class="header__bottom">
       <div class="container">
         <nav class="navbar navbar-expand-xl p-0 align-items-center">
-          <a class="site-logo site-title" href="index.html"><img src="assets/images/logoIcon/logo.png" alt="site-logo"></a>
+          <a class="site-logo site-title" href="index.html"><img src="<?php echo $domain ?>users/assets/images/logoIcon/logo.png" alt="site-logo"></a>
           <ul class="account-menu responsive-account-menu ml-3">
                         <li class="icon"><a href="login.html"><i class="las la-user"></i></a></li>
                       </ul> 
@@ -111,12 +110,12 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
   <!-- header-section end  -->
 
         <!-- account section start -->
-    <div class="account-section bg_img" data-background="https://www.capitalmulti.com/users/assets/images/frontend/register/5fce3a4f0b6131607350863.jpg">
+    <div class="account-section bg_img" data-background="https://www.capitalmulti.com/users/<?php echo $domain ?>users/assets/images/frontend/register/5fce3a4f0b6131607350863.jpg">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-xl-5 col-lg-7">
             <div class="account-card">
-              <div class="account-card__header bg_img overlay--one" data-background="https://www.capitalmulti.com/users/assets/images/frontend/register/5fce3a4f5d06e1607350863.jpg">
+              <div class="account-card__header bg_img overlay--one" data-background="https://www.capitalmulti.com/users/<?php echo $domain ?>users/assets/images/frontend/register/5fce3a4f5d06e1607350863.jpg">
                 <h2 class="section-title">Welcome To <span class="base--color">capitalmulti</span></h2>
                 <p>account</p>
               </div>
@@ -444,12 +443,12 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
     
 
     <!-- footer section start -->
-            <footer class="footer bg_img" data-background="assets/images/frontend/footer/5fce39681ce6b1607350632.jpg">
+            <footer class="footer bg_img" data-background="<?php echo $domain ?>users/assets/images/frontend/footer/5fce39681ce6b1607350632.jpg">
   <div class="footer__top">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-12 text-center">
-          <a href="index.html"><img src="assets/images/logoIcon/logo.png" alt="image"></a>
+          <a href="index.html"><img src="<?php echo $domain ?>users/assets/images/logoIcon/logo.png" alt="image"></a>
           <ul class="footer-short-menu d-flex flex-wrap justify-content-center mt-3">
                       </ul>
         </div>
@@ -478,19 +477,19 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
 </div> <!-- page-wrapper end -->
 
     <!-- jQuery library -->
-  <script src="assets/templates/bit_gold/js/vendor/jquery-3.5.1.min.js"></script>
+  <script src="<?php echo $domain ?>users/assets/templates/bit_gold/js/vendor/jquery-3.5.1.min.js"></script>
   <!-- bootstrap js -->
-  <script src="assets/templates/bit_gold/js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo $domain ?>users/assets/templates/bit_gold/js/vendor/bootstrap.bundle.min.js"></script>
 
     <!-- slick slider js -->
-  <script src="assets/templates/bit_gold/js/vendor/slick.min.js"></script>
-  <script src="assets/templates/bit_gold/js/vendor/wow.min.js"></script>
+  <script src="<?php echo $domain ?>users/assets/templates/bit_gold/js/vendor/slick.min.js"></script>
+  <script src="<?php echo $domain ?>users/assets/templates/bit_gold/js/vendor/wow.min.js"></script>
   <!-- dashboard custom js -->
-  <script src="assets/templates/bit_gold/js/app.js"></script>
+  <script src="<?php echo $domain ?>users/assets/templates/bit_gold/js/app.js"></script>
 
 
-  <link rel="stylesheet" href="assets/templates/bit_gold/css/iziToast.min.css">
-<script src="assets/templates/bit_gold/js/iziToast.min.js"></script>
+  <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold/css/iziToast.min.css">
+<script src="<?php echo $domain ?>users/assets/templates/bit_gold/js/iziToast.min.js"></script>
 
 
 <script>

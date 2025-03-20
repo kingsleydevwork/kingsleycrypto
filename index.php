@@ -1,13 +1,6 @@
 <?php include('./server/connection.php') ?>
 <!DOCTYPE html>
-
-
-
-<!-- Mirrored from capitalmulti/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 20:55:49 GMT -->
-<!-- Added by HTTrack -->
-<!-- Mirrored from www.capitalmulti.com/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:01 GMT -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <html lang="en">
 
