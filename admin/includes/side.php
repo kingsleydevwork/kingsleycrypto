@@ -2,14 +2,14 @@
     <!-- Sidebar menu starts -->
     <ul class="sidebar-menu">
         <li class="active current-page">
-            <a href="index.html">
+            <a href="<?php echo $domain."admin/dashboard"  ?>">
                 <i class="bi bi-pie-chart"></i>
                 <span class="menu-text">Dashboard</span>
             </a>
         </li>
 
         <li>
-            <a href="#">
+            <a href="<?php echo $domain."admin/user"  ?>">
                 <i class="fs-3 bi bi-link"></i>
                 <span class="menu-text">Users</span>
             </a>

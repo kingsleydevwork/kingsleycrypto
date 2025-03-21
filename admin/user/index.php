@@ -45,22 +45,6 @@ function timeAgo($datetime)
   <meta property="og:type" content="Website">
   <meta property="og:site_name" content="Bootstrap Gallery">
   <link rel="shortcut icon" href="../assets/images/favicon.svg" />
-  <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        td {
-            white-space: nowrap; /* Prevents text from wrapping */
-            overflow: hidden; /* Hides overflowing content */
-            text-overflow: ellipsis; /* Adds "..." for overflowing text */
-            max-width: 200px; /* Optional: Limit max width */
-        }
-        .overflow {
-            overflow: visible; /* Allows content to overflow */
-            white-space: nowrap;
-        }
-    </style>
 
   <!-- *************
 			************ CSS Files *************
@@ -200,7 +184,7 @@ function timeAgo($datetime)
                 <i class="bi bi-house lh-1"></i>
                 <a href="index.html" class="text-decoration-none">Home</a>
               </li>
-              <li class="breadcrumb-item" aria-current="page">Dashboard</li>
+              <li class="breadcrumb-item" aria-current="page">Users</li>
             </ol>
             <!-- Breadcrumb end -->
 
@@ -234,139 +218,108 @@ function timeAgo($datetime)
         <!-- App body starts -->
         <div class="app-body">
           <!-- Row start -->
-          <div class="row gx-3">
-            <div class="col-xl-8 col-sm-12 col-12">
-              <div class="card mb-3">
-                <div class="card-body height-230">
-                  <div class="row align-items-end">
-                    <div class="col-sm-8">
-                      <h3 class="mb-4">Congratulations <?php echo $username  ?> 🎉</h3>
-                      <p style="color:green">
-                        protecting you is always our priority
 
-                      </p>
-                      <?php
-
-                      $fail_login = mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `logins` WHERE `status`='failed'"));
-                      $success_login = mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `logins` WHERE `status`='successful'"))
-
-                      ?>
-                      <div class="mt-4 d-flex flex-wrap gap-3">
-                        <div class="d-flex align-items-center">
-                          <div class="icon-box lg grd-info-light rounded-5 me-3">
-                            <i class="bi bi-bag text-info fs-3"></i>
-                          </div>
-                          <div class="m-0">
-                            <h3 class="m-0 fw-semibold"><?php echo $success_login ?></h3>
-                            <p class="m-0 text-secondary">Approved Login</p>
-                          </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                          <div class="icon-box lg grd-danger-light rounded-5 me-3">
-                            <i class="bi bi-bag text-danger fs-3"></i>
-                          </div>
-                          <div class="m-0">
-                            <h3 class="m-0 fw-semibold"><?php echo $fail_login ?></h3>
-                            <p class="m-0 text-secondary">Failed Login </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <img src="../assets/images/sales.svg" class="congrats-img" alt="Bootstrap Gallery" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-4 col-sm-12 col-12">
-              <div class="card mb-3 grd-primary">
-                <div class="card-body bg-hexagon height-230">
-                  <h5 class="card-title text-white"></h5>
-                  <div id="sales"></div>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <div class="card-body">
             <div class="table-responsive">
               <table class="table m-0">
                 <thead>
                   <tr>
-                    <th>IP</th>
-                    <th>LOCATION</th>
-                    <th>TIME</th>
-                    <th>STATUS</th>
-                    <th>ACTION</th>
+                    <th>#</th>
+                    <th>USERNAME</th>
+                    <th>EMAIL</th>
+                    <th>COUNTRY</th>
+                    <th>BALANCE</th>
+                    <th>WARNING</th>
+                    <th>RESTRICTION</th>
+                    <th>*</th>
+                    <th>*</th>
+                    <th>*</th>
+                    <th>*</th>
+
                   </tr>
                 </thead>
                 <tbody>
                   <!-- <tr class="grd-primary-light">
-                            <td class="overflow">#00001</td>
-                            <td class="overflow"><a href="#" class="text-red">Alia</a></td>
-                            <td class="overflow">Willams</td>
-                            <td class="overflow">+143-148-60985</td>
-                            <td class="overflow">info@example.com</td>
+                            <td>#00001</td>
+                            <td><a href="#" class="text-red">Alia</a></td>
+                            <td>Willams</td>
+                            <td>+143-148-60985</td>
+                            <td>info@example.com</td>
                           </tr> -->
 
                   <?php
 
-                  $sql = mysqli_query($connection, "SELECT * FROM `logins`");
-
+                  $sql = mysqli_query($connection, "SELECT * FROM `users`");
+                  $count = 0;
                   if (mysqli_num_rows($sql) > 0) {
 
 
-                    while ($data = mysqli_fetch_assoc($sql)) { ?>
+                    while ($data = mysqli_fetch_assoc($sql)) { $count++ ?>
 
                       <tr class="grd-primary-light">
-                        <td class="overflow"><?php echo $data['ip'] ?></td>
-                        <td class="overflow"><?php echo $data['location'] ?></td>
-                        <td class="overflow"><?php echo timeAgo($data['date']); ?></td>
-
-                        <?php
-
-                        if ($data['status'] == 'failed') { ?>
-
-                          <td style="color:red" class="overflow">FAILED</td>
-
-                        <?php } else { ?>
-
-                          <td style="color:green" class="overflow">SUCCESSFUL</td>
-
-
-                        <?php }
-
-
-                        ?>
-
-                        
-                        <td class="overflow">
-                          <a class="btn btn-danger btn-icon btn-sm mb-1" href="?id=<?php  echo $data['id'] ?>"><i class="bi bi-trash"></i>
-                          </a>
+                        <td><?php echo $count ?></td>
+                        <td><?php echo $data['name'] ?></td>
+                        <td><?php echo $data['email'] ?></td>
+                        <td><?php echo $data['country'] ?></td>
+                        <td><?php echo $data['wallet'] ?></td>
+                        <td><?php echo $data['account_warning'] ?></td>
+                        <td><?php echo $data['restriction'] ?></td>
+                        <td>
+                              <a class="btn btn-info btn-sm" href=""><i class="bi bi-pencil"></i>
+                              </a>
                         </td>
 
                         <?php
 
-                            if (isset($_GET['id'])) {
+                                if ($data['account_warning'] == "yes") {?>
 
-                              $id = $_GET['id'];
+                                        
+                                    <td>
+                                        <span class="badge border border-success text-success">remove warning</span>
+                                    </td>
 
-                              $sql = mysqli_query($connection,"DELETE FROM `logins` WHERE `id`='$id'");
+                               <?php }else {?>
 
-                              if ($sql){
+                                    <td>
+                                                <span class="badge border border-danger text-danger">warn account</span>
+                                    </td>
+                                
+                             <?php  }
 
-
-                                echo "<script> location.href='index.php' </script>";
-
-
-                              }
-
-
-
-                            }
 
                         ?>
+                    <?php
+
+                            if ($data['restriction'] == "yes") {?>
+
+                                    
+                                <td>
+                                    <span class="badge border border-success text-success"> remove restriction </span>
+                                </td>
+
+                            <?php }else {?>
+
+                                <td>
+                                            <span class="badge border border-danger text-danger"> restrict account</span>
+                                </td>
+
+                            <?php  }
+
+
+                    ?>
+
+                    <td>
+                        <span class="badge border border-danger text-danger">delete</span>
+                    </td>
+                        <!-- 
+                         <td>
+                              <span class="badge border border-success text-success">High</span>
+                        </td>
+
+                        <td>
+                              <span class="badge border border-danger text-danger">Low</span>
+                        </td>  -->
                         
                       </tr>
 
@@ -376,7 +329,7 @@ function timeAgo($datetime)
 
                     <tr class="grd-primary-light">
 
-                      <td class="overflow">no login history for now</td>
+                      <td>you have no user</td>
 
                     </tr>
 
