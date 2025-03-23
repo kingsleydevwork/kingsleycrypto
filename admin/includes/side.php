@@ -15,6 +15,36 @@
             </a>
         </li>
 
+        <li>
+            <a href="<?php echo $domain.""  ?>">
+                <i class="fs-3 bi bi-link"></i>
+                <span class="menu-text">Deposit</span>
+            </a>
+        </li>
+
+        
+        <li>
+            <a href="<?php echo $domain.""  ?>">
+                <i class="fs-3 bi bi-link"></i>
+                <span class="menu-text">Withdrawal</span>
+            </a>
+        </li>
+
+        
+        <li>
+            <a href="<?php echo $domain.""  ?>">
+                <i class="fs-3 bi bi-link"></i>
+                <span class="menu-text">Investments</span>
+            </a>
+        </li>
+
+        
+        <li>
+            <a href="<?php echo $domain.""  ?>">
+                <i class="fs-3 bi bi-link"></i>
+                <span class="menu-text">KYC</span>
+            </a>
+        </li>
 
 
     </ul>
