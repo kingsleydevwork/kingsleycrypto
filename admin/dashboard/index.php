@@ -312,7 +312,7 @@ function timeAgo($datetime)
 
                   <?php
 
-                  $sql = mysqli_query($connection, "SELECT * FROM `logins`");
+                  $sql = mysqli_query($connection, "SELECT * FROM `logins` ORDER BY `date` DESC");
 
                   if (mysqli_num_rows($sql) > 0) {
 

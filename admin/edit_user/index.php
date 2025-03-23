@@ -45,6 +45,22 @@ function timeAgo($datetime)
   <meta property="og:type" content="Website">
   <meta property="og:site_name" content="Bootstrap Gallery">
   <link rel="shortcut icon" href="../assets/images/favicon.svg" />
+  <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            white-space: nowrap; /* Prevents text from wrapping */
+            overflow: hidden; /* Hides overflowing content */
+            text-overflow: ellipsis; /* Adds "..." for overflowing text */
+            max-width: 200px; /* Optional: Limit max width */
+        }
+        .overflow {
+            overflow: visible; /* Allows content to overflow */
+            white-space: nowrap;
+        }
+    </style>
 
   <!-- *************
 			************ CSS Files *************
@@ -182,9 +198,9 @@ function timeAgo($datetime)
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
                 <i class="bi bi-house lh-1"></i>
-                <a href="index.html" class="text-decoration-none">Home</a>
+                <a href="index.html" class="text-decoration-none">Users</a>
               </li>
-              <li class="breadcrumb-item" aria-current="page">Users</li>
+              <li class="breadcrumb-item" aria-current="page">Edit User</li>
             </ol>
             <!-- Breadcrumb end -->
 
@@ -219,240 +235,6 @@ function timeAgo($datetime)
         <div class="app-body">
           <!-- Row start -->
 
-
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table m-0">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>USERNAME</th>
-                    <th>EMAIL</th>
-                    <th>COUNTRY</th>
-                    <th>BALANCE</th>
-                    <th>WARNING</th>
-                    <th>RESTRICTION</th>
-                    <th>*</th>
-                    <th>*</th>
-                    <th>*</th>
-                    <th>*</th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- <tr class="grd-primary-light">
-                            <td>#00001</td>
-                            <td><a href="#" class="text-red">Alia</a></td>
-                            <td>Willams</td>
-                            <td>+143-148-60985</td>
-                            <td>info@example.com</td>
-                          </tr> -->
-
-                  <?php
-
-                  $sql = mysqli_query($connection, "SELECT * FROM `users`");
-                  $count = 0;
-                  if (mysqli_num_rows($sql) > 0) {
-
-
-                    while ($data = mysqli_fetch_assoc($sql)) {
-                      $count++ ?>
-
-                      <tr class="grd-primary-light">
-                        <td><?php echo $count ?></td>
-                        <td><?php echo $data['name'] ?></td>
-                        <td><?php echo $data['email'] ?></td>
-                        <td><?php echo $data['country'] ?></td>
-                        <td><?php echo $data['wallet'] ?></td>
-                        <td><?php echo $data['account_warning'] ?></td>
-                        <td><?php echo $data['restriction'] ?></td>
-                        <td>
-                          <a class="btn btn-info btn-sm" href="../edit_user/index.php?id=<?php echo $data['id']  ?>"><i class="bi bi-pencil"></i>
-                          </a>
-                        </td>
-
-                        <?php
-
-                        if ($data['account_warning'] == "yes") { ?>
-
-
-                          <td>
-                                <a href="?un_warn=<?php echo $data['id']  ?>"><span class="badge border border-success text-success">remove warning</span></a>
-                          </td>
-
-                        <?php } else { ?>
-
-                          <td>
-                            <a href="?warn=<?php echo $data['id']  ?>"><span class="badge border border-danger text-danger">warn account</span></a>
-                          </td>
-
-                        <?php  }
-
-
-                        ?>
-                        <?php
-
-                        if ($data['restriction'] == "yes") { ?>
-
-
-                          <td>
-                            <a href="?un_res=<?php echo $data['id']  ?>"><span class="badge border border-success text-success"> remove restriction </span></a>
-                          </td>
-
-                        <?php } else { ?>
-
-                          <td>
-                            <a href="?res=<?php echo $data['id']  ?>"><span class="badge border border-danger text-danger"> restrict account</span></a>
-                          </td>
-
-                        <?php  }
-
-
-                        ?>
-
-                        <td>
-                          <a href="?del=<?php echo $data['id']  ?>"><span class="badge border border-danger text-danger">delete</span></a>
-                        </td>
-
-                        <!-- DELETE USER PHP -->
-
-                        <?php
-
-                        if (isset($_GET['del'])) {
-
-                          $id = $_GET['del'];
-
-                          $sql = mysqli_query($connection, "DELETE FROM `users` WHERE `id` = '$id'");
-
-                          if ($sql) {
-
-                            echo "<script> location.href='index.php' </script>";
-                          } else {
-
-                            echo "<script> alert('UNABLE TO DELETE USER ') </script>";
-                          }
-                        }
-
-                        ?>
-
-                        <!--  restrict account -->
-
-                        <?php
-
-
-                        if (isset($_GET['res'])) {
-
-                          $id = $_GET['res'];
-
-                          $sql = mysqli_query($connection, "UPDATE `users`  SET `restriction`='yes' WHERE `id` = '$id'");
-
-
-                          if ($sql) {
-
-                            echo "<script> location.href='index.php' </script>";
-                          } else {
-
-                            echo "<script> alert('UNABLE TO RESTRICT USER ') </script>";
-                          }
-                        }
-
-
-                        ?>
-
-                        <!-- remove restriction -->
-
-                        <?php
-
-
-                        if (isset($_GET['un_res'])) {
-
-                          $id = $_GET['un_res'];
-
-                          $sql = mysqli_query($connection, "UPDATE `users`  SET `restriction`='no' WHERE `id` = '$id'");
-
-
-                          if ($sql) {
-
-                            echo "<script> location.href='index.php' </script>";
-                          } else {
-
-                            echo "<script> alert('UNABLE TO REMOVE  RESTRICT  ') </script>";
-                          }
-                        }
-
-
-                        ?>
-
-                        <!-- warn account -->
-
-                        <?php
-
-
-                        if (isset($_GET['warn'])) {
-
-                          $id = $_GET['warn'];
-
-                          $sql = mysqli_query($connection, "UPDATE `users`  SET `account_warning`='yes' WHERE `id` = '$id'");
-
-
-                          if ($sql) {
-
-                            echo "<script> location.href='index.php' </script>";
-                          } else {
-
-                            echo "<script> alert('UNABLE TO WARN USER ') </script>";
-                          }
-                        }
-
-
-                        ?>
-
-                        <!-- remove warning  -->
-
-                        <?php
-
-
-                            if (isset($_GET['un_warn'])) {
-
-                              $id = $_GET['un_warn'];
-
-                              $sql = mysqli_query($connection, "UPDATE `users`  SET `account_warning`='no' WHERE `id` = '$id'");
-
-
-                              if ($sql) {
-
-                                echo "<script> location.href='index.php' </script>";
-                              } else {
-
-                                echo "<script> alert('UNABLE TO REMOVE WARNING ') </script>";
-                              }
-                            }
-
-
-                        ?>
-
-                      </tr>
-
-
-                    <?php  }
-                  } else { ?>
-
-                    <tr class="grd-primary-light">
-
-                      <td>you have no user</td>
-
-                    </tr>
-
-                  <?php  }
-
-
-                  ?>
-
-
-                </tbody>
-              </table>
-            </div>
-          </div>
 
         </div>
         <!-- App body ends -->
