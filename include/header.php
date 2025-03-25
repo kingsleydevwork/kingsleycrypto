@@ -26,8 +26,8 @@
                             </div>
                             
                             <ul class="list-unstyled e-p-bx pull-right">
-                                <li><a href="login/en/index.html" ><i class="fa fa-user"></i>Login</a></li>
-                                <li><a href="login/en/signup18381838.html?ref" ><i class="fa fa-sign-in"></i>Register</a></li>
+                                <li><a href="<?php echo $domain ?>users/login/" ><i class="fa fa-user"></i>Login</a></li>
+                                <li><a href="<?php echo $domain ?>users/register/" ><i class="fa fa-sign-in"></i>Register</a></li>
                             </ul>
                         </div>
                     </div>
