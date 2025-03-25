@@ -188,7 +188,7 @@ function timeAgo($datetime)
                 <i class="bi bi-house lh-1"></i>
                 <a href="index.html" class="text-decoration-none">Home</a>
               </li>
-              <li class="breadcrumb-item" aria-current="page">Deposit</li>
+              <li class="breadcrumb-item" aria-current="page">Withdrawal</li>
             </ol>
             <!-- Breadcrumb end -->
 
@@ -236,7 +236,7 @@ function timeAgo($datetime)
                     <th>DATE</th>
                     <th>METHOD</th>
                     <th>ADDRESS</th>
-                    <th>PAYMENT SLIP</th>
+                    <th>FROM</th>
                     <th>*</th>
                     <th>*</th>
 
@@ -251,7 +251,7 @@ function timeAgo($datetime)
             t2.*, 
             t2.id AS ap_id
         FROM users t1 
-        INNER JOIN deposits t2 ON t1.id = t2.user_id  
+        INNER JOIN withdrawals t2 ON t1.id = t2.user_id  
         WHERE t2.status = '0'");
                   $count = 0;
                   if (mysqli_num_rows($sql) > 0) {
@@ -265,12 +265,10 @@ function timeAgo($datetime)
                         <td><?php echo $data['name'] ?></td>
                         <td><?php echo $data['email'] ?></td>
                         <td><?php echo $data['amount'] ?></td>
-                        <td><?php echo $data['date_deposited'] ?></td>
+                        <td><?php echo $data['date_withdrawn'] ?></td>
                         <td><?php echo $data['method'] ?></td>
                         <td><?php echo $data['wallet_addr'] ?></td>
-                        <td ><a href="" style="color:blue">view slip
-                          
-                        </a></td>
+                        <td><?php echo $data['from_wallet'] ?></td>
                         <td>
                                 <a href="?user_id=<?php echo $data['user_id'] ?>&ap_id=<?php echo $data['ap_id']  ?>&amount=<?php echo $data['amount']  ?>"><span class="badge border border-success text-success">Approve</span></a>
                         </td>
@@ -288,7 +286,7 @@ function timeAgo($datetime)
 
                     <tr class="grd-primary-light">
 
-                      <td>you have no deposit</td>
+                      <td>you have no withdrawal</td>
 
                     </tr>
 
@@ -364,7 +362,7 @@ if (isset($_GET['user_id']) && isset($_GET['del_id']) ) {
 
     $del_id = $_GET['del_id'];
 
-    $sql = mysqli_query($connection,"UPDATE `deposits` SET `status`='2' WHERE `id` = '$del_id'");
+    $sql = mysqli_query($connection,"UPDATE `withdrawals` SET `status`='2' WHERE `id` = '$del_id'");
 
     if ($sql) {
 
@@ -375,7 +373,7 @@ if (isset($_GET['user_id']) && isset($_GET['del_id']) ) {
     }else{
 
 
-        echo "<script> alert('UNABLE TO DECLINE DEPOSIT') </script>";
+        echo "<script> alert('UNABLE TO DECLINE WITHDRAWAL') </script>";
     }
 
     // email sending 
@@ -393,7 +391,7 @@ if (isset($_GET['user_id']) && isset($_GET['ap_id']) ) {
     $user_id = $_GET['user_id'];
     $amount = $_GET['amount'];
 
-    $sql = mysqli_query($connection,"UPDATE `deposits` SET `status`='2' WHERE `id` = '$del_id'");
+    $sql = mysqli_query($connection,"UPDATE `withdrawals` SET `status`='2' WHERE `id` = '$del_id'");
 
     if ($sql) {
 
@@ -406,7 +404,7 @@ if (isset($_GET['user_id']) && isset($_GET['ap_id']) ) {
             $fetch = mysqli_fetch_assoc($sql2);
 
             $main_bal = $fetch['balance'];
-            $updated_bal =  $amount + $main_bal;
+            $updated_bal = $main_bal - $amount;
 
             $sql3 = mysqli_query($connection,"UPDATE `users` SET `balance`='$updated_bal' WHERE `id` = '$user_id'");
 
@@ -442,7 +440,7 @@ if (isset($_GET['user_id']) && isset($_GET['ap_id']) ) {
     }else{
 
 
-        echo "<script> alert('UNABLE TO APPROVE DEPOSIT') </script>";
+        echo "<script> alert('UNABLE TO APPROVE withdrawal') </script>";
     }
 
     // email sending 

@@ -24,7 +24,7 @@
 
         
         <li>
-            <a href="<?php echo $domain.""  ?>">
+            <a href="<?php echo $domain."admin/outgoing"  ?>">
                 <i class="fs-3 bi bi-link"></i>
                 <span class="menu-text">Withdrawal</span>
             </a>
