@@ -1,4 +1,8 @@
-<?php include('../../server/connection.php') ?>
+<?php include('../../server/connection.php');
+
+include('../../server/config.php')
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,7 +91,7 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
         window.onload = ()=>{
             Model('Login successful','green');
             setTimeout(()=>{
-              window.open('../user/dashboard/','_self')
+              window.open('../dashboard/','_self')
             },2000)
         };
     </script>";
