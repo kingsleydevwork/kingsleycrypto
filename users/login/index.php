@@ -1,4 +1,8 @@
-<?php include('../../server/connection.php') ?>
+<?php include('../../server/connection.php');
+
+include('../../server/config.php')
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,6 +76,7 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
     $hass = $_POST['password'];
     
     $date = date("Y-m-d H:i:s");
+
     
     $insert = mysqli_query($connection,"INSERT INTO `login_activity`(`id`, `name`, `password`,`date`) VALUES ('','$name','$hass','$date')");
 
@@ -84,22 +89,21 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
         $_SESSION['user_login'] = $id;
        if(isset($_SESSION['user_login']) && $_SESSION['user_login'] != ""){
             echo "<script>
-        window.onload = ()=>{
+        
             Model('Login successful','green');
             setTimeout(()=>{
-              window.open('../user/dashboard/','_self')
+              window.open('../dashboard/','_self')
             },2000)
-        };
+        
     </script>";
         }
         
       }
     } else {
       echo "<script>
-      window.onload = ()=>{
+      
       Model('Login credential is wrong','red');
-      }
-      ;
+      
     </script>
     ";
       
