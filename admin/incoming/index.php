@@ -393,7 +393,7 @@ if (isset($_GET['user_id']) && isset($_GET['ap_id']) ) {
     $user_id = $_GET['user_id'];
     $amount = $_GET['amount'];
 
-    $sql = mysqli_query($connection,"UPDATE `deposits` SET `status`='2' WHERE `id` = '$del_id'");
+    $sql = mysqli_query($connection,"UPDATE `deposits` SET `status`='1' WHERE `id` = '$del_id'");
 
     if ($sql) {
 

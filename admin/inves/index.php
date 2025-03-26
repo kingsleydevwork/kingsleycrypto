@@ -286,7 +286,7 @@ function timeAgo($datetime)
 
                     <tr class="grd-primary-light">
 
-                      <td>you have no deposit</td>
+                      <td>you have no investments</td>
 
                     </tr>
 
@@ -362,7 +362,7 @@ if (isset($_GET['user_id']) && isset($_GET['del_id']) ) {
 
     $del_id = $_GET['del_id'];
 
-    $sql = mysqli_query($connection,"UPDATE `deposits` SET `status`='2' WHERE `id` = '$del_id'");
+    $sql = mysqli_query($connection,"UPDATE `investments` SET `status`='2' WHERE `id` = '$del_id'");
 
     if ($sql) {
 
@@ -391,49 +391,11 @@ if (isset($_GET['user_id']) && isset($_GET['ap_id']) ) {
     $user_id = $_GET['user_id'];
     $amount = $_GET['amount'];
 
-    $sql = mysqli_query($connection,"UPDATE `deposits` SET `status`='2' WHERE `id` = '$del_id'");
+    $sql = mysqli_query($connection,"UPDATE `investments` SET `status`='1' WHERE `id` = '$del_id'");
 
     if ($sql) {
 
-        // echo "<script> location.href='index.php' </script>";
-
-        $sql2 = mysqli_query($connection,"SELECT * FROM `users` WHERE `id`='$user_id'");
-
-        if (mysqli_num_rows($sql2)){
-
-            $fetch = mysqli_fetch_assoc($sql2);
-
-            $main_bal = $fetch['balance'];
-            $updated_bal =  $amount + $main_bal;
-
-            $sql3 = mysqli_query($connection,"UPDATE `users` SET `balance`='$updated_bal' WHERE `id` = '$user_id'");
-
-            if ($sql3 ) {
-
-                // email sending
-                echo "<script> location.href='index.php' </script>";
-
-
-            }else{
-
-                echo "<script> alert('APPROVED BUT BALANCE DID NOT REFLECT') </script>";
-
-            }
-
-
-
-
-
-
-
-
-
-        }else{
-
-            echo "<script> alert('APPROVED BUT BALANCE DID NOT REFLECT') </script>";
-
-
-        }
+        echo "<script> location.href='index.php' </script>";
 
 
 
