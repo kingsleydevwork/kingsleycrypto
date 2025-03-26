@@ -36,7 +36,7 @@ include('../../../server/config.php');
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="315" />
-    <meta property="og:url" content="<?php echo $domain ?>user/profile-setting">
+    <meta property="og:url" content="<?php echo $domain ?>users/profile-setting">
 
     <meta name="twitter:card" content="summary_large_image">
     <!-- bootstrap 4  -->
