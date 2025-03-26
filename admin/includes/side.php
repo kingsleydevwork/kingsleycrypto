@@ -47,7 +47,7 @@
         </li>
 
         <li>
-            <a href="<?php echo $domain.""  ?>">
+            <a href="<?php echo $domain."admin/add"  ?>">
                 <i class="fs-3 bi bi-link"></i>
                 <span class="menu-text">Wallet</span>
             </a>
