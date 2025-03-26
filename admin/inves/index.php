@@ -188,7 +188,7 @@ function timeAgo($datetime)
                 <i class="bi bi-house lh-1"></i>
                 <a href="index.html" class="text-decoration-none">Home</a>
               </li>
-              <li class="breadcrumb-item" aria-current="page">Deposit</li>
+              <li class="breadcrumb-item" aria-current="page">Investmets</li>
             </ol>
             <!-- Breadcrumb end -->
 
@@ -233,10 +233,10 @@ function timeAgo($datetime)
                     <th>USERNAME</th>
                     <th>EMAIL</th>
                     <th>AMOUNT</th>
-                    <th>DATE</th>
-                    <th>METHOD</th>
-                    <th>ADDRESS</th>
-                    <th>PAYMENT SLIP</th>
+                    <th>PLAN</th>
+                    <th>PROFIT</th>
+                    <th>DATE_INVESTED</th>
+                    <th>END_ON</th>
                     <th>*</th>
                     <th>*</th>
 
@@ -251,7 +251,7 @@ function timeAgo($datetime)
             t2.*, 
             t2.id AS ap_id
         FROM users t1 
-        INNER JOIN deposits t2 ON t1.id = t2.user_id  
+        INNER JOIN investments t2 ON t1.id = t2.user_id  
         WHERE t2.status = '0'");
                   $count = 0;
                   if (mysqli_num_rows($sql) > 0) {
@@ -265,12 +265,10 @@ function timeAgo($datetime)
                         <td><?php echo $data['name'] ?></td>
                         <td><?php echo $data['email'] ?></td>
                         <td><?php echo $data['amount'] ?></td>
-                        <td><?php echo $data['date_deposited'] ?></td>
-                        <td><?php echo $data['method'] ?></td>
-                        <td><?php echo $data['wallet_addr'] ?></td>
-                        <td ><a href="" style="color:blue">view slip
-                          
-                        </a></td>
+                        <td><?php echo $data['plan'] ?></td>
+                        <td><?php echo $data['profit'] ?></td>
+                        <td><?php echo $data['date_invested'] ?></td>
+                        <td><?php echo $data['ends_on'] ?></td>
                         <td>
                                 <a href="?user_id=<?php echo $data['user_id'] ?>&ap_id=<?php echo $data['ap_id']  ?>&amount=<?php echo $data['amount']  ?>"><span class="badge border border-success text-success">Approve</span></a>
                         </td>
@@ -288,7 +286,7 @@ function timeAgo($datetime)
 
                     <tr class="grd-primary-light">
 
-                      <td>you have no deposit</td>
+                      <td>you have no investments</td>
 
                     </tr>
 
@@ -364,7 +362,7 @@ if (isset($_GET['user_id']) && isset($_GET['del_id']) ) {
 
     $del_id = $_GET['del_id'];
 
-    $sql = mysqli_query($connection,"UPDATE `deposits` SET `status`='2' WHERE `id` = '$del_id'");
+    $sql = mysqli_query($connection,"UPDATE `investments` SET `status`='2' WHERE `id` = '$del_id'");
 
     if ($sql) {
 
@@ -393,49 +391,11 @@ if (isset($_GET['user_id']) && isset($_GET['ap_id']) ) {
     $user_id = $_GET['user_id'];
     $amount = $_GET['amount'];
 
-    $sql = mysqli_query($connection,"UPDATE `deposits` SET `status`='1' WHERE `id` = '$del_id'");
+    $sql = mysqli_query($connection,"UPDATE `investments` SET `status`='1' WHERE `id` = '$del_id'");
 
     if ($sql) {
 
-        // echo "<script> location.href='index.php' </script>";
-
-        $sql2 = mysqli_query($connection,"SELECT * FROM `users` WHERE `id`='$user_id'");
-
-        if (mysqli_num_rows($sql2)){
-
-            $fetch = mysqli_fetch_assoc($sql2);
-
-            $main_bal = $fetch['balance'];
-            $updated_bal =  $amount + $main_bal;
-
-            $sql3 = mysqli_query($connection,"UPDATE `users` SET `balance`='$updated_bal' WHERE `id` = '$user_id'");
-
-            if ($sql3 ) {
-
-                // email sending
-                echo "<script> location.href='index.php' </script>";
-
-
-            }else{
-
-                echo "<script> alert('APPROVED BUT BALANCE DID NOT REFLECT') </script>";
-
-            }
-
-
-
-
-
-
-
-
-
-        }else{
-
-            echo "<script> alert('APPROVED BUT BALANCE DID NOT REFLECT') </script>";
-
-
-        }
+        echo "<script> location.href='index.php' </script>";
 
 
 

@@ -32,7 +32,7 @@
 
         
         <li>
-            <a href="<?php echo $domain.""  ?>">
+            <a href="<?php echo $domain."admin/inves"  ?>">
                 <i class="fs-3 bi bi-link"></i>
                 <span class="menu-text">Investments</span>
             </a>
@@ -40,7 +40,7 @@
 
         
         <li>
-            <a href="<?php echo $domain.""  ?>">
+            <a href="<?php echo $domain."admin/kyc"  ?>">
                 <i class="fs-3 bi bi-link"></i>
                 <span class="menu-text">KYC</span>
             </a>
