@@ -188,7 +188,7 @@ function timeAgo($datetime)
                                 <i class="bi bi-house lh-1"></i>
                                 <a href="index.html" class="text-decoration-none">Home</a>
                             </li>
-                            <li class="breadcrumb-item" aria-current="page">Users</li>
+                            <li class="breadcrumb-item" aria-current="page">Wallet</li>
                         </ol>
                         <!-- Breadcrumb end -->
 
