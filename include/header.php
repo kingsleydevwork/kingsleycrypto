@@ -7,7 +7,7 @@
                         <div class="wt-topbar-left">
                             <ul class="list-unstyled e-p-bx pull-left">
                                
-                                <li><a href="mailto:info@capitalmulti.com">admin@capitalmulti.com</a></li>
+                                <li><a href="mailto:support@capitalvault.com">support@capitalvault.com</a></li>
                                 
                             </ul>
                         </div>
