@@ -15,23 +15,23 @@ include('../../server/config.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="ATC3iqVscqeIVw3M1iFFpqMAIKFf1KP3J3VsCgM4">
-    <title>Assetvest Shareholders - Investment Plan</title>
+    <title>capitalvault Shareholders - Investment Plan</title>
     <meta name="description" content="A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers. We help people achieve their goals by providing the right funding, wealth management, and insurance advice.">
-    <meta name="keywords" content="bitcoin,investment,trading,assetvest,asset,asssetvest-trading,Assetvest Shareholder">
+    <meta name="keywords" content="bitcoin,investment,trading,capitalvault,asset,asssetvest-trading,capitalvault Shareholder">
     <link rel="shortcut icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/favicon.png" type="image/x-icon">
 
 
     <link rel="apple-touch-icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Assetvest Shareholders - Investment Plan">
+    <meta name="apple-mobile-web-app-title" content="capitalvault Shareholders - Investment Plan">
 
-    <meta itemprop="name" content="Assetvest Shareholders - Investment Plan">
+    <meta itemprop="name" content="capitalvault Shareholders - Investment Plan">
     <meta itemprop="description" content="">
     <meta itemprop="image" content="<?php echo $domain  ?>users/assets/images/seo/636b9388b9a611667994504.png">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Assetvest Shareholders - A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers">
+    <meta property="og:title" content="capitalvault Shareholders - A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers">
     <meta property="og:description" content="A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers. We help people achieve their goals by providing the right funding, wealth management, and insurance advice.">
     <meta property="og:image" content="<?php echo $domain  ?>users/assets/images/seo/636b9388b9a611667994504.png" />
     <meta property="og:image:type" content="image/png" />
@@ -279,7 +279,7 @@ include('../../server/config.php');
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-12 text-center">
-                            <a href="https://www.assetvest-trading.com"><img src="<?php echo $domain  ?>users/assets/images/logoIcon/logo.png" alt="image"></a>
+                            <a href="https://www.capitalvault-trading.com"><img src="<?php echo $domain  ?>users/assets/images/logoIcon/logo.png" alt="image"></a>
                             <ul class="footer-short-menu d-flex flex-wrap justify-content-center mt-3">
                                 <li><a href="<?php echo $domain  ?>links/privacy-amp-policy/180">Privacy &amp; Policy</a>
                                 </li>
@@ -296,7 +296,7 @@ include('../../server/config.php');
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 text-md-left text-center">
-                            <p>© 2024 <a href="https://www.assetvest-trading.com" class="base--color">Assetvest Shareholders</a>. All rights reserved</p>
+                            <p>© 2024 <a href="https://www.capitalvault-trading.com" class="base--color">capitalvault Shareholders</a>. All rights reserved</p>
                         </div>
                         <div class="col-lg-6">
                             <ul class="social-link-list d-flex flex-wrap justify-content-md-end justify-content-center">
@@ -388,19 +388,7 @@ include('../../server/config.php');
     </script>
 
 
-    <script>
-        var Tawk_API = Tawk_API || {},
-            Tawk_LoadStart = new Date();
-        (function() {
-            var s1 = document.createElement("script"),
-                s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = "https://embed.tawk.to/61e18cf4b84f7301d32b08aa/1fpcgt7ka";
-            s1.charset = "UTF-8";
-            s1.setAttribute("crossorigin", "*");
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-    </script>
+
 
     <script>
         const plans = [{

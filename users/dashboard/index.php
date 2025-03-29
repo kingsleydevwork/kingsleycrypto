@@ -191,7 +191,7 @@ if(mysqli_num_rows($selectInvested)){
                                             </div>
                                         </div>
                                         <p class="text-center mt-3">
-                                            <center>assetvest-sharehold.com</center>
+                                            <center>capitalvault-sharehold.com</center>
                                             <a href="/plan" class="btn btn-success">Choose Plans <?= $lastname ?></a>
                                         </p>
                                     </div>
