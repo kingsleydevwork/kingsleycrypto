@@ -33,9 +33,9 @@ function generateCode($length = 6) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="jGw5RGJp3wgmIz7ynl4ZxImJQbkWZ1IxOufIjvsP">
-    <title>capitalmulti - Sign Up</title>
+    <title>capitalvault - Sign Up</title>
     <meta name="description"
-        content="capitalmulti.com - Complete HYIP Investment System . Most Advanced HYIP Investment System Script in codecanyon.
+        content="capitalvault.com - Complete HYIP Investment System . Most Advanced HYIP Investment System Script in codecanyon.
 
 hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip script, advanced hyip script, hyip software, high yield investment program, hyip manager, hyip manager script, cheap hyip script, reliable hyip, secure hyip script, php hyip script, new hyip script, hyip program">
     <meta name="keywords"
@@ -46,16 +46,16 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
     <link rel="apple-touch-icon" href="<?php echo $domain ?>users/assets/images/logoIcon/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="capitalmulti - Sign Up">
+    <meta name="apple-mobile-web-app-title" content="capitalvault - Sign Up">
 
-    <meta itemprop="name" content="capitalmulti - Sign Up">
+    <meta itemprop="name" content="capitalvault - Sign Up">
     <meta itemprop="description" content="">
     <meta itemprop="image" content="<?php echo $domain ?>users/assets/images/seo/66292e53481051713974867.png">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="capitalmulti.com - Complete HYIP Investment System">
+    <meta property="og:title" content="capitalvault.com - Complete HYIP Investment System">
     <meta property="og:description"
-        content="capitalmulti.com - Complete HYIP Investment System . Most Advanced HYIP Investment System Script in codecanyon.">
+        content="capitalvault.com - Complete HYIP Investment System . Most Advanced HYIP Investment System Script in codecanyon.">
     <meta property="og:image" content="<?php echo $domain ?>users/assets/images/seo/66292e53481051713974867.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="600" />
@@ -221,14 +221,14 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
 
         <!-- account section start -->
         <div class="account-section bg_img"
-            data-background="https://www.capitalmulti.com/users/<?php echo $domain ?>users/assets/images/frontend/register/5fce3a4f0b6131607350863.jpg">
+            data-background="https://www.capitalvault.com/users/<?php echo $domain ?>users/assets/images/frontend/register/5fce3a4f0b6131607350863.jpg">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-5 col-lg-7">
                         <div class="account-card">
                             <div class="account-card__header bg_img overlay--one"
-                                data-background="https://www.capitalmulti.com/users/<?php echo $domain ?>users/assets/images/frontend/register/5fce3a4f5d06e1607350863.jpg">
-                                <h2 class="section-title">Welcome To <span class="base--color">capitalmulti</span></h2>
+                                data-background="https://www.capitalvault.com/users/<?php echo $domain ?>users/assets/images/frontend/register/5fce3a4f5d06e1607350863.jpg">
+                                <h2 class="section-title">Welcome To <span class="base--color">capitalvault</span></h2>
                                 <p>account</p>
                             </div>
                             <div class="account-card__body">
@@ -546,7 +546,7 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
                   </div>
                   <div class="form-row mt-2">
                     <div class="col-sm-6">
-                      <p class="f-size-14">Have an account? <a href="<?php echo $domain ?>login" class="base--color">Login</a></p>
+                      <p class="f-size-14">Have an account? <a href="<?php echo $domain ?>users/login" class="base--color">Login</a></p>
                     </div>
                   </div>
                 </form>
@@ -580,7 +580,7 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
                     <div class="row">
                         <div class="col-md-6 text-md-left text-center">
                             <p>
-                            <p>© 2015 <a href="index.html" class="base--color">capitalmulti</a>. All rights reserved</p>
+                            <p>© 2015 <a href="index.html" class="base--color">capitalvault</a>. All rights reserved</p>
                             </p>
                         </div>
                         <div class="col-md-6">
@@ -701,7 +701,7 @@ window.screetsxi = {
 (function() {
     "use strict";
     $(document).on("change", ".langSel", function() {
-        window.location.href = "https://www.capitalmulti.com/users/change/" + $(this).val();
+        window.location.href = "https://www.capitalvault.com/users/change/" + $(this).val();
     });
 
     $('.policy').on('click', function() {
@@ -724,7 +724,7 @@ window.screetsxi = {
 
 </body>
 
-<!-- Mirrored from www.capitalmulti.com/users/register by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:51 GMT -->
+<!-- Mirrored from www.capitalvault.com/users/register by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:51 GMT -->
 
 </html>
 

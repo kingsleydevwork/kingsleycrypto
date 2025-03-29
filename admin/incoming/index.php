@@ -250,9 +250,9 @@ function timeAgo($datetime)
             t1.*, 
             t2.*, 
             t2.id AS ap_id
-        FROM users t1 
-        INNER JOIN deposits t2 ON t1.id = t2.user_id  
-        WHERE t2.status = '0'");
+        FROM client t1 
+        INNER JOIN deposit t2 ON t1.id = t2.user 
+        WHERE t2.status = 'pending'");
                   $count = 0;
                   if (mysqli_num_rows($sql) > 0) {
 

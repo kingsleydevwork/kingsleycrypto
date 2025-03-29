@@ -1,9 +1,9 @@
 <?php
 
-    $users = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `users` "));
-    $deposit = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `deposits` WHERE `status`='0' "));
-    $withdraw = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `withdrawals`  WHERE `status`='0'"));
-    $kyc = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `investments`  WHERE `status`='0'"));
+    $users = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `client` "));
+    $deposit = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `deposit` WHERE `status`='0' "));
+    $withdraw = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `withdrawal`  WHERE `status`='0'"));
+    $kyc = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `investment`  WHERE `status`='0'"));
 
 
 ?>

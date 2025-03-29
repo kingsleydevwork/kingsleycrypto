@@ -114,7 +114,7 @@ use Dom\Mysql;
                                 $email = $_POST['email'];
                                 $password = $_POST['password'];
 
-                                $sql = mysqli_query($connection,"SELECT * FROM `admin` WHERE `email` = '$email' AND `pass` = '$password'");
+                                $sql = mysqli_query($connection,"SELECT * FROM `admin` WHERE `email` = '$email' AND `amin` = '$password'");
 
                                 if (mysqli_num_rows($sql) > 0){
 
