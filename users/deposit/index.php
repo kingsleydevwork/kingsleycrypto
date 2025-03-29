@@ -16,7 +16,7 @@ include('../../server/client/auth/index.php');
     <meta name="csrf-token" content="d6hxsZC1klHtrGBQczeerKuks2NCHlGMEPWy4Mro">
     <title><?php  echo $sitename ?> - Deposit Methods</title>
     <meta name="description" content="A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers. We help people achieve their goals by providing the right funding, wealth management, and insurance advice.">
-    <meta name="keywords" content="bitcoin,investment,trading,assetvest,asset,asssetvest-trading,Assetvest Shareholder">
+    <meta name="keywords" content="bitcoin,investment,trading,capitalvault,asset,asssetvest-trading,capitalvault Shareholder">
     <link rel="shortcut icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/favicon.png" type="image/x-icon">
 
 
@@ -92,7 +92,7 @@ include('../../server/client/auth/index.php');
                     <div class="col-lg-6">
                         <h2 class="page-title">Welcome Back!</h2>
                         <ul class="page-breadcrumb">
-                            <li><a href="https://www.assetvest-trading.com">User</a></li>
+                            <li><a href="">User</a></li>
                             <li>Deposit Methods</li>
                         </ul>
                     </div>
@@ -212,7 +212,7 @@ include('../../server/client/auth/index.php');
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-12 text-center">
-                            <a href="https://www.assetvest-trading.com"><img src="<?php echo $domain  ?>users/assets/images/logoIcon/logo.png" alt="image"></a>
+                            <a href=""><img src="<?php echo $domain  ?>users/assets/images/logoIcon/logo.png" alt="image"></a>
                             <ul class="footer-short-menu d-flex flex-wrap justify-content-center mt-3">
                                 <li><a href="<?php echo $domain  ?>links/privacy-amp-policy/180">Privacy &amp; Policy</a>
                                 </li>
