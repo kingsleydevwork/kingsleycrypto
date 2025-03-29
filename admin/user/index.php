@@ -228,12 +228,9 @@ function timeAgo($datetime)
                     <th>#</th>
                     <th>USERNAME</th>
                     <th>EMAIL</th>
+                    <th>PHONE</th>
                     <th>COUNTRY</th>
                     <th>BALANCE</th>
-                    <th>WARNING</th>
-                    <th>RESTRICTION</th>
-                    <th>*</th>
-                    <th>*</th>
                     <th>*</th>
                     <th>*</th>
 
@@ -250,7 +247,7 @@ function timeAgo($datetime)
 
                   <?php
 
-                  $sql = mysqli_query($connection, "SELECT * FROM `users`");
+                  $sql = mysqli_query($connection, "SELECT * FROM `client`");
                   $count = 0;
                   if (mysqli_num_rows($sql) > 0) {
 
@@ -262,174 +259,45 @@ function timeAgo($datetime)
                         <td><?php echo $count ?></td>
                         <td><?php echo $data['name'] ?></td>
                         <td><?php echo $data['email'] ?></td>
+                        <td><?php echo $data['mobile'] ?></td>
                         <td><?php echo $data['country'] ?></td>
-                        <td><?php echo $data['wallet'] ?></td>
-                        <td><?php echo $data['account_warning'] ?></td>
-                        <td><?php echo $data['restriction'] ?></td>
+                        <td><?php echo $data['bal'] ?></td>
                         <td>
                           <a class="btn btn-info btn-sm" href="../edit_user/index.php?id=<?php echo $data['id']  ?>"><i class="bi bi-pencil"></i>
                           </a>
                         </td>
 
-                        <?php
-
-                        if ($data['account_warning'] == "yes") { ?>
-
-
-                          <td>
-                                <a href="?un_warn=<?php echo $data['id']  ?>"><span class="badge border border-success text-success">remove warning</span></a>
-                          </td>
-
-                        <?php } else { ?>
-
-                          <td>
-                            <a href="?warn=<?php echo $data['id']  ?>"><span class="badge border border-danger text-danger">warn account</span></a>
-                          </td>
-
-                        <?php  }
-
-
-                        ?>
-                        <?php
-
-                        if ($data['restriction'] == "yes") { ?>
-
-
-                          <td>
-                            <a href="?un_res=<?php echo $data['id']  ?>"><span class="badge border border-success text-success"> remove restriction </span></a>
-                          </td>
-
-                        <?php } else { ?>
-
-                          <td>
-                            <a href="?res=<?php echo $data['id']  ?>"><span class="badge border border-danger text-danger"> restrict account</span></a>
-                          </td>
-
-                        <?php  }
-
-
-                        ?>
 
                         <td>
                           <a href="?del=<?php echo $data['id']  ?>"><span class="badge border border-danger text-danger">delete</span></a>
                         </td>
 
-                        <!-- DELETE USER PHP -->
 
-                        <?php
+                            <?php 
 
-                        if (isset($_GET['del'])) {
+                                  if (isset($_GET['del'])) {
 
-                          $id = $_GET['del'];
+                                      $id = $_GET['del'];
+                                      
+                                      $sql = mysqli_query($connection,"DELETE FROM `client` WHERE `id`='$id'");
 
-                          $sql = mysqli_query($connection, "DELETE FROM `users` WHERE `id` = '$id'");
+                                      if ($sql){
 
-                          if ($sql) {
-
-                            echo "<script> location.href='index.php' </script>";
-                          } else {
-
-                            echo "<script> alert('UNABLE TO DELETE USER ') </script>";
-                          }
-                        }
-
-                        ?>
-
-                        <!--  restrict account -->
-
-                        <?php
+                                        echo "<script> location.href='index.php' </script>";
 
 
-                        if (isset($_GET['res'])) {
+                                      }else{
 
-                          $id = $_GET['res'];
-
-                          $sql = mysqli_query($connection, "UPDATE `users`  SET `restriction`='yes' WHERE `id` = '$id'");
+                                        echo "<script> alert('UNABLE TO DELETE USER') </script>";
 
 
-                          if ($sql) {
-
-                            echo "<script> location.href='index.php' </script>";
-                          } else {
-
-                            echo "<script> alert('UNABLE TO RESTRICT USER ') </script>";
-                          }
-                        }
+                                      }
 
 
-                        ?>
+                                  }
 
-                        <!-- remove restriction -->
+                            ?>
 
-                        <?php
-
-
-                        if (isset($_GET['un_res'])) {
-
-                          $id = $_GET['un_res'];
-
-                          $sql = mysqli_query($connection, "UPDATE `users`  SET `restriction`='no' WHERE `id` = '$id'");
-
-
-                          if ($sql) {
-
-                            echo "<script> location.href='index.php' </script>";
-                          } else {
-
-                            echo "<script> alert('UNABLE TO REMOVE  RESTRICT  ') </script>";
-                          }
-                        }
-
-
-                        ?>
-
-                        <!-- warn account -->
-
-                        <?php
-
-
-                        if (isset($_GET['warn'])) {
-
-                          $id = $_GET['warn'];
-
-                          $sql = mysqli_query($connection, "UPDATE `users`  SET `account_warning`='yes' WHERE `id` = '$id'");
-
-
-                          if ($sql) {
-
-                            echo "<script> location.href='index.php' </script>";
-                          } else {
-
-                            echo "<script> alert('UNABLE TO WARN USER ') </script>";
-                          }
-                        }
-
-
-                        ?>
-
-                        <!-- remove warning  -->
-
-                        <?php
-
-
-                            if (isset($_GET['un_warn'])) {
-
-                              $id = $_GET['un_warn'];
-
-                              $sql = mysqli_query($connection, "UPDATE `users`  SET `account_warning`='no' WHERE `id` = '$id'");
-
-
-                              if ($sql) {
-
-                                echo "<script> location.href='index.php' </script>";
-                              } else {
-
-                                echo "<script> alert('UNABLE TO REMOVE WARNING ') </script>";
-                              }
-                            }
-
-
-                        ?>
 
                       </tr>
 

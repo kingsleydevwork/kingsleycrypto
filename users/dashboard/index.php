@@ -167,7 +167,7 @@ if(mysqli_num_rows($selectInvested)){
                                 <div class="card">
                                     <h5 class="card-header">How it works</h5>
                                     <div class="card-body">
-                                        <h5 class="card-title">This is how to invest on Assetvest Shareholders</h5>
+                                        <h5 class="card-title">This is how to invest on CapitalVault Shareholders</h5>
                                         <div class="row">
                                             <div class="col-md-4 text-center mb-2">
                                                 <span class="fa fa-money-bill fa-3x text-white"></span>

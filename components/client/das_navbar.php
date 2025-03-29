@@ -2,7 +2,7 @@
             <div class="header__bottom">
                 <div class="container">
                     <nav class="navbar navbar-expand-xl p-0 align-items-center">
-                        <a class="site-logo site-title" href="https://www.assetvest-trading.com"><img src="<?php echo $domain  ?>assets/images/logoIcon/logo.png" alt="site-logo"></a>
+                        <a class="site-logo site-title" href=""><img src="<?php echo $domain  ?>users/assets/images/logoIcon/logo.png" alt="site-logo"></a>
                         <ul class="account-menu responsive-account-menu ml-3">
                             <li class="icon"><a href="<?php echo $domain  ?>users/dashboard"><i class="las la-users"></i></a></li>
                         </ul>
