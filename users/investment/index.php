@@ -15,7 +15,7 @@ include('../../server/config.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="ATC3iqVscqeIVw3M1iFFpqMAIKFf1KP3J3VsCgM4">
-    <title>Assetvest Shareholders - Investment Plan</title>
+    <title><?php  echo $sitename ?> - Investment Plan</title>
     <meta name="description" content="A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers. We help people achieve their goals by providing the right funding, wealth management, and insurance advice.">
     <meta name="keywords" content="bitcoin,investment,trading,assetvest,asset,asssetvest-trading,Assetvest Shareholder">
     <link rel="shortcut icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/favicon.png" type="image/x-icon">
@@ -24,14 +24,14 @@ include('../../server/config.php');
     <link rel="apple-touch-icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Assetvest Shareholders - Investment Plan">
+    <meta name="apple-mobile-web-app-title" content="<?php  echo $sitename ?> - Investment Plan">
 
-    <meta itemprop="name" content="Assetvest Shareholders - Investment Plan">
+    <meta itemprop="name" content="<?php  echo $sitename ?> - Investment Plan">
     <meta itemprop="description" content="">
     <meta itemprop="image" content="<?php echo $domain  ?>users/assets/images/seo/636b9388b9a611667994504.png">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Assetvest Shareholders - A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers">
+    <meta property="og:title" content="<?php  echo $sitename ?> - A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers">
     <meta property="og:description" content="A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers. We help people achieve their goals by providing the right funding, wealth management, and insurance advice.">
     <meta property="og:image" content="<?php echo $domain  ?>users/assets/images/seo/636b9388b9a611667994504.png" />
     <meta property="og:image:type" content="image/png" />
@@ -296,7 +296,7 @@ include('../../server/config.php');
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 text-md-left text-center">
-                            <p>© 2024 <a href="https://www.assetvest-trading.com" class="base--color">Assetvest Shareholders</a>. All rights reserved</p>
+                            <p>© 2024 <a href="https://www.assetvest-trading.com" class="base--color"><?php  echo $sitename ?></a>. All rights reserved</p>
                         </div>
                         <div class="col-lg-6">
                             <ul class="social-link-list d-flex flex-wrap justify-content-md-end justify-content-center">

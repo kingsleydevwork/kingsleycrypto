@@ -87,7 +87,7 @@ function smtpmailer($to, $from, $from_name, $subject, $body) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="csrf-token" content="UTgb7FkpErVJvOX0MjenZl45sN6X11AiQQGvvnxU">
-  <title>Assetvest ShareHolders - Deposit Confirm</title>
+  <title><?php  echo $sitename ?> - Deposit Confirm</title>
   <meta name="description" content="A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers. We help people achieve their goals by providing the right funding, wealth management, and insurance advice.">
   <meta name="keywords" content="bitcoin,investment,trading,assetvest,asset,asssetvest-trading,Assetvest Shareholder">
   <link rel="shortcut icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/favicon.png" type="image/x-icon">
