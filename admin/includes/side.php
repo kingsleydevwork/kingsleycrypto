@@ -38,18 +38,18 @@
             </a>
         </li>
 
-        
-        <li>
-            <a href="<?php echo $domain."admin/kyc"  ?>">
-                <i class="fs-3 bi bi-link"></i>
-                <span class="menu-text">KYC</span>
-            </a>
-        </li>
 
         <li>
             <a href="<?php echo $domain."admin/add"  ?>">
                 <i class="fs-3 bi bi-link"></i>
-                <span class="menu-text">Wallet</span>
+                <span class="menu-text">Payment Address</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="<?php echo $domain."admin/inves_plan"  ?>">
+                <i class="fs-3 bi bi-link"></i>
+                <span class="menu-text">Investment Plan</span>
             </a>
         </li>
 

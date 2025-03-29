@@ -188,7 +188,7 @@ function timeAgo($datetime)
                                 <i class="bi bi-house lh-1"></i>
                                 <a href="index.html" class="text-decoration-none">Home</a>
                             </li>
-                            <li class="breadcrumb-item" aria-current="page">Wallet</li>
+                            <li class="breadcrumb-item" aria-current="page">Investment Plans</li>
                         </ol>
                         <!-- Breadcrumb end -->
 
@@ -221,48 +221,7 @@ function timeAgo($datetime)
                 <!-- App Hero header ends -->
                 <!-- App body starts -->
                 <div class="app-body">
-                    <!-- Row start -->
 
-                    <!-- <div class="card-body" style="margin-bottom: 10px;">
-                        <form class="row g-3 needs-validation" method="POST">
-                            <div class="col-md-4">
-                                <label for="validationCustom01" class="form-label">Name</label>
-                                <input type="text" class="form-control" name="name" required>
-
-                            </div>
-                            <div class="col-md-4">
-                                <label for="validationCustom02" class="form-label">Address</label>
-                                <input type="text" class="form-control" name="address" required>
-
-                            </div>
-
-                            <div class="col-12">
-                                <button class="btn btn-primary" name="add" type="submit">
-                                    ADD
-                                </button>
-                            </div>
-                        </form>
-
-                        <?php
-                        if (isset($_POST['add'])) {
-
-                            $name = $_POST['name'];
-                            $address = $_POST['address'];
-
-                            $sql = mysqli_query($connection, "INSERT INTO `payment_method`( `network`, `wallet_address`) VALUES ('$name','$address')");
-
-                            if ($sql) {
-                                echo "<script> alert('ADDED') </script>";
-                                echo "<script> location.href='index.php' </script>";
-                            } else {
-
-
-                                echo "<script> alert('UNABLE TO ADD WALLET ADDRESS ') </script>";
-                            }
-                        }
-
-                        ?>
-                    </div> -->
 
 
                     <div class="card-body">
@@ -271,9 +230,11 @@ function timeAgo($datetime)
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Address</th>
-                                        <th scope="col">Actions</th>
+                                        <th scope="col">Level</th>
+                                        <th scope="col">Return</th>
+                                        <th scope="col">Min</th>
+                                        <th scope="col">Max</th>
+                                        <th scope="col">*</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -296,7 +257,7 @@ function timeAgo($datetime)
 
                                     <?php
 
-                                    $sql = mysqli_query($connection, "SELECT * FROM `deposit_wallet`");
+                                    $sql = mysqli_query($connection, "SELECT * FROM `investment_plan`");
                                     $count = 0;
 
                                     if (mysqli_num_rows($sql)) {
@@ -311,11 +272,18 @@ function timeAgo($datetime)
                                                     <?php  echo $count ?>
                                                 </td>
                                                 <td>
-                                                    <?php  echo $data['name'] ?>
+                                                    <?php  echo $data['level'] ?>
                                                 </td>
 
                                                 <td>
-                                                    <?php  echo $data['address'] ?>
+                                                    <?php  echo $data['return'] ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php  echo $data['min'] ?>
+                                                </td>
+                                                <td>
+                                                    <?php  echo $data['max'] ?>
                                                 </td>
 
                                                 <td>
