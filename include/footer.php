@@ -80,7 +80,7 @@
             <div class="container p-t30">
                 <div class="row">
                     <div class="wt-footer-bot-left">
-                        <span class="copyrights-text">©2015 capitalmulti All Rights Reserved.</span>
+                        <span class="copyrights-text">©2015 capitalvault All Rights Reserved.</span>
                     </div>
                     <div class="wt-footer-bot-right">
                         <ul class="copyrights-nav pull-right">

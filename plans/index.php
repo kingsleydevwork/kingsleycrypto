@@ -26,7 +26,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo $domain ?>assets/images/favicon.png" />
     
     <!-- PAGE TITLE HERE -->
-    <title>capitalmulti. | Investment Plans</title>
+    <title>capitalvault. | Investment Plans</title>
     
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -367,5 +367,5 @@
 
 <!-- Mirrored from futuremultimining.com/plans.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 20:57:05 GMT -->
 
-<!-- Mirrored from www.capitalmulti.com/plans.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:28 GMT -->
+<!-- Mirrored from www.capitalvault.com/plans.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:28 GMT -->
 </html>

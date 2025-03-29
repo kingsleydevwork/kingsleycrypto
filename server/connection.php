@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $sitename = "";
+    $sitename = "capitalvault";
     $domain = 'http://localhost/kingsleycrypto/';
     $database = "kingsleyCrypto";
     $user = "root";
