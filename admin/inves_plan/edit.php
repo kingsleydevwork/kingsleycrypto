@@ -223,16 +223,21 @@ function timeAgo($datetime)
                 <div class="app-body">
                     <!-- Row start -->
 
-                    <!-- <div class="card-body" style="margin-bottom: 10px;">
+                    <div class="card-body" style="margin-bottom: 10px;">
                         <form class="row g-3 needs-validation" method="POST">
                             <div class="col-md-4">
-                                <label for="validationCustom01" class="form-label">Name</label>
-                                <input type="text" class="form-control" name="name" required>
+                                <label for="validationCustom02" class="form-label">Return</label>
+                                <input type="text" class="form-control" name="return" required>
 
                             </div>
                             <div class="col-md-4">
-                                <label for="validationCustom02" class="form-label">Address</label>
-                                <input type="text" class="form-control" name="address" required>
+                                <label for="validationCustom02" class="form-label">MIN</label>
+                                <input type="text" class="form-control" name="min" required>
+
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">MAX</label>
+                                <input type="text" class="form-control" name="max" required>
 
                             </div>
 
@@ -246,122 +251,29 @@ function timeAgo($datetime)
                         <?php
                         if (isset($_POST['add'])) {
 
-                            $name = $_POST['name'];
-                            $address = $_POST['address'];
+                            $id = $_GET['id'];
+                            $return = $_POST['return'];
+                            $min = $_POST['min'];
+                            $max = $_POST['max'];
 
-                            $sql = mysqli_query($connection, "INSERT INTO `payment_method`( `network`, `wallet_address`) VALUES ('$name','$address')");
+                            $sql = mysqli_query($connection, "UPDATE `investment_plan` SET `return`='$return',`min`='$min',`max`='$max' WHERE 1");
 
                             if ($sql) {
-                                echo "<script> alert('ADDED') </script>";
+                                echo "<script> alert('UPDATED') </script>";
                                 echo "<script> location.href='index.php' </script>";
                             } else {
 
 
-                                echo "<script> alert('UNABLE TO ADD WALLET ADDRESS ') </script>";
+                                echo "<script> alert('UNABLE TO UPDATE INVESTMENT PLAN ') </script>";
+                                echo "<script> location.href='index.php' </script>";
                             }
                         }
 
                         ?>
-                    </div> -->
+                    </div> 
 
 
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table align-middle table-hover m-0">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Address</th>
-                                        <th scope="col">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
 
-                                    <!-- <tr class="grd-danger-light">
-                                        <th scope="row">
-                                            <img class="rounded-circle img-3x me-2" src="assets/images/user2.png" alt="Bootstrap Gallery">
-                                        </th>
-                                        <td>Sales</td>
-                                        <td>
-                                            913 Alpaca Way, Garden Grove, California, 92643
-                                        </td>
-                                        
-                                        
-                                        <td>
-                                            <a class="btn btn-danger btn-icon btn-sm mb-1" href="#"><i class="bi bi-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr> -->
-
-                                    <?php
-
-                                    $sql = mysqli_query($connection, "SELECT * FROM `deposit_wallet`");
-                                    $count = 0;
-
-                                    if (mysqli_num_rows($sql)) {
-
-
-                                        while ($data = mysqli_fetch_assoc($sql)) {
-                                            $count++ ?>
-
-                                            <tr class="grd-danger-light">
-
-                                                <td>
-                                                    <?php  echo $count ?>
-                                                </td>
-                                                <td>
-                                                    <?php  echo $data['name'] ?>
-                                                </td>
-
-                                                <td>
-                                                    <?php  echo $data['address'] ?>
-                                                </td>
-
-                                                <td>
-                                                    <a class="btn btn-info btn-sm" href="edit.php?id=<?php  echo $data['id'] ?>"><i class="bi bi-pencil"></i>
-                                                    </a>
-                                                </td>
-
-                                            </tr>
-
-
-                                        <?php   }
-                                    } else { ?>
-
-                                        <tr class="grd-danger-light">
-                                            <td>you have no wallet address</td>
-                                        </tr>
-
-
-                                    <?php  }
-
-                                        if (isset($_GET['id'])) {
-
-                                            $id =$_GET['id'];
-
-                                            $sql = mysqli_query($connection,"DELETE FROM `payment_method` WHERE `id`='$id'");
-
-                                            if ($sql) {
-
-                                                echo "<script> location.href='index.php' </script>";
-
-
-                                            }else{
-
-                                                echo "<script> alert('UNABLE TO DELETE') </script>";
-
-                                            }
-
-                                        }
-
-
-                                    ?>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
 
 
                 </div>

@@ -199,9 +199,9 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav main-menu ml-auto">
-                                <li> <a href="index.html">Home</a></li>
-                                <li><a href="plan.html">Plan</a></li>
-                                <li><a href="about.html">About</a></li>
+                                <li> <a href="../index.html">Home</a></li>
+                                <li><a href="../plan.html">Plan</a></li>
+                                <li><a href="../about.html">About</a></li>
 
                             </ul>
                             <div class="nav-right">
