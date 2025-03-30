@@ -12,7 +12,7 @@ include('../../server/client/auth/index.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="ATC3iqVscqeIVw3M1iFFpqMAIKFf1KP3J3VsCgM4">
-    <title><?php  echo $sitename ?> - Withdraw Money</title>
+    <title><?php echo $sitename ?> - Withdraw Money</title>
     <meta name="description" content="A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers. We help people achieve their goals by providing the right funding, wealth management, and insurance advice.">
     <meta name="keywords" content="bitcoin,investment,trading,assetvest,asset,asssetvest-trading,Assetvest Shareholder">
     <link rel="shortcut icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/favicon.png" type="image/x-icon">
@@ -21,14 +21,14 @@ include('../../server/client/auth/index.php');
     <link rel="apple-touch-icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="<?php  echo $sitename ?> - Withdraw Money">
+    <meta name="apple-mobile-web-app-title" content="<?php echo $sitename ?> - Withdraw Money">
 
-    <meta itemprop="name" content="<?php  echo $sitename ?> - Withdraw Money">
+    <meta itemprop="name" content="<?php echo $sitename ?> - Withdraw Money">
     <meta itemprop="description" content="">
     <meta itemprop="image" content="<?php echo $domain  ?>users/assets/images/seo/636b9388b9a611667994504.png">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<?php  echo $sitename ?> - A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers">
+    <meta property="og:title" content="<?php echo $sitename ?> - A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers">
     <meta property="og:description" content="A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers. We help people achieve their goals by providing the right funding, wealth management, and insurance advice.">
     <meta property="og:image" content="<?php echo $domain  ?>users/assets/images/seo/636b9388b9a611667994504.png" />
     <meta property="og:image:type" content="image/png" />
@@ -128,33 +128,39 @@ include('../../server/client/auth/index.php');
                         </button>
                     </div>
                     <?php
-                         function generateRandomString($length = 10)
-                         {
-                             return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
-                         }
-                        
-                        if(isset($_POST['withdraw_btn'])){
-                            $amount = $_POST['amount'];
-                            $paymentMethod = $_POST['paymentMethod'];
-                            $paymentId = $_POST['paymentId'];
-                            $paymentImage = $_POST['paymentImage'];
-                            $date = date('M-D-Y');
-                            $time = date('m:h A');
+                    function generateRandomString($length = 10)
+                    {
+                        return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
+                    }
 
-                            
-
-                            $withdrawal_id = generateRandomString();
+                    if (isset($_POST['withdraw_btn'])) {
+                        $amount = $_POST['amount'];
+                        $paymentMethod = $_POST['paymentMethod'];
+                        $paymentId = $_POST['paymentId'];
+                        $paymentImage = $_POST['paymentImage'];
+                        $date = date('M-D-Y');
+                        $time = date('m:h A');
 
 
+
+                        $withdrawal_id = generateRandomString();
+
+                        $total = $invested + $referral + $deposit + $interests;
+
+                        echo "<script>alert('$total')</script>";
+
+
+
+                        if ( $amount <= $total && $amount > 0) {
                             $sql_insert = mysqli_query($connection, "INSERT INTO `transations`(`transactionId`, `user`, `Amount`, `wallet`, `postbalance`, `date`,`time`,`type`) VALUES ('$withdrawal_id','$id','$amount','','$deposit','$date','$time','withdrawal')");
-                            
-                            
+
+
                             $statement = mysqli_query($connection, "INSERT INTO `withdrawal`(`user`, `amount`, `paymentmethod`, `date`, `charge`, `time`,`transactionId`) VALUES ('$id','$amount','$paymentMethod','$date','0','$time','$withdrawal_id')");
 
 
 
 
-                            if($statement){
+                            if ($statement) {
                                 echo "<script>
                                 window.onload = ()=>{
                                     Model('Withdrawal sucessful','green');
@@ -163,10 +169,17 @@ include('../../server/client/auth/index.php');
                                 },1000)
                                 };
                             </script>";
+                            } else {
+                                echo "<script>
+                                    window.onload = ()=>{
+                                        Model('Withdrawal Failed','red');
+                                    };
+                                </script>";
+                            }
                         }else{
                             echo "<script>
                                     window.onload = ()=>{
-                                        Model('Withdrawal Failed','red');
+                                        Model('Insufficient Balance','red');
                                     };
                                 </script>";
                         }
@@ -241,7 +254,7 @@ include('../../server/client/auth/index.php');
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 text-md-left text-center">
-                            <p>© 2024 <a href="https://www.assetvest-trading.com" class="base--color"><?php  echo $sitename ?></a>. All rights reserved</p>
+                            <p>© 2024 <a href="https://www.assetvest-trading.com" class="base--color"><?php echo $sitename ?></a>. All rights reserved</p>
                         </div>
                         <div class="col-lg-6">
                             <ul class="social-link-list d-flex flex-wrap justify-content-md-end justify-content-center">
@@ -346,24 +359,7 @@ include('../../server/client/auth/index.php');
             s0.parentNode.insertBefore(s1, s0);
         })();
     </script>
-    <script>
-        (function($) {
-            "use strict";
-            $(document).ready(function() {
-                $('.deposit').on('click', function() {
-                    var id = $(this).data('id');
-                    var paymentMethod = $(this).data('payment');
-                    var limit = $(this).data('limit');
-                    var image = $(this).data('img');
 
-                    $('.paymentMethod').val(paymentMethod)
-                    $('.paymentId').val(id)
-                    $('.paymentImage').val(image)
-
-                });
-            });
-        })(jQuery);
-    </script>
 
     <script>
         (function() {
@@ -374,27 +370,27 @@ include('../../server/client/auth/index.php');
         })();
 
 
-       // jQuery to fetch payment methods
-$(document).ready(function() {
-    // Function to fetch payment methods via AJAX
-    function fetchPaymentMethods() {
-        $.ajax({
-            url: '../../server/client/api/paymentMethod.php',  // URL of the PHP script
-            type: 'GET',  // HTTP request type
-            success: function(response) {
-                console.log(response)
-                // Call function to create HTML cards with the fetched data
-                createPaymentMethodCards(JSON.parse(response));
-            },
-            error: function(xhr, status, error) {
-                console.error("Error fetching payment methods:", error);
+        // jQuery to fetch payment methods
+        $(document).ready(function() {
+            // Function to fetch payment methods via AJAX
+            function fetchPaymentMethods() {
+                $.ajax({
+                    url: '../../server/client/api/paymentMethod.php', // URL of the PHP script
+                    type: 'GET', // HTTP request type
+                    success: function(response) {
+                        console.log(response)
+                        // Call function to create HTML cards with the fetched data
+                        createPaymentMethodCards(JSON.parse(response));
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching payment methods:", error);
+                    }
+                });
             }
-        });
-    }
 
-    // Call the fetchPaymentMethods function to get the data
-    fetchPaymentMethods();
-});
+            // Call the fetchPaymentMethods function to get the data
+            fetchPaymentMethods();
+        });
 
         // Function to create HTML for each payment method
         function createPaymentMethodCards(paymentMethods) {
@@ -402,7 +398,7 @@ $(document).ready(function() {
             const container = document.querySelector('.row-payment');
 
             paymentMethods.forEach(method => {
-                $imageLink ="<?php echo $domain ?>users/assets/images/payment/" + method.image
+                $imageLink = "<?php echo $domain ?>users/assets/images/payment/" + method.image
                 const cardHtml = `
             <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                 <div class="card">
@@ -414,7 +410,7 @@ $(document).ready(function() {
                     <div class="col-md-7 col-sm-12">
                         <ul class="list-group text-center">
                         <li class="list-group-item">${method.payment_method}</li>
-                        <li class="list-group-item">Limit : ${method.limit_range}</li>
+                     
                         <li class="list-group-item">Charge - ${method.charge}</li>
                         <li class="list-group-item">
                             <button type="button" data-img="${method.image}" data-limit="${method.limit_range}}" data-id="${method.id}" data-payment="${method.payment_method}" class="btn deposit cmn-btn w-100" data-toggle="modal" data-target="#exampleModal">
@@ -431,10 +427,19 @@ $(document).ready(function() {
                 container.insertAdjacentHTML('beforeend', cardHtml);
 
                 console.log(container);
+                $('.deposit').on('click', function() {
+                    var id = $(this).data('id');
+                    var paymentMethod = $(this).data('payment');
+                    var limit = $(this).data('limit');
+                    var image = $(this).data('img');
+
+                    $('.paymentMethod').val(paymentMethod)
+                    $('.paymentId').val(id)
+                    $('.paymentImage').val(image)
+
+                });
             });
         }
-
-        createPaymentMethodCards(paymentMethods)
     </script>
 
 

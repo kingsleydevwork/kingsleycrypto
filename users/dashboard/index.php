@@ -158,7 +158,7 @@ if(mysqli_num_rows($selectInvested)){
 
         <div class="pt-90 pb-40">
 
-            <div class="container mb-3">
+            <!-- <div class="container mb-3">
                 <div class="row justify-content-center">
                     <div class="col-lg-12 pl-lg-5 mt-lg-0 my-5">
                         <div class="row mb-none-30">
@@ -200,7 +200,7 @@ if(mysqli_num_rows($selectInvested)){
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
             <div class="container my-3">
@@ -230,7 +230,7 @@ if(mysqli_num_rows($selectInvested)){
                     </div>
                 </div>
             </div>
-
+<!-- 
             <div class="container mb-4">
                 <div class="row justify-content-center">
                     <div class="col-lg-12 pl-lg-5 mt-lg-0 mt-5">
@@ -270,7 +270,7 @@ if(mysqli_num_rows($selectInvested)){
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
             <div class="pt-40 pb-50">
@@ -284,10 +284,9 @@ if(mysqli_num_rows($selectInvested)){
                                     <div class="d-widget d-flex flex-wrap">
                                         <div class="col-8">
                                             <span class="caption">Deposit Wallet</span>
-                                            <h4 class="currency-amount">$<?php echo number_format($deposit) ?></h4><br>
-                                            <hr>
-                                            <h6>Total Deposits: $<?php echo ($totalDeposit == '')? '0.00': number_format($totalDeposit,2) ?></h6>
-                                            <br><a href="/user/deposit" class="btn btn-success">Deposit</a>
+                                            <h4 class="currency-amount">$<?php echo number_format($deposit) ?></h4>
+                                            
+                                            
                                         </div>
                                         <div class="col-4">
                                             <div class="icon ml-auto">
@@ -302,10 +301,7 @@ if(mysqli_num_rows($selectInvested)){
                                         <div class="col-8">
                                             <span class="caption">Interest Wallet </span>
                                             <h4 class="currency-amount">$<?php echo $interests ?></h4>
-                                            <br>
-                                            <hr>
-                                            <h6>Total Interest: $<?php echo ($totalInterests == '')? '0.00': number_format($totalInterests,2) ?></h6>
-                                            <br><a href="/user/withdraw" class="btn btn-success">Withdraw</a>
+                                            
                                         </div>
                                         <div class="col-4">
                                             <div class="icon ml-auto">
@@ -320,8 +316,7 @@ if(mysqli_num_rows($selectInvested)){
                                         <div class="col-8">
                                             <span class="caption">Total Invested</span>
                                             <h6>$<?php echo ($totalInvested == '')? '0.00': number_format($totalInvested,2) ?></h6>
-                                            <h5>Promo Offer: $0 <br><small style="color:green">Promo Percentage:__</small></h5><br>
-                                            <a href="/promo-offer" class="btn btn-success">Claim Offer</a>
+                                           
                                         </div>
                                         <div class="col-4">
                                             <div class="icon ml-auto">

@@ -165,6 +165,7 @@ include('../../server/config.php');
                                         echo "<script>
                                             window.onload = () => {
                                                 Model('Investment successfully placed', 'green');
+                                                window.onload('./investement.php')
                                             };
                                         </script>";
                                     } else {
@@ -391,59 +392,55 @@ include('../../server/config.php');
 
 
     <script>
-        const plans = [{
-                title: "LEVEL 1",
-                return: "2%",
-                frequency: "Every Day",
-                min: "34999",
-                max: "49999",
-                background: "<?php echo $domain ?>assets/templates/bit_gold//images/bg/bg-4.png",
-            },
-            {
-                title: "LEVEL 2",
-                return: "3.5%",
-                frequency: "Every Day",
-                min: "49999",
-                max: "69000",
-                background: "<?php echo $domain ?>assets/templates/bit_gold//images/bg/bg-4.png",
-            },
-            {
-                title: "LEVEL 3",
-                return: "5%",
-                frequency: "Every Day",
-                min: "69000",
-                max: "99999",
-                background: "<?php echo $domain ?>assets/templates/bit_gold//images/bg/bg-4.png",
-            },
-            {
-                title: "Premium Plan",
-                return: "15%",
-                frequency: "Every Day",
-                min: "99999",
-                max: "Infinit",
-                background: "<?php echo $domain ?>assets/templates/bit_gold//images/bg/bg-4.png",
-            }
-        ];
+        
+    $(document).ready(function() {
+        // Function to fetch investment plans from the server
+        function fetchInvestmentPlans() {
+            $.ajax({
+                url: '../../server/client/api/plan.php',  // URL of the PHP script
+                type: 'GET',  // HTTP request type
+                success: function(response) {
+                    // Call function to create HTML cards with the fetched data
+                    createPlanCards(JSON.parse(response));
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching investment plans:", error);
+                }
+            });
+        }
 
+        // Call the fetchInvestmentPlans function to get the data
+        fetchInvestmentPlans();
+    });
 
+    // Function to create HTML for each investment plan
+    function createPlanCards(plans) {
         const planContainer = document.getElementById('planContainer');
 
+        // Clear any existing content in the container
+        planContainer.innerHTML = '';
+
+        // Iterate over each plan and create the HTML for each
         plans.forEach(plan => {
+             $imageLink ="<?php echo $domain ?>assets/templates/bit_gold/images/bg" + plan.background
             const planCard = `
             <div class="col-lg-4 mb-30">
                 <div class="package-card text-center bg_img" data-background="${plan.background}">
                     <h4 class="package-card__title base--color mb-2">${plan.title}</h4>
                     <ul class="package-card__features mt-4">
-                        <li>Return ${plan.return}</li>
+                        <li>Return ${plan.return_rate}</li>
                         <li>${plan.frequency}</li>
                     </ul>
-                    <div class="package-card__range mt-5 base--color">${plan.min}-${plan.max}</div>
-                    <a href="javascript:void(0)" data-toggle="modal" data-target="#depoModal" data-return="${plan.return}" data-min="${plan.min}" data-max="${plan.max}"  data-title="${plan.title}" data-range="${plan.range}" class="cmn-btn btn-md mt-4 investButton">Invest Now</a>
+                    <div class="package-card__range mt-5 base--color">${plan.min_amount}-${plan.max_amount ? plan.max_amount : 'Infinit'}</div>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#depoModal" data-return="${plan.return_rate}" data-min="${plan.min_amount}" data-max="${plan.max_amount}" data-title="${plan.title}" class="cmn-btn btn-md mt-4 investButton">Invest Now</a>
                 </div>
             </div>
         `;
             planContainer.insertAdjacentHTML('beforeend', planCard);
         });
+    }
+
+
     </script>
 
 

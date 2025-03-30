@@ -1,8 +1,8 @@
 <?php
 
-    include '../../server/connection.php';
-    include '../../server/config.php';
-    include '../../server/client/auth/index.php';
+include '../../server/connection.php';
+include '../../server/config.php';
+include '../../server/client/auth/index.php';
 
 ?>
 <!DOCTYPE html>
@@ -78,7 +78,7 @@
     </div>
     <div class="page-wrapper">
         <!-- header-section start  -->
-        <?php include '../../components/client/das_navbar.php'?>
+        <?php include '../../components/client/das_navbar.php' ?>
         <!-- header-section end  -->
 
         <!-- inner hero start -->
@@ -131,42 +131,42 @@
                         </a>
                     </div>
                     <?php
-                        function generateRandomString($length = 10)
-                        {
-                            return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
-                        }
+                    function generateRandomString($length = 10)
+                    {
+                        return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
+                    }
 
-                        if (isset($_POST['next'])) {
-                            $amount        = $_POST['amount'];
-                            $paymentMethod = $_POST['paymentMethod'];
-                            $paymentId     = $_POST['paymentId'];
-                            $paymentImage  = $_POST['paymentImage'];
+                    if (isset($_POST['next'])) {
+                        $amount        = $_POST['amount'];
+                        $paymentMethod = $_POST['paymentMethod'];
+                        $paymentId     = $_POST['paymentId'];
+                        $paymentImage  = $_POST['paymentImage'];
 
-                            $deposit_id = generateRandomString(10);
+                        $deposit_id = generateRandomString(10);
 
-                            $formattedDate = date("Y-m-d");
-                            $time          = date("H:m:s");
+                        $formattedDate = date("Y-m-d");
+                        $time          = date("H:m:s");
 
-                            $sql_insert = mysqli_query($connection, "INSERT INTO `transations`(`transactionId`, `user`, `Amount`, `wallet`, `postbalance`, `date`,`time`,`type`) VALUES ('$deposit_id','$id','$amount','Deposit Wallet','$deposit','$formattedDate','$time','deposit')");
+                        $sql_insert = mysqli_query($connection, "INSERT INTO `transations`(`transactionId`, `user`, `Amount`, `wallet`, `postbalance`, `date`,`time`,`type`) VALUES ('$deposit_id','$id','$amount','Deposit Wallet','$deposit','$formattedDate','$time','deposit')");
 
-                            $query = mysqli_query($connection, "INSERT INTO `deposit`(`id`, `transactionId`, `user`, `payment_id`, `payment_name`, `payment_imge`, `amount`, `status`,`date`,`time`) VALUES ('','$deposit_id','$id','$paymentId','$paymentMethod','$paymentImage','$amount','continue','$formattedDate','$time')");
-                            mysqli_error($connection);
-                            if ($query) {
-                                echo "<script>
+                        $query = mysqli_query($connection, "INSERT INTO `deposit`(`id`, `transactionId`, `user`, `payment_id`, `payment_name`, `payment_imge`, `amount`, `status`,`date`,`time`) VALUES ('','$deposit_id','$id','$paymentId','$paymentMethod','$paymentImage','$amount','continue','$formattedDate','$time')");
+                        mysqli_error($connection);
+                        if ($query) {
+                            echo "<script>
                             window.onload = ()=>{
                                 setTimeout(()=>{
                                 window.open('./payment-proof/?payment=$deposit_id','_self')
                                 },1000)
                             };
                         </script>";
-                            } else {
-                                echo "<script>
+                        } else {
+                            echo "<script>
                                     window.onload = ()=>{
                                         Model('Deposit Failed','red');
                                     };
                                 </script>";
-                            }
                         }
+                    }
 
                     ?>
                     <form method="post" class="register">
@@ -296,41 +296,7 @@
 
 
 
-    <script>
-        $(document).ready(function() {
-            "use strict";
-            $('.deposit').on('click', function() {
-                var id = $(this).data('id');
-                var paymentMethod = $(this).data('payment');
-                var limit = $(this).data('limit');
-                var image = $(this).data('img');
 
-
-
-                $('.paymentMethod').val(paymentMethod)
-                $('.paymentId').val(id)
-                $('.paymentImage').val(image)
-                $('.limit').val(limit)
-                $('.modal-title').html(`Payment By ${paymentMethod}`)
-                // var result = $(this).data('resource');
-                // var minAmount = $(this).data('min_amount');
-                // var maxAmount = $(this).data('max_amount');
-                // var baseSymbol = "USD";
-                // var fixCharge = $(this).data('fix_charge');
-                // var percentCharge = $(this).data('percent_charge');
-
-                // var depositLimit = `Deposit Limit: ${minAmount} - ${maxAmount}  ${baseSymbol}`;
-                // $('.depositLimit').text(depositLimit);
-                // var depositCharge = `Charge: ${fixCharge} ${baseSymbol}  ${(0 < percentCharge) ? ' + ' +percentCharge + ' % ' : ''}`;
-                // $('.depositCharge').text(depositCharge);
-                // $('.method-name').text(`Payment By  ${result.name}`);
-                // $('.currency-addon').text(baseSymbol);
-
-                // $('.edit-currency').val(result.currency);
-                // $('.edit-method-code').val(result.method_code);
-            });
-        });
-    </script>
 
     <script>
         (function() {
@@ -343,45 +309,45 @@
 
 
         // jQuery to fetch payment methods
-$(document).ready(function() {
-    // Function to fetch payment methods via AJAX
-    function fetchPaymentMethods() {
-        $.ajax({
-            url: '../../server/client/api/paymentMethod.php',  // URL of the PHP script
-            type: 'GET',  // HTTP request type
-            success: function(response) {
-                console.log(response)
-                // Call function to create HTML cards with the fetched data
-                createPaymentMethodCards(JSON.parse(response));
-            },
-            error: function(xhr, status, error) {
-                console.error("Error fetching payment methods:", error);
+        $(document).ready(function() {
+            // Function to fetch payment methods via AJAX
+            function fetchPaymentMethods() {
+                $.ajax({
+                    url: '../../server/client/api/paymentMethod.php', // URL of the PHP script
+                    type: 'GET', // HTTP request type
+                    success: function(response) {
+                        console.log(response)
+                        // Call function to create HTML cards with the fetched data
+                        createPaymentMethodCards(JSON.parse(response));
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching payment methods:", error);
+                    }
+                });
             }
+
+            // Call the fetchPaymentMethods function to get the data
+            fetchPaymentMethods();
         });
-    }
 
-    // Call the fetchPaymentMethods function to get the data
-    fetchPaymentMethods();
-});
+        // Function to create HTML for each payment method
+        function createPaymentMethodCards(paymentMethods) {
+            const container = $('.row-payment'); // Select the container element
 
-// Function to create HTML for each payment method
-function createPaymentMethodCards(paymentMethods) {
-    const container = $('.row-payment'); // Select the container element
+            // Clear any existing content in the container
+            container.empty();
 
-    // Clear any existing content in the container
-    container.empty();
+            // Iterate over each payment method and create the HTML for each
 
-    // Iterate over each payment method and create the HTML for each
-
-    paymentMethods.forEach(method => {
-        $imageLink ="<?php echo $domain ?>users/assets/images/payment/" + method.image
-        const cardHtml = `
+            paymentMethods.forEach(method => {
+                let imageLink = "<?php echo $domain ?>users/assets/images/payment/" + method.image
+                const cardHtml = `
         <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
             <div class="card">
                 <div class="card-body b-primary">
                     <div class="row justify-content-center">
                         <div class="col-md-5 col-sm-12">
-                            <img src="${$imageLink}" class="card-img-top w-100" alt="${method.payment_method}">
+                            <img src="${imageLink}" class="card-img-top w-100" alt="${method.payment_method}">
                         </div>
                         <div class="col-md-7 col-sm-12">
                             <ul class="list-group text-center">
@@ -389,7 +355,7 @@ function createPaymentMethodCards(paymentMethods) {
                                 <li class="list-group-item">Limit : ${method.limit_range}</li>
                                 <li class="list-group-item">Charge - ${method.charge}</li>
                                 <li class="list-group-item">
-                                    <button type="button" data-img="${method.image}" data-limit="${method.limit_range}" data-id="${method.id}" data-payment="${method.payment_method}" class="btn deposit cmn-btn w-100" data-toggle="modal" data-target="#exampleModal">
+                                    <button type="button" data-img="${imageLink}" data-limit="${method.limit_range}" data-id="${method.id}" data-payment="${method.payment_method}" class="btn deposit cmn-btn w-100" data-toggle="modal" data-target="#exampleModal">
                                         Deposit
                                     </button>
                                 </li>
@@ -400,34 +366,29 @@ function createPaymentMethodCards(paymentMethods) {
             </div>
         </div>
         `;
-        // Append the new card HTML to the container
-        container.append(cardHtml);
-    });
-}
+                // Append the new card HTML to the container
+                container.append(cardHtml);
+
+                $('.deposit').on('click', function() {
+
+                    var id = $(this).data('id');
+                    var paymentMethod = $(this).data('payment');
+                    var limit = $(this).data('limit');
+                    var image = $(this).data('img');
 
 
-        // Function to show modal form on button click
-        // function setupModalForm() {
-        //     const buttons = document.querySelectorAll('.btn.deposit');
 
-        //     buttons.forEach(button => {
-        //         button.addEventListener('click', event => {
-        //             const id = button.getAttribute('data-id');
-        //             const paymentMethod = button.getAttribute('data-payment-method');
+                    $('.paymentMethod').val(paymentMethod)
+                    $('.paymentId').val(id)
+                    $('.paymentImage').val(image)
+                    $('.limit').val(limit)
+                    $('.modal-title').html(`Payment By ${paymentMethod}`)
 
-        //             const modalTitle = document.querySelector('.modal-title');
-        //             modalTitle.textContent = paymentMethod;
+                    console.log(paymentImage, paymentMethod)
 
-        //             // Additional logic to populate the modal form can be added here
-        //         });
-        //     });
-        // }
-
-        // Call the functions to generate cards and setup modal form
-        document.addEventListener('DOMContentLoaded', () => {
-            createPaymentMethodCards(paymentMethods);
-            // setupModalForm();
-        });
+                });
+            });
+        }
     </script>
 
 
