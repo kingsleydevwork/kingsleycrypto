@@ -136,7 +136,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($connection,"SELECT * FROM `interest`");
+                                    $query = mysqli_query($connection,"SELECT * FROM `interest` WHERE `id`='$id'");
                                     while($row = mysqli_fetch_assoc($query)){?>
                                         <tr>
                                         <td data-label="Date">

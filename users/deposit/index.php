@@ -56,6 +56,25 @@ include '../../server/client/auth/index.php';
 </head>
 
 <body>
+    <style>
+        .image-holder{    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+
+        }
+        .image-holder img{
+            height:200px !important;
+            width:200px !important;
+        }
+        @media(max-width:300px){
+            .image-holder img{
+                height:100% !important;
+                width:100% !important;
+            }
+        }
+    </style>
 
 
     <!-- scroll-to-top start -->
@@ -102,7 +121,7 @@ include '../../server/client/auth/index.php';
         <section class="pt-60 pb-150">
 
             <div class="container">
-                <div class="row row-payment">
+                <div class="row ">
 
                     <div class="col-md-12">
                         <div class="right float-right mb-5">
@@ -110,6 +129,11 @@ include '../../server/client/auth/index.php';
                                 Deposit History
                             </a>
                         </div>
+                    </div>
+
+                    <div class="row row-payment">
+
+
                     </div>
 
 
@@ -332,10 +356,10 @@ include '../../server/client/auth/index.php';
 
         // Function to create HTML for each payment method
         function createPaymentMethodCards(paymentMethods) {
-            const container = $('.row-payment'); // Select the container element
+            const container = document.querySelector('.row-payment');; // Select the container element
 
             // Clear any existing content in the container
-            container.empty();
+            container.innerHTML = '';
 
             // Iterate over each payment method and create the HTML for each
 
@@ -346,7 +370,7 @@ include '../../server/client/auth/index.php';
             <div class="card">
                 <div class="card-body b-primary">
                     <div class="row justify-content-center">
-                        <div class="col-md-5 col-sm-12">
+                        <div class="col-md-5 col-sm-12 image-holder" c>
                             <img src="${imageLink}" class="card-img-top w-100" alt="${method.payment_method}">
                         </div>
                         <div class="col-md-7 col-sm-12">
@@ -367,7 +391,7 @@ include '../../server/client/auth/index.php';
         </div>
         `;
                 // Append the new card HTML to the container
-                container.append(cardHtml);
+                container.innerHTML +=  cardHtml;
 
                 $('.deposit').on('click', function() {
 
