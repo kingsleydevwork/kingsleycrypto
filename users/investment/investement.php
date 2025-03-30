@@ -93,7 +93,7 @@ include('../../server/client/auth/index.php');
                     <div class="col-lg-6">
                         <h2 class="page-title">Welcome Back!</h2>
                         <ul class="page-breadcrumb">
-                            <li><a href="<?php echo $domain  ?>user/investment/">User</a></li>
+                            <li><a href="<?php echo $domain  ?>users/investment/">User</a></li>
                             <li>Investment Plan</li>
                         </ul>
                     </div>
@@ -108,7 +108,7 @@ include('../../server/client/auth/index.php');
 
                     <div class="col-md-12">
                         <div class="right float-right mb-5">
-                            <a href="<?php echo $domain  ?>user/investment/" class="btn cmn-btn">
+                            <a href="<?php echo $domain  ?>users/investment/" class="btn cmn-btn">
                                 Investment Plan
                             </a>
                         </div>

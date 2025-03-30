@@ -105,7 +105,7 @@ include('../../server/client/auth/index.php');
 
                     <div class="col-md-12">
                         <div class="right float-right mb-5">
-                            <a href="<?php echo $domain  ?>users/user/withdraw/" class="btn cmn-btn">
+                            <a href="<?php echo $domain  ?>users/withdraw/" class="btn cmn-btn">
                             Withdrawal Now                            
                         </a>
                         </div>

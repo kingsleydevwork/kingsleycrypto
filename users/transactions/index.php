@@ -90,7 +90,7 @@
                     <div class="col-lg-6">
                         <h2 class="page-title">Welcome Back!</h2>
                         <ul class="page-breadcrumb">
-                            <li><a href="https://www.assetvest-trading.com">User</a></li>
+                            <li><a href="#">User</a></li>
                             <li>Deposit Wallet Transactions</li>
                         </ul>
                     </div>
@@ -113,7 +113,7 @@
                         </a>
                             <a href="
 
-                                                <?php echo $domain  ?>users/user/transactions/interest-wallet
+                                                <?php echo $domain  ?>users/transactions/interest-wallet
                         
                         " class="btn cmn-btn mb-md-0
                                                 ">

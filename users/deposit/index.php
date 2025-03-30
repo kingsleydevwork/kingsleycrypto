@@ -1,10 +1,8 @@
 <?php
 
-include('../../server/connection.php');
-include('../../server/config.php');
-include('../../server/client/auth/index.php');
-
-
+    include '../../server/connection.php';
+    include '../../server/config.php';
+    include '../../server/client/auth/index.php';
 
 ?>
 <!DOCTYPE html>
@@ -14,45 +12,45 @@ include('../../server/client/auth/index.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="d6hxsZC1klHtrGBQczeerKuks2NCHlGMEPWy4Mro">
-    <title><?php  echo $sitename ?> - Deposit Methods</title>
+    <title><?php echo $sitename ?> - Deposit Methods</title>
     <meta name="description" content="A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers. We help people achieve their goals by providing the right funding, wealth management, and insurance advice.">
     <meta name="keywords" content="bitcoin,investment,trading,capitalvault,asset,asssetvest-trading,capitalvault Shareholder">
-    <link rel="shortcut icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $domain ?>users/assets/images/logoIcon/favicon.png" type="image/x-icon">
 
 
-    <link rel="apple-touch-icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/logo.png">
+    <link rel="apple-touch-icon" href="<?php echo $domain ?>users/assets/images/logoIcon/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="<?php  echo $sitename ?> - Deposit Methods">
+    <meta name="apple-mobile-web-app-title" content="<?php echo $sitename ?> - Deposit Methods">
 
-    <meta itemprop="name" content="<?php  echo $sitename ?> - Deposit Methods">
+    <meta itemprop="name" content="<?php echo $sitename ?> - Deposit Methods">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="<?php echo $domain  ?>users/assets/images/seo/636b9388b9a611667994504.png">
+    <meta itemprop="image" content="<?php echo $domain ?>users/assets/images/seo/636b9388b9a611667994504.png">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<?php  echo $sitename ?> - A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers">
+    <meta property="og:title" content="<?php echo $sitename ?> - A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers">
     <meta property="og:description" content="A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers. We help people achieve their goals by providing the right funding, wealth management, and insurance advice.">
-    <meta property="og:image" content="<?php echo $domain  ?>users/assets/images/seo/636b9388b9a611667994504.png" />
+    <meta property="og:image" content="<?php echo $domain ?>users/assets/images/seo/636b9388b9a611667994504.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="315" />
-    <meta property="og:url" content="<?php echo $domain  ?>user/deposit">
+    <meta property="og:url" content="<?php echo $domain ?>user/deposit">
 
     <meta name="twitter:card" content="summary_large_image">
     <!-- bootstrap 4  -->
-    <link rel="stylesheet" href="<?php echo $domain  ?>users/assets/templates/bit_gold//css/vendor/bootstrap.min.css">
-    <link rel="icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" type="image/png" href="<?php echo $domain  ?>users/assets/images/logoIcon/favicon.png" />
+    <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold//css/vendor/bootstrap.min.css">
+    <link rel="icon" href="<?php echo $domain ?>users/assets/images/logoIcon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" type="image/png" href="<?php echo $domain ?>users/assets/images/logoIcon/favicon.png" />
     <!-- line-awesome webfont -->
-    <link rel="stylesheet" href="<?php echo $domain  ?>users/assets/templates/bit_gold//css/line-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo $domain  ?>users/assets/templates/bit_gold//css/vendor/animate.min.css">
+    <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold//css/line-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold//css/vendor/animate.min.css">
     <!-- slick slider css -->
-    <link rel="stylesheet" href="<?php echo $domain  ?>users/assets/templates/bit_gold//css/vendor/slick.css">
-    <link rel="stylesheet" href="<?php echo $domain  ?>users/assets/templates/bit_gold//css/vendor/dots.css">
+    <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold//css/vendor/slick.css">
+    <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold//css/vendor/dots.css">
     <!-- dashdoard main css -->
-    <link rel="stylesheet" href="<?php echo $domain  ?>users/assets/templates/bit_gold//css/main.css">
-    <link rel="stylesheet" href="<?php echo $domain  ?>users/assets/templates/bit_gold//css/custom.css">
-    <link rel="stylesheet" href="<?php echo $domain  ?>users/assets/templates/bit_gold/css/color.php?color=2468ef&secondColor=2c2c2c">
+    <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold//css/main.css">
+    <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold//css/custom.css">
+    <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold/css/color.php?color=2468ef&secondColor=2c2c2c">
     <!-- fontawesome 5  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 </head>
@@ -80,7 +78,7 @@ include('../../server/client/auth/index.php');
     </div>
     <div class="page-wrapper">
         <!-- header-section start  -->
-        <?php include('../../components/client/das_navbar.php') ?>
+        <?php include '../../components/client/das_navbar.php'?>
         <!-- header-section end  -->
 
         <!-- inner hero start -->
@@ -108,7 +106,7 @@ include('../../server/client/auth/index.php');
 
                     <div class="col-md-12">
                         <div class="right float-right mb-5">
-                            <a href="<?php echo $domain  ?>user/deposit/history.php" class="btn cmn-btn">
+                            <a href="<?php echo $domain ?>users/deposit/history.php" class="btn cmn-btn">
                                 Deposit History
                             </a>
                         </div>
@@ -133,46 +131,42 @@ include('../../server/client/auth/index.php');
                         </a>
                     </div>
                     <?php
-                    function generateRandomString($length = 10)
-                    {
-                        return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
-                    }
+                        function generateRandomString($length = 10)
+                        {
+                            return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
+                        }
 
+                        if (isset($_POST['next'])) {
+                            $amount        = $_POST['amount'];
+                            $paymentMethod = $_POST['paymentMethod'];
+                            $paymentId     = $_POST['paymentId'];
+                            $paymentImage  = $_POST['paymentImage'];
 
-                    if (isset($_POST['next'])) {
-                        $amount = $_POST['amount'];
-                        $paymentMethod = $_POST['paymentMethod'];
-                        $paymentId = $_POST['paymentId'];
-                        $paymentImage = $_POST['paymentImage'];
-                        
-                        $deposit_id = generateRandomString(10);
+                            $deposit_id = generateRandomString(10);
 
-                        $formattedDate = date("Y-m-d");
-                        $time = date("H:m:s");
+                            $formattedDate = date("Y-m-d");
+                            $time          = date("H:m:s");
 
+                            $sql_insert = mysqli_query($connection, "INSERT INTO `transations`(`transactionId`, `user`, `Amount`, `wallet`, `postbalance`, `date`,`time`,`type`) VALUES ('$deposit_id','$id','$amount','Deposit Wallet','$deposit','$formattedDate','$time','deposit')");
 
-                        $sql_insert = mysqli_query($connection, "INSERT INTO `transations`(`transactionId`, `user`, `Amount`, `wallet`, `postbalance`, `date`,`time`,`type`) VALUES ('$deposit_id','$id','$amount','Deposit Wallet','$deposit','$formattedDate','$time','deposit')");
-
-
-
-                        $query = mysqli_query($connection, "INSERT INTO `deposit`(`id`, `transactionId`, `user`, `payment_id`, `payment_name`, `payment_imge`, `amount`, `status`,`date`,`time`) VALUES ('','$deposit_id','$id','$paymentId','$paymentMethod','$paymentImage','$amount','continue','$formattedDate','$time')");
-                         mysqli_error($connection);
-                        if ($query) {
-                            echo "<script>
+                            $query = mysqli_query($connection, "INSERT INTO `deposit`(`id`, `transactionId`, `user`, `payment_id`, `payment_name`, `payment_imge`, `amount`, `status`,`date`,`time`) VALUES ('','$deposit_id','$id','$paymentId','$paymentMethod','$paymentImage','$amount','continue','$formattedDate','$time')");
+                            mysqli_error($connection);
+                            if ($query) {
+                                echo "<script>
                             window.onload = ()=>{
                                 setTimeout(()=>{
                                 window.open('./payment-proof/?payment=$deposit_id','_self')
                                 },1000)
                             };
                         </script>";
-                        } else {
-                            echo "<script>
+                            } else {
+                                echo "<script>
                                     window.onload = ()=>{
                                         Model('Deposit Failed','red');
                                     };
                                 </script>";
+                            }
                         }
-                    }
 
                     ?>
                     <form method="post" class="register">
@@ -212,13 +206,13 @@ include('../../server/client/auth/index.php');
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-12 text-center">
-                            <a href=""><img src="<?php echo $domain  ?>users/assets/images/logoIcon/logo.png" alt="image"></a>
+                            <a href=""><img src="<?php echo $domain ?>users/assets/images/logoIcon/logo.png" alt="image"></a>
                             <ul class="footer-short-menu d-flex flex-wrap justify-content-center mt-3">
-                                <li><a href="<?php echo $domain  ?>links/privacy-amp-policy/180">Privacy &amp; Policy</a>
+                                <li><a href="<?php echo $domain ?>links/privacy-amp-policy/180">Privacy &amp; Policy</a>
                                 </li>
-                                <li><a href="<?php echo $domain  ?>links/terms-amp-condition/181">Terms &amp; Condition</a>
+                                <li><a href="<?php echo $domain ?>links/terms-amp-condition/181">Terms &amp; Condition</a>
                                 </li>
-                                <li><a href="<?php echo $domain  ?>links/cookie-policy/226">Cookie Policy</a>
+                                <li><a href="<?php echo $domain ?>links/cookie-policy/226">Cookie Policy</a>
                                 </li>
                             </ul>
                         </div>
@@ -229,7 +223,7 @@ include('../../server/client/auth/index.php');
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 text-md-left text-center">
-                            <p>© 2024 <a href="<?php echo $domain ?>" class="base--color"><?php  echo $sitename ?></a>. All rights reserved</p>
+                            <p>© 2024 <a href="<?php echo $domain ?>" class="base--color"><?php echo $sitename ?></a>. All rights reserved</p>
                         </div>
                         <div class="col-lg-6">
                             <ul class="social-link-list d-flex flex-wrap justify-content-md-end justify-content-center">
@@ -247,24 +241,24 @@ include('../../server/client/auth/index.php');
     </div>
     <!-- page-wrapper end -->
     <!-- jQuery library -->
-    <script src="<?php echo $domain  ?>users/assets/templates/bit_gold//js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="<?php echo $domain ?>users/assets/templates/bit_gold//js/vendor/jquery-3.5.1.min.js"></script>
     <!-- bootstrap js -->
-    <script src="<?php echo $domain  ?>users/assets/templates/bit_gold//js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo $domain ?>users/assets/templates/bit_gold//js/vendor/bootstrap.bundle.min.js"></script>
 
     <!-- slick slider js -->
-    <script src="<?php echo $domain  ?>users/assets/templates/bit_gold//js/vendor/slick.min.js"></script>
-    <script src="<?php echo $domain  ?>users/assets/templates/bit_gold//js/vendor/wow.min.js"></script>
+    <script src="<?php echo $domain ?>users/assets/templates/bit_gold//js/vendor/slick.min.js"></script>
+    <script src="<?php echo $domain ?>users/assets/templates/bit_gold//js/vendor/wow.min.js"></script>
     <!-- dashboard custom js -->
-    <script src="<?php echo $domain  ?>users/assets/templates/bit_gold//js/app.js"></script>
+    <script src="<?php echo $domain ?>users/assets/templates/bit_gold//js/app.js"></script>
 
 
 
-    
+
     <script>
         (function() {
             "use strict";
             $(document).on("change", ".langSel", function() {
-                window.location.href = "<?php echo $domain  ?>change/" + $(this).val();
+                window.location.href = "<?php echo $domain ?>change/" + $(this).val();
             });
 
             $('.policy').on('click', function() {
@@ -273,7 +267,7 @@ include('../../server/client/auth/index.php');
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
-                $.get('<?php echo $domain  ?>cookie/accept', function(response) {
+                $.get('<?php echo $domain ?>cookie/accept', function(response) {
                     iziToast.success({
                         message: response,
                         position: "topRight"
@@ -285,8 +279,8 @@ include('../../server/client/auth/index.php');
     </script>
 
 
-    <link rel="stylesheet" href="<?php echo $domain  ?>users/assets/templates/bit_gold/css/iziToast.min.css">
-    <script src="<?php echo $domain  ?>users/assets/templates/bit_gold/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="<?php echo $domain ?>users/assets/templates/bit_gold/css/iziToast.min.css">
+    <script src="<?php echo $domain ?>users/assets/templates/bit_gold/js/iziToast.min.js"></script>
 
 
     <script>
@@ -301,7 +295,7 @@ include('../../server/client/auth/index.php');
     </script>
 
 
-    
+
     <script>
         $(document).ready(function() {
             "use strict";
@@ -342,76 +336,75 @@ include('../../server/client/auth/index.php');
         (function() {
             "use strict";
             $(document).on("change", ".langSel", function() {
-                window.location.href = "<?php echo $domain  ?>change/" + $(this).val();
+                window.location.href = "<?php echo $domain ?>change/" + $(this).val();
             });
         })();
 
 
 
-        // Array of objects for payment methods
-        const paymentMethods = [{
-                id: 1,
-                paymentMethod: "Bitcoin",
-                limit: "100 - 1000000 USD",
-                charge: "0 USD + 0%",
-                image: "<?php echo $domain  ?>users/assets/images/payment/4.png"
+        // jQuery to fetch payment methods
+$(document).ready(function() {
+    // Function to fetch payment methods via AJAX
+    function fetchPaymentMethods() {
+        $.ajax({
+            url: '../../server/client/api/paymentMethod.php',  // URL of the PHP script
+            type: 'GET',  // HTTP request type
+            success: function(response) {
+                console.log(response)
+                // Call function to create HTML cards with the fetched data
+                createPaymentMethodCards(JSON.parse(response));
             },
-            {
-                id: 2,
-                paymentMethod: "Ethereum",
-                limit: "100 - 1000000 USD",
-                charge: "0 USD + 0%",
-                image: "<?php echo $domain  ?>users/assets/images/payment/2.png"
-            },
-            {
-                id: 4,
-                paymentMethod: "USDT(TRC20)",
-                limit: "100 - 1000000 USD",
-                charge: "0 USD + 0%",
-                image: "<?php echo $domain  ?>users/assets/images/payment/3.png"
-            },
-            {
-                id: 5,
-                paymentMethod: "Dogecoin",
-                limit: "800 - 1000000 USD",
-                charge: "0 USD + 0%",
-                image: "<?php echo $domain  ?>users/assets/images/payment/1.png"
+            error: function(xhr, status, error) {
+                console.error("Error fetching payment methods:", error);
             }
-        ];
+        });
+    }
 
-        // Function to create HTML for each payment method
-        function createPaymentMethodCards(paymentMethods) {
-            const container = document.querySelector('.row-payment');
+    // Call the fetchPaymentMethods function to get the data
+    fetchPaymentMethods();
+});
 
-            paymentMethods.forEach(method => {
-                const cardHtml = `
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-                <div class="card">
+// Function to create HTML for each payment method
+function createPaymentMethodCards(paymentMethods) {
+    const container = $('.row-payment'); // Select the container element
+
+    // Clear any existing content in the container
+    container.empty();
+
+    // Iterate over each payment method and create the HTML for each
+
+    paymentMethods.forEach(method => {
+        $imageLink ="<?php echo $domain ?>users/assets/images/payment/" + method.image
+        const cardHtml = `
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+            <div class="card">
                 <div class="card-body b-primary">
                     <div class="row justify-content-center">
-                    <div class="col-md-5 col-sm-12">
-                        <img src="${method.image}" class="card-img-top w-100" alt="${method.paymentMethod}">
+                        <div class="col-md-5 col-sm-12">
+                            <img src="${$imageLink}" class="card-img-top w-100" alt="${method.payment_method}">
+                        </div>
+                        <div class="col-md-7 col-sm-12">
+                            <ul class="list-group text-center">
+                                <li class="list-group-item">${method.payment_method}</li>
+                                <li class="list-group-item">Limit : ${method.limit_range}</li>
+                                <li class="list-group-item">Charge - ${method.charge}</li>
+                                <li class="list-group-item">
+                                    <button type="button" data-img="${method.image}" data-limit="${method.limit_range}" data-id="${method.id}" data-payment="${method.payment_method}" class="btn deposit cmn-btn w-100" data-toggle="modal" data-target="#exampleModal">
+                                        Deposit
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-md-7 col-sm-12">
-                        <ul class="list-group text-center">
-                        <li class="list-group-item">${method.paymentMethod}</li>
-                        <li class="list-group-item">Limit : ${method.limit}</li>
-                        <li class="list-group-item">Charge - ${method.charge}</li>
-                        <li class="list-group-item">
-                            <button type="button" data-img="${method.image}" data-limit="${method.limit}}" data-id="${method.id}" data-payment="${method.paymentMethod}" class="btn deposit cmn-btn w-100" data-toggle="modal" data-target="#exampleModal">
-                            Deposit
-                            </button>
-                        </li>
-                        </ul>
-                    </div>
-                    </div>
-                </div>
                 </div>
             </div>
-            `;
-                container.insertAdjacentHTML('beforeend', cardHtml);
-            });
-        }
+        </div>
+        `;
+        // Append the new card HTML to the container
+        container.append(cardHtml);
+    });
+}
+
 
         // Function to show modal form on button click
         // function setupModalForm() {

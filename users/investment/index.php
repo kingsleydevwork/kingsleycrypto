@@ -106,7 +106,7 @@ include('../../server/config.php');
                 <div id="planContainer" class="row mb-none-30 justify-content-center">
                     <div class="col-md-12">
                         <div class="right float-right mb-5">
-                            <a href="<?php echo $domain  ?>user/investment/investement.php" class="btn cmn-btn">
+                            <a href="<?php echo $domain  ?>users/investment/investement.php" class="btn cmn-btn">
                                 My Investments
                             </a>
                         </div>

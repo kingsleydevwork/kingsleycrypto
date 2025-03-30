@@ -104,7 +104,7 @@ include('../../server/client/auth/index.php');
                 <div class="row row-payment mb-60-80 justify-content-center">
                     <div class="col-md-12">
                         <div class="right float-right mb-5">
-                            <a href="<?php echo $domain  ?>users/user/withdraw/withdraw.php" class="btn cmn-btn">
+                            <a href="<?php echo $domain  ?>users/withdraw/withdraw.php" class="btn cmn-btn">
                                 Withdraw History
                             </a>
                         </div>
@@ -374,35 +374,27 @@ include('../../server/client/auth/index.php');
         })();
 
 
-        const paymentMethods = [{
-                id: 1,
-                paymentMethod: "Bitcoin",
-                limit: "100 - 1000000 USD",
-                charge: "0 USD + 0%",
-                image: "<?php echo $domain  ?>users/assets/images/payment/4.png"
+       // jQuery to fetch payment methods
+$(document).ready(function() {
+    // Function to fetch payment methods via AJAX
+    function fetchPaymentMethods() {
+        $.ajax({
+            url: '../../server/client/api/paymentMethod.php',  // URL of the PHP script
+            type: 'GET',  // HTTP request type
+            success: function(response) {
+                console.log(response)
+                // Call function to create HTML cards with the fetched data
+                createPaymentMethodCards(JSON.parse(response));
             },
-            {
-                id: 2,
-                paymentMethod: "Ethereum",
-                limit: "100 - 1000000 USD",
-                charge: "0 USD + 0%",
-                image: "<?php echo $domain  ?>users/assets/images/payment/1.png"
-            },
-            {
-                id: 4,
-                paymentMethod: "USDT(TRC20)",
-                limit: "100 - 1000000 USD",
-                charge: "0 USD + 0%",
-                image: "<?php echo $domain  ?>users/assets/images/payment/3.png"
-            },
-            {
-                id: 5,
-                paymentMethod: "Dogecoin",
-                limit: "800 - 1000000 USD",
-                charge: "0 USD + 0%",
-                image: "<?php echo $domain  ?>users/assets/images/payment/2.png"
+            error: function(xhr, status, error) {
+                console.error("Error fetching payment methods:", error);
             }
-        ];
+        });
+    }
+
+    // Call the fetchPaymentMethods function to get the data
+    fetchPaymentMethods();
+});
 
         // Function to create HTML for each payment method
         function createPaymentMethodCards(paymentMethods) {
@@ -410,21 +402,22 @@ include('../../server/client/auth/index.php');
             const container = document.querySelector('.row-payment');
 
             paymentMethods.forEach(method => {
+                $imageLink ="<?php echo $domain ?>users/assets/images/payment/" + method.image
                 const cardHtml = `
             <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                 <div class="card">
                 <div class="card-body b-primary">
                     <div class="row justify-content-center">
                     <div class="col-md-5 col-sm-12">
-                        <img src="${method.image}" class="card-img-top w-100" alt="${method.paymentMethod}">
+                        <img src="${$imageLink}" class="card-img-top w-100" alt="${method.payment_method}">
                     </div>
                     <div class="col-md-7 col-sm-12">
                         <ul class="list-group text-center">
-                        <li class="list-group-item">${method.paymentMethod}</li>
-                        <li class="list-group-item">Limit : ${method.limit}</li>
+                        <li class="list-group-item">${method.payment_method}</li>
+                        <li class="list-group-item">Limit : ${method.limit_range}</li>
                         <li class="list-group-item">Charge - ${method.charge}</li>
                         <li class="list-group-item">
-                            <button type="button" data-img="${method.image}" data-limit="${method.limit}}" data-id="${method.id}" data-payment="${method.paymentMethod}" class="btn deposit cmn-btn w-100" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" data-img="${method.image}" data-limit="${method.limit_range}}" data-id="${method.id}" data-payment="${method.payment_method}" class="btn deposit cmn-btn w-100" data-toggle="modal" data-target="#exampleModal">
                             Withdraw
                             </button>
                         </li>
