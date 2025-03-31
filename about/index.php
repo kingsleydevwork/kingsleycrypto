@@ -23,7 +23,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo $domain ?>assets/images/favicon.png" />
     
     <!-- PAGE TITLE HERE -->
-    <title>capitalvault | About Us</title>
+    <title>fluxionhub | About Us</title>
     
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -276,7 +276,7 @@
                     
         </div>
         <!-- CONTENT END -->
-        <?php echo include('../include<?php echo $domain ?>assets//footer.php') ?>
+        <?php echo include('../include/footer.php') ?>
         
         <!-- BUTTON TOP START -->
         <button class="scroltop"><span class=" iconmoon-house relative" id="btn-vibrate"></span>Top</button>
@@ -374,7 +374,7 @@
 
 
 
-<!-- Mirrored from capitalvault.com/about.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 20:57:04 GMT -->
+<!-- Mirrored from fluxionhub.com/about.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 20:57:04 GMT -->
 
-<!-- Mirrored from www.capitalvault.com/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:27 GMT -->
+<!-- Mirrored from www.fluxionhub.com/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:27 GMT -->
 </html>

@@ -23,7 +23,7 @@
      ?>assets/images/favicon.png" />
 
     <!-- PAGE TITLE HERE -->
-    <title>capitalvault | Online Forex, Crypto Currency Investment And Trading Platform.</title>
+    <title>fluxionhub | Online Forex, Crypto Currency Investment And Trading Platform.</title>
 
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -227,7 +227,7 @@
                                     font-weight: 500; 
                                     color:#fff;
                                     border-width:0px;">
-                                            <span style="font-family: 'Poppins', sans-serif;">capitalvault is the most
+                                            <span style="font-family: 'Poppins', sans-serif;">fluxionhub is the most
                                                 reliable and secure online platform that makes trading, investing, and
                                                 minning of cryptocurrency easy and safe... And it supports a variety of
                                                 the most popular digital currencies.</span>
@@ -269,7 +269,7 @@
                                     text-transform:uppercase;
                                     font-weight:500;
                                     ">
-                                            <!-- <a href="https://app.capitalvault/user/register" class="site-button white slider-btn-right">Sign Up</a> -->
+                                            <!-- <a href="https://app.fluxionhub/user/register" class="site-button white slider-btn-right">Sign Up</a> -->
                                         </div>
 
                                         <!-- LAYER NR. 8 [ for more detail botton ] -->
@@ -464,7 +464,7 @@
                                     font-weight:500;
                                     ">
 
-                                            <!-- <a href="https://app.capitalvault/user/register" class=" site-button white slider-btn-right">Sign Up</a> -->
+                                            <!-- <a href="https://app.fluxionhub/user/register" class=" site-button white slider-btn-right">Sign Up</a> -->
                                         </div>
 
                                         <!-- LAYER NR. 8 [ for more detail botton ] -->
@@ -707,7 +707,7 @@
                                     text-transform:uppercase;
                                     font-weight:500;
                                     ">
-                                            <!-- <a href="https://app.capitalvault/user/register" class=" site-button white slider-btn-right">Sign Up</a> -->
+                                            <!-- <a href="https://app.fluxionhub/user/register" class=" site-button white slider-btn-right">Sign Up</a> -->
                                         </div>
 
                                         <!-- LAYER NR. 8 [ for more detail botton ] -->
@@ -786,7 +786,7 @@
                                                 Bitcoin Mining & Easy Way to Trade Bitcoin.</h4>
                                             <p>The platform carries over 100 tradable assets, unique risk management
                                                 tools, advanced security protocols and 5 trading options: 60 sec, Speed
-                                                trading, 24 hrs, and Long term. capitalvault gives clients an
+                                                trading, 24 hrs, and Long term. fluxionhub gives clients an
                                                 exceptional trading experience and the adequate support they need in
                                                 order to enhance their chances of success.
 
@@ -834,7 +834,7 @@
                                 <div class="section-content">
                                     <div class="wt-box">
                                         <p>
-                                            <strong>capitalvault is place where traders can access real-world markets
+                                            <strong>fluxionhub is place where traders can access real-world markets
                                                 with crypto currencies and start trading instantly. We offer deposits
                                                 and withdrawals via cryptos, overcoming the biggest hurdle letting
                                                 traders instantly transact funds. By using cyrptos instead of fiat, we
@@ -941,7 +941,7 @@
                         </div>
                         <div class="col-md-8 col-sm-6">
                             <div class="awesome-counter text-right text-white">
-                                <h3 class="font-24">The capitalvault</h3>
+                                <h3 class="font-24">The fluxionhub</h3>
                                 <h2 class="font-60 font-weight-600"><span class="text-primary"> AWESOME FACTS</span>
                                 </h2>
                                 <p></p>
@@ -1538,7 +1538,7 @@
                                         <div class="text-center">
                                             <h3 class="text-uppercase font-weight-500 text-white">Contact Us</h3>
                                             <p class="text-white"></p>
-                                            <h4 class="text-secondry">support@capitalvault.com</h4>
+                                            <h4 class="text-secondry">support@fluxionhub.com</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -2000,8 +2000,8 @@
 
 
 
-<!-- Mirrored from capitalvault/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 20:56:29 GMT -->
+<!-- Mirrored from fluxionhub/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 20:56:29 GMT -->
 
-<!-- Mirrored from www.capitalvault.com/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:11 GMT -->
+<!-- Mirrored from www.fluxionhub.com/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:11 GMT -->
 
 </html>

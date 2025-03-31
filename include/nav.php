@@ -8,7 +8,7 @@
                 <div class="wt-topbar-left">
                     <ul class="list-unstyled e-p-bx pull-left">
 
-                        <li><a href="mailto:support@capitalvault.com">support@capitalvault.com</a></li>
+                        <li><a href="mailto:support@fluxionhub.com">support@fluxionhub.com</a></li>
 
                     </ul>
                 </div>
@@ -222,10 +222,6 @@
 
                     </li>
 
-                    <li class="has-mega-menu ">
-                        <a href="<?php echo $domain ?>plans/">Trading Plans</a>
-
-                    </li>
 
                     <li>
                         <a href="<?php echo $domain ?>/contact">Contact Us</a>

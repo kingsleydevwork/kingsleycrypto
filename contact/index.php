@@ -6,9 +6,9 @@
 
 
 
-<!-- Mirrored from capitalvaultcom/contact.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 20:57:05 GMT -->
+<!-- Mirrored from fluxionhubcom/contact.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 20:57:05 GMT -->
 <!-- Added by HTTrack -->
-<!-- Mirrored from www.capitalvault.com/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:28 GMT -->
+<!-- Mirrored from www.fluxionhub.com/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:28 GMT -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
@@ -26,7 +26,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo $domain ?>assets/images/favicon.png" />
     
     <!-- PAGE TITLE HERE -->
-    <title>capitalvault| Contact Us</title>
+    <title>fluxionhub| Contact Us</title>
     
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -129,7 +129,7 @@
                                             <div class="wt-icon-box-md text-black"><span class="icon-cell"><i class="iconmoon-email"></i></span></div>
                                             <div class="icon-content">
                                                 <h6>Email</h6>
-                                                <p>support@capitalvault.com</p>
+                                                <p>support@fluxionhub.com</p>
                                             </div>
                                         </div>
                                     </div>
@@ -234,10 +234,10 @@
         </div>
         <!-- CONTENT END -->
 
-        <?php include('../include/footer.php') ?>
+        
         <!-- FOOTER END -->
 
-        
+        <?php include('../include/footer.php') ?>
         <!-- BUTTON TOP START -->
         <button class="scroltop"><span class=" iconmoon-house relative" id="btn-vibrate"></span>Top</button>
 
@@ -333,7 +333,7 @@
 <script src="code.tidio.co_443/vhiv9xfsvoxm0etokmcgf9be1bqmkdkt.js" async></script></a>
 
 
-<!-- Mirrored from capitalvaultcom/contact.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 20:57:05 GMT -->
+<!-- Mirrored from fluxionhubcom/contact.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 20:57:05 GMT -->
 
-<!-- Mirrored from www.capitalvault.com/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:30 GMT -->
+<!-- Mirrored from www.fluxionhub.com/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Mar 2025 20:52:30 GMT -->
 </html>
