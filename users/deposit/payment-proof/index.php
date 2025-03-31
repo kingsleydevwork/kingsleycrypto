@@ -460,7 +460,7 @@ if (isset($_GET['payment']) && $_GET['payment'] != '') {
 <script>
             $('.copyBoard').click(function() {
                 "use strict";
-                var copyText = document.getElementById("referralURL");
+                var copyText = document.getElementById("myInput");
                 copyText.select();
                 copyText.setSelectionRange(0, 99999);
                 /*For mobile devices*/
