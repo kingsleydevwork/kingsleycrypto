@@ -87,7 +87,7 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
       while ($row = mysqli_fetch_assoc($select)) {
         $id = $row['id'];
         $_SESSION['user_login'] = $id;
-       if(isset($_SESSION['user_login']) && $_SESSION['user_login'] != ""){
+       if(isset($_SESSION['user_login']) &&  $_SESSION['user_login'] != ""){
             echo "<script>
         
             Model('Login successful','green');

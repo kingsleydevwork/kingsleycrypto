@@ -51,7 +51,7 @@
     <!-- MAGNIFIC POPUP STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href="<?php echo $domain 
      ?>assets/css/magnific-popup.min.css">
-    <!-- LOADER STYLE SHEET -->
+    <!-- loader STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href="<?php echo $domain 
      ?>assets/css/loader.min.css">
     <!-- MAIN STYLE SHEET -->

@@ -3,7 +3,7 @@
     $users = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `client` "));
     $deposit = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `deposit` WHERE `status`='pending' "));
     $withdraw = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `withdrawal`  WHERE `status`='pending'"));
-    $kyc = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `ticket`  WHERE `status`='pending'"));
+    $kyc = mysqli_num_rows(mysqli_query($connection,"SELECT * FROM `investment`  WHERE `status`='pending'"));
 
 
 ?>
@@ -67,7 +67,7 @@
           
         </div>
         <div class="d-flex align-items-center justify-content-between">
-          <h5 class="m-0 fw-normal">Open Ticket</h5>
+          <h5 class="m-0 fw-normal">Total Investments</h5>
           <h3 class="m-0"><?php echo  $kyc ?></h3>
         </div>
       </div>

@@ -1,29 +1,6 @@
 <?php include('../../server/connection.php')  ?>
 <?php include('../../server/auth/admin/index.php')  ?>
-<?php
-function timeAgo($datetime)
-{
-    $timestamp = strtotime($datetime);
-    $difference = time() - $timestamp;
 
-    if ($difference < 60) {
-        return $difference . " seconds ago";
-    } elseif ($difference < 3600) {
-        return floor($difference / 60) . " minutes ago";
-    } elseif ($difference < 86400) {
-        return floor($difference / 3600) . " hours ago";
-    } elseif ($difference < 2592000) { // 30 days
-        return floor($difference / 86400) . " days ago";
-    } elseif ($difference < 31536000) { // 12 months
-        return floor($difference / 2592000) . " months ago";
-    } else {
-        return floor($difference / 31536000) . " years ago";
-    }
-}
-
-// Example usage
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -243,61 +220,115 @@ function timeAgo($datetime)
                     <!-- Row start -->
 
                     <div class="card-body">
-                        <form class="row g-3 needs-validation" novalidate="">
+                        <form class="row g-3 needs-validation" method="POST">
+                            <?php 
+
+                                    if (isset($_GET['id'])){
+
+                                        $id = $_GET['id'];
+
+                                        $sql = mysqli_query($connection,"SELECT * FROM `client` WHERE `id`='$id' ");
+
+                                        if (mysqli_num_rows($sql) > 0){
+
+
+                                            $user_data = mysqli_fetch_assoc($sql);
+                                        }
+
+
+                                    }
+                            
+                            ?>
                             <div class="col-md-4 position-relative">
-                                <label for="validationTooltip01" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="validationTooltip01" value="" required="">
+                                <label for="validationTooltip01" class="form-label">First Name</label>
+                                <input type="text" class="form-control" name="firstname" id="validationTooltip01" value="<?php  echo $user_data['firstname'] ?>" required="">
                                 
                             </div>
                             <div class="col-md-4 position-relative">
-                                <label for="validationTooltip02" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="validationTooltip02" value="" required="">
+                                <label for="validationTooltip02" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" name="lastname" id="validationTooltip02" value="<?php  echo $user_data['lastname'] ?>" required="">
                             
                             </div>
                             <div class="col-md-4 position-relative">
-                                <label for="validationTooltip01" class="form-label">Email</label>
-                                <input type="text" class="form-control" id="validationTooltip01" value="" required="">
+                                <label for="validationTooltip02" class="form-label">Email</label>
+                                <input type="text" class="form-control" name="email" id="validationTooltip02" value="<?php  echo $user_data['email'] ?>" required="">
+                            
+                            </div>
+                            <div class="col-md-4 position-relative">
+                                <label for="validationTooltip01" class="form-label">Total Withdraw</label>
+                                <input type="text" class="form-control" name="with" id="validationTooltip01" value="<?php  echo $user_data['withdrawal'] ?>" required="">
                                 
                             </div>
                             <div class="col-md-4 position-relative">
-                                <label for="validationTooltip02" class="form-label">Phone</label>
-                                <input type="text" class="form-control" id="validationTooltip02" value="" required="">
+                                <label for="validationTooltip02" name="intrest" class="form-label">Total Interests</label>
+                                <input type="text" class="form-control" id="validationTooltip02" value="<?php  echo $user_data['interests'] ?>" required="">
                             
                             </div>
 
                             <div class="col-md-4 position-relative">
-                                <label for="validationTooltip01" class="form-label">Registration Date </label>
-                                <input type="date" class="form-control" id="validationTooltip01" value="" required="">
+                                <label for="validationTooltip01" name="invested" class="form-label">Total Invested</label>
+                                <input type="text" class="form-control" id="validationTooltip01" value="<?php  echo $user_data['invested'] ?>" required="">
                                 
                             </div>
                             <div class="col-md-4 position-relative">
-                                <label for="validationTooltip02" class="form-label">Wallet</label>
-                                <input type="text" class="form-control" id="validationTooltip02" value="" required="">
+                                <label for="validationTooltip02" name="deposits" class="form-label">Total Deposits</label>
+                                <input type="text" class="form-control" id="validationTooltip02" value="<?php  echo $user_data['deposit'] ?>" required="">
                             
                             </div>
 
                             <div class="col-md-4 position-relative">
-                                <label for="validationTooltip02" class="form-label">Ref Balance</label>
-                                <input type="text" class="form-control" id="validationTooltip02" value="" required="">
+                                <label for="validationTooltip02" name="ref" class="form-label">Referral Balance</label>
+                                <input type="text" class="form-control" id="validationTooltip02" value="<?php  echo $user_data['referral'] ?>" required="">
                             
                             </div>
 
                             <div class="col-md-4 position-relative">
-                                <label for="validationTooltip01" class="form-label">  </label>
-                                <input type="date" class="form-control" id="validationTooltip01" value="" required="">
+                                <label for="validationTooltip01" class="form-label">Joined date</label>
+                                <input type="text" class="form-control" name="join" id="validationTooltip01" value="<?php  echo $user_data['dates'] ?>" required="">
                                 
-                            </div>
-                            <div class="col-md-4 position-relative">
-                                <label for="validationTooltip02" class="form-label">Wallet</label>
-                                <input type="text" class="form-control" id="validationTooltip02" value="" required="">
-                            
                             </div>
 
                             <div class="col-12">
-                                <button class="btn btn-primary" type="submit">
+                                <button class="btn btn-primary" type="submit" name="send">
                                     Submit form
                                 </button>
                             </div>
+
+                            <?php
+
+                                    if (isset($_POST['send'])) {
+
+                                       $id = $_GET['id'];
+                                       $firstname = $_POST["firstname"]; 
+                                       $lastname = $_POST["lastname"];
+                                       $email = $_POST["email"];
+                                       $bal = $_POST["balance"];
+                                       $intrest =  $_POST["intrest"];
+                                       $invested = $_POST["invested"];
+                                       $deposits = $_POST["deposits"];
+                                       $ref = $_POST["ref"]; 
+                                       $join = $_POST["join"];
+
+                                       $sql = mysqli_query($connection,"UPDATE `client` SET `email`='$email',`firstname`='$firstname',`lastname`='$lastname',`deposit`='$deposits',`interests`='$intrest',`invested`='$invested',`referral`='$ref',`withdrawal`='$with',`dates`='$join' WHERE `id` = '$id'");
+
+                                       if ($sql){
+
+                                            echo "<script> alert('EDITED') </script>";
+                                            echo "<script> location.href='../user/index.php' </script>";
+
+
+                                       }else{
+
+                                            echo "<script> alert('UNABLE TO EDIT USER') </script>";
+
+                                       }
+
+                                                                                    
+
+
+                                    }
+
+                            ?>
                             
                         </form>
                     </div>

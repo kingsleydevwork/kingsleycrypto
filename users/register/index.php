@@ -79,11 +79,8 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
     <link rel="stylesheet"
         href="<?php echo $domain ?>users/assets/templates/bit_gold/css/color9bce.css?color=CCA354&amp;secondColor=000000">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js
-
-
-
-"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+        
     <style>
     .input-group-text {
         color: #fff;
@@ -123,7 +120,7 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
       $dates = date('d M, Y h:i A');
 
       // Prepare the SQL statement
-      $sql = "INSERT INTO client (firstname, lastname, country, mobile, password,name,email,hasspassword,user_link,ref_link,dates) VALUES (?, ?, ?, ?, ?,?,?,?,?,?,?)";
+      $sql = "INSERT INTO client (firstname, lastname, country, mobile,password,name,email,hasspassword,user_link,ref_link,dates) VALUES (?, ?, ?, ?, ?,?,?,?,?,?,?)";
 
       // Initialize prepared statement
       $stmt = $connection->prepare($sql);
