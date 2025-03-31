@@ -244,7 +244,7 @@ function timeAgo($datetime)
                             $id = $_GET['id'];
                             $address = $_POST['address'];
 
-                            $sql = mysqli_query($connection, "UPDATE `deposit_wallet` SET `address`='$address' WHERE `id` =  '$id'");
+                            $sql = mysqli_query($connection, "UPDATE `payment_methods` SET `address`='$address' WHERE `id` =  '$id'");
 
                             if ($sql) {
                                 echo "<script> alert('UPDATED') </script>";

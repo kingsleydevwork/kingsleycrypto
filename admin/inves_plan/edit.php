@@ -223,21 +223,39 @@ function timeAgo($datetime)
                 <div class="app-body">
                     <!-- Row start -->
 
+                    <?php
+
+                        $id = $_GET['id'];
+                        $sql = mysqli_query($connection,"SELECT * FROM `investment_plans` WHERE `id`='$id'");
+
+                        if (mysqli_num_rows($sql) > 0){
+
+                            $fetch = mysqli_fetch_assoc($sql);
+                        }
+
+
+                    ?>
+
                     <div class="card-body" style="margin-bottom: 10px;">
                         <form class="row g-3 needs-validation" method="POST">
                             <div class="col-md-4">
-                                <label for="validationCustom02" class="form-label">Return</label>
-                                <input type="text" class="form-control" name="return" required>
+                                <label for="validationCustom02" class="form-label">Title</label>
+                                <input type="text" class="form-control" value="<?php echo $fetch['title'] ?>" readonly>
 
                             </div>
                             <div class="col-md-4">
-                                <label for="validationCustom02" class="form-label">MIN</label>
-                                <input type="text" class="form-control" name="min" required>
+                                <label for="validationCustom02" class="form-label">Return Rate</label>
+                                <input type="text" class="form-control" name="rate" value="<?php echo $fetch['return_rate'] ?>" required>
 
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">MAX</label>
-                                <input type="text" class="form-control" name="max" required>
+                                <input type="text" class="form-control" name="max"  value="<?php echo $fetch['max_amount'] ?>" required>
+
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">MIN</label>
+                                <input type="text" class="form-control" name="min" value="<?php echo $fetch['min_amount'] ?>" required>
 
                             </div>
 
@@ -252,11 +270,11 @@ function timeAgo($datetime)
                         if (isset($_POST['add'])) {
 
                             $id = $_GET['id'];
-                            $return = $_POST['return'];
+                            $return = $_POST['rate'];
                             $min = $_POST['min'];
                             $max = $_POST['max'];
 
-                            $sql = mysqli_query($connection, "UPDATE `investment_plan` SET `return`='$return',`min`='$min',`max`='$max' WHERE 1");
+                            $sql = mysqli_query($connection, "UPDATE `investment_plans` SET `return_rate`='$return',`min_amount`='$min',`max_amount`='$max' WHERE `id`='$id'");
 
                             if ($sql) {
                                 echo "<script> alert('UPDATED') </script>";

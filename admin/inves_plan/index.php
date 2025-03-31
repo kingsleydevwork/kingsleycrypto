@@ -230,8 +230,9 @@ function timeAgo($datetime)
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Level</th>
-                                        <th scope="col">Return</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Return Rate</th>
+                                        <th scope="col">Frequency</th>
                                         <th scope="col">Min</th>
                                         <th scope="col">Max</th>
                                         <th scope="col">*</th>
@@ -257,7 +258,7 @@ function timeAgo($datetime)
 
                                     <?php
 
-                                    $sql = mysqli_query($connection, "SELECT * FROM `investment_plan`");
+                                    $sql = mysqli_query($connection, "SELECT * FROM `investment_plans`");
                                     $count = 0;
 
                                     if (mysqli_num_rows($sql)) {
@@ -272,18 +273,22 @@ function timeAgo($datetime)
                                                     <?php  echo $count ?>
                                                 </td>
                                                 <td>
-                                                    <?php  echo $data['level'] ?>
+                                                    <?php  echo $data['title'] ?>
                                                 </td>
 
                                                 <td>
-                                                    <?php  echo $data['return'] ?>
+                                                    <?php  echo $data['return_rate'] ?>
                                                 </td>
 
                                                 <td>
-                                                    <?php  echo $data['min'] ?>
+                                                    <?php  echo $data['frequency'] ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php  echo $data['min_amount'] ?>
                                                 </td>
                                                 <td>
-                                                    <?php  echo $data['max'] ?>
+                                                    <?php  echo $data['max_amount'] ?>
                                                 </td>
 
                                                 <td>

@@ -260,25 +260,25 @@
                                 
                             </div>
                             <div class="col-md-4 position-relative">
-                                <label for="validationTooltip02" name="intrest" class="form-label">Total Interests</label>
-                                <input type="text" class="form-control" id="validationTooltip02" value="<?php  echo $user_data['interests'] ?>" required="">
+                                <label for="validationTooltip02"  class="form-label">Total Interests</label>
+                                <input type="text" class="form-control" name="intrest" id="validationTooltip02" value="<?php  echo $user_data['interests'] ?>" required="">
                             
                             </div>
 
                             <div class="col-md-4 position-relative">
-                                <label for="validationTooltip01" name="invested" class="form-label">Total Invested</label>
-                                <input type="text" class="form-control" id="validationTooltip01" value="<?php  echo $user_data['invested'] ?>" required="">
+                                <label for="validationTooltip01"  class="form-label">Total Invested</label>
+                                <input type="text" class="form-control" name="invested" id="validationTooltip01" value="<?php  echo $user_data['invested'] ?>" required="">
                                 
                             </div>
                             <div class="col-md-4 position-relative">
-                                <label for="validationTooltip02" name="deposits" class="form-label">Total Deposits</label>
-                                <input type="text" class="form-control" id="validationTooltip02" value="<?php  echo $user_data['deposit'] ?>" required="">
+                                <label for="validationTooltip02"  class="form-label">Total Deposits</label>
+                                <input type="text" class="form-control" name="deposits" id="validationTooltip02" value="<?php  echo $user_data['deposit'] ?>" required="">
                             
                             </div>
 
                             <div class="col-md-4 position-relative">
-                                <label for="validationTooltip02" name="ref" class="form-label">Referral Balance</label>
-                                <input type="text" class="form-control" id="validationTooltip02" value="<?php  echo $user_data['referral'] ?>" required="">
+                                <label for="validationTooltip02"  class="form-label">Referral Balance</label>
+                                <input type="text" class="form-control" name="ref" id="validationTooltip02" value="<?php  echo $user_data['referral'] ?>" required="">
                             
                             </div>
 

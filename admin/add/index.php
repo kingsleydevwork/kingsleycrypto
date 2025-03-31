@@ -271,9 +271,11 @@ function timeAgo($datetime)
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">Method</th>
                                         <th scope="col">Address</th>
-                                        <th scope="col">Actions</th>
+                                        <th scope="col">limit_range</th>
+                                        <th scope="col">Charges</th>
+                                        <th scope="col">*</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -296,7 +298,7 @@ function timeAgo($datetime)
 
                                     <?php
 
-                                    $sql = mysqli_query($connection, "SELECT * FROM `deposit_wallet`");
+                                    $sql = mysqli_query($connection, "SELECT * FROM `payment_methods`");
                                     $count = 0;
 
                                     if (mysqli_num_rows($sql)) {
@@ -311,11 +313,18 @@ function timeAgo($datetime)
                                                     <?php  echo $count ?>
                                                 </td>
                                                 <td>
-                                                    <?php  echo $data['name'] ?>
+                                                    <?php  echo $data['payment_method'] ?>
                                                 </td>
 
                                                 <td>
                                                     <?php  echo $data['address'] ?>
+                                                </td>
+                                                <td>
+                                                    <?php  echo $data['limit_range'] ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php  echo $data['charge'] ?>
                                                 </td>
 
                                                 <td>
