@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $sitename = "capitalvault";
+    $sitename = "fluxionhub";
     $domain = 'http://localhost/kingsleycrypto/';
     $database = "kingsleyCrypto";
     $user = "root";

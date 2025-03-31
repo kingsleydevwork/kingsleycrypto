@@ -167,7 +167,7 @@ if(mysqli_num_rows($selectInvested)){
                                 <div class="card">
                                     <h5 class="card-header">How it works</h5>
                                     <div class="card-body">
-                                        <h5 class="card-title">This is how to invest on CapitalVault Shareholders</h5>
+                                        <h5 class="card-title">This is how to invest on fluxsionhub Shareholders</h5>
                                         <div class="row">
                                             <div class="col-md-4 text-center mb-2">
                                                 <span class="fa fa-money-bill fa-3x text-white"></span>
@@ -191,7 +191,7 @@ if(mysqli_num_rows($selectInvested)){
                                             </div>
                                         </div>
                                         <p class="text-center mt-3">
-                                            <center>capitalvault-sharehold.com</center>
+                                            <center>fluxsionhub-sharehold.com</center>
                                             <a href="/plan" class="btn btn-success">Choose Plans <?= $lastname ?></a>
                                         </p>
                                     </div>
@@ -542,25 +542,7 @@ if(mysqli_num_rows($selectInvested)){
         <script src="<?php echo $domain  ?>users/assets/templates/bit_gold//js/app.js"></script>
 
 
-        <!-- Smartsupp Live Chat script -->
-        <script type="text/javascript">
-            var _smartsupp = _smartsupp || {};
-            _smartsupp.key = '7627a59785bf54f75ae983a91e7e8845f0a20a22';
-            window.smartsupp || (function(d) {
-                var s, c, o = smartsupp = function() {
-                    o._.push(arguments)
-                };
-                o._ = [];
-                s = d.getElementsByTagName('script')[0];
-                c = d.createElement('script');
-                c.type = 'text/javascript';
-                c.charset = 'utf-8';
-                c.async = true;
-                c.src = 'https://www.smartsuppchat.com/loader.js?';
-                s.parentNode.insertBefore(c, s);
-            })(document);
-        </script>
-        <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
 
 
         <script>
