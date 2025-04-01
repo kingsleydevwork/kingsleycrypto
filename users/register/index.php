@@ -184,7 +184,7 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
             <div class="header__bottom">
                 <div class="container">
                     <nav class="navbar navbar-expand-xl p-0 align-items-center">
-                        <a class="site-logo site-title" href="index.html"><img
+                        <a class="site-logo site-title" href="index.php"><img
                                 src="<?php echo $domain ?>users/assets/images/logoIcon/logo.png" alt="site-logo"></a>
                         <ul class="account-menu responsive-account-menu ml-3">
                             <li class="icon"><a href="login.html"><i class="las la-user"></i></a></li>
@@ -564,7 +564,7 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-12 text-center">
-                            <a href="index.html"><img src="<?php echo $domain ?>users/assets/images/logoIcon/logo.png"
+                            <a href="index.php"><img src="<?php echo $domain ?>users/assets/images/logoIcon/logo.png"
                                     alt="image"></a>
                             <ul class="footer-short-menu d-flex flex-wrap justify-content-center mt-3">
                             </ul>
@@ -577,7 +577,7 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
                     <div class="row">
                         <div class="col-md-6 text-md-left text-center">
                             <p>
-                            <p>© 2015 <a href="index.html" class="base--color">fluxsionhub</a>. All rights reserved</p>
+                            <p>© 2015 <a href="index.php" class="base--color">fluxsionhub</a>. All rights reserved</p>
                             </p>
                         </div>
                         <div class="col-md-6">

@@ -6,7 +6,7 @@ include('../../../server/config.php');
 include('../../../server/mailer.php');
 
 
-$reset = $domain . 'user/deposit';
+$reset = $domain . 'users/deposit';
 if (isset($_GET['payment']) && $_GET['payment'] != '') {
   $transactionId = $_GET['payment'];
 
@@ -16,6 +16,7 @@ if (isset($_GET['payment']) && $_GET['payment'] != '') {
     $row = mysqli_fetch_assoc($select);
     $amount = $row['amount'];
     $paymentMethod = $row['payment_name'];
+    $paymentid = $row['payment_id'];
     $user = $row['user'];
 
     $select1 = mysqli_query($connection, "SELECT * FROM `client` WHERE `id`='$user'");
@@ -103,17 +104,17 @@ if (isset($_GET['payment']) && $_GET['payment'] != '') {
     }
   </style>
 
-  
-<style type="text/css">
-        #copyBoard {
-            cursor: pointer;
-        }
-    </style>
-    <style type="text/css">
-        #copyBoard {
-            cursor: pointer;
-        }
-    </style>
+
+  <style type="text/css">
+    #copyBoard {
+      cursor: pointer;
+    }
+  </style>
+  <style type="text/css">
+    #copyBoard {
+      cursor: pointer;
+    }
+  </style>
   <!-- fontawesome 5  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 </head>
@@ -175,59 +176,65 @@ if (isset($_GET['payment']) && $_GET['payment'] != '') {
 
 
 
-                  $image = $_POST['proof'];
+
                   $date = date('Y-m-d');
                   $time = date('H-m-s a');
                   $transactionId  = $_POST['transactionId'];
 
+                  $target_dir = "../uploads/"; // Folder where images will be stored
+                  $target_file = $target_dir . basename($_FILES["image"]["name"]);
+
+                  $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 
-                  $update = mysqli_query($connection, "UPDATE `deposit` SET `payment_proof`='$image',`date`='$date',`time`='$time',`status`='pending' WHERE `transactionId`='$transactionId'");
+                  if (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
 
 
-
-
-
-                  echo mysqli_error($connection);
-
-
-                  $message = "<html>";
-                  $message .= "<body style=\"margin: 0%; padding: 0%;\">";
-                  $message .= "<link href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap\" rel=\"stylesheet\">";
-                  $message .= "<section style=\"width: 100%; font-family: 'Roboto', sans-serif; background-color: #f1f2f3; padding: 20px; color: #333;\">";
-                  $message .= "<div style=\"width: 90%; margin: 0 auto; background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);\">";
-                  $message .= "<div style=\"background-color: #e1e1e1; padding: 20px; border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center;\">";
-                  $message .= "<img src=\"https://assetvest-shareholder.com/assets/images/logoIcon/logo.png\" alt=\"Assetvest\" style=\"width: 150px; height: 100px; margin-right: 10px;\">";
-                  $message .= "<span style=\"font-size: 24px; font-weight: 500; color: #333; text-align: center;\"></span>";
-                  $message .= "</div>";
-                  $message .= "<div style=\"padding: 20px;\">";
-                  $message .= "<p>Hi $fullname,</p>";
-                  $message .= "<p>Your deposit request of <strong> $amount USD</strong> via <strong>$paymentMethod</strong> was submitted successfully.</p>";
-                  $message .= "<h2 style=\"font-size: 18px; margin-top: 20px;\">Details of your Deposit:</h2>";
-                  $message .= "<p><strong>Amount:</strong> $amount USD</p>";
-                  $message .= "<p style=\"color: red;\"><strong style=\"color: black;\">Charge:</strong> 0 USD</p>";
-                  $message .= "<p><strong>Conversion Rate:</strong> 1 USD = 1 USD</p>";
-                  $message .= "<p><strong>Payable:</strong> $amount USD</p>";
-                  $message .= "<p><strong>Pay via:</strong> $paymentMethod</p>";
-                  $message .= "<p><strong>Transaction Number:</strong> $transactionId</p>";
-                  $message .= "</div>";
-                  $message .= "</div>";
-                  $message .= "</section>";
-                  $message .= "</body>";
-                  $message .= "</html>";
-
-                  $from = "support@assetvest-shareholder.com";
-                  $from_name = "AssetVest Support";
-                  $subject = 'AssetVest Shareholder Deposit Request';
-
-                  $result = smtpmailer($email, $from, $from_name, $subject, $message);
-
-
-
-
-
-                  if ($update) {
                     echo "<script>
+                            window.onload = ()=>{
+                                Model('Sorry, only JPG, JPEG, PNG & GIF files are allowed.','red');
+                            };
+                        </script>";
+                  } else {
+
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                      $image = htmlspecialchars(basename($_FILES["image"]["name"]));
+                      $update = mysqli_query($connection, "UPDATE `deposit` SET `payment_proof`='$image',`date`='$date',`time`='$time',`status`='pending' WHERE `transactionId`='$transactionId'");
+                      echo mysqli_error($connection);
+                      $message = "<html>";
+                      $message .= "<body style=\"margin: 0%; padding: 0%;\">";
+                      $message .= "<link href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap\" rel=\"stylesheet\">";
+                      $message .= "<section style=\"width: 100%; font-family: 'Roboto', sans-serif; background-color: #f1f2f3; padding: 20px; color: #333;\">";
+                      $message .= "<div style=\"width: 90%; margin: 0 auto; background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);\">";
+                      $message .= "<div style=\"background-color: #e1e1e1; padding: 20px; border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center;\">";
+                      $message .= "<img src=\"https://assetvest-shareholder.com/assets/images/logoIcon/logo.png\" alt=\"Assetvest\" style=\"width: 150px; height: 100px; margin-right: 10px;\">";
+                      $message .= "<span style=\"font-size: 24px; font-weight: 500; color: #333; text-align: center;\"></span>";
+                      $message .= "</div>";
+                      $message .= "<div style=\"padding: 20px;\">";
+                      $message .= "<p>Hi $fullname,</p>";
+                      $message .= "<p>Your deposit request of <strong> $amount USD</strong> via <strong>$paymentMethod</strong> was submitted successfully.</p>";
+                      $message .= "<h2 style=\"font-size: 18px; margin-top: 20px;\">Details of your Deposit:</h2>";
+                      $message .= "<p><strong>Amount:</strong> $amount USD</p>";
+                      $message .= "<p style=\"color: red;\"><strong style=\"color: black;\">Charge:</strong> 0 USD</p>";
+                      $message .= "<p><strong>Conversion Rate:</strong> 1 USD = 1 USD</p>";
+                      $message .= "<p><strong>Payable:</strong> $amount USD</p>";
+                      $message .= "<p><strong>Pay via:</strong> $paymentMethod</p>";
+                      $message .= "<p><strong>Transaction Number:</strong> $transactionId</p>";
+                      $message .= "</div>";
+                      $message .= "</div>";
+                      $message .= "</section>";
+                      $message .= "</body>";
+                      $message .= "</html>";
+
+                      $from = "support@kingsleycrypto.com";
+                      $from_name = $sitename;
+                      $subject = $sitename . 'Deposit Request';
+
+                      $result = smtpmailer($email, $from, $from_name, $subject, $message);
+
+
+                      if ($update) {
+                        echo "<script>
                                   window.onload = ()=>{
                                       Model('Your deposit is under views .','green');
                                       setTimeout(()=>{
@@ -235,17 +242,26 @@ if (isset($_GET['payment']) && $_GET['payment'] != '') {
                                       },3000)
                                   };
                               </script>";
-                  } else {
-                    echo "<script>
+                      } else {
+                        echo "<script>
                             window.onload = ()=>{
                                 Model('Sorry, Something went wrong.','red');
                             };
                         </script>";
+                      }
+                    } else {
+
+                      echo "<script>
+                            window.onload = ()=>{
+                                Model('Sorry, there was an error uploading your file','red');
+                            };
+                        </script>";
+                    }
                   }
                 }
 
                 ?>
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                   <input type="hidden" name="transactionId" value="<?php echo $transactionId ?>">
                   <div class="row">
 
@@ -253,22 +269,20 @@ if (isset($_GET['payment']) && $_GET['payment'] != '') {
                       <p class="text-center mt-2">You have requested <b class="text-success"><?php echo $amount ?> USD</b> , Please pay <b class="text-success"><?php echo $amount ?> $</b> for successful payment </p>
                       <h4 class="text-center mb-4">Please click on the copy address button and send BTC to address.</h4>
 
-                      <!-- 
-                      <input class="my-4 text-center" type="text" value="" id="myInput" readonly>
-                      <button onclick="myFunction()">Copy Wallet address</button>
 
-                      <script>
-                        function myFunction() {
-                          var copyText = document.getElementById("myInput");
-                          copyText.select();
-                          copyText.setSelectionRange(0, 99999)
-                          document.execCommand("copy");
-                          alert("payment address copied");
-                        }
-                      </script> -->
 
                       <div class="input-group">
-                        <input type="text"  class="form-control" id="myInput" value="21528whgafsaxcshjey654wdfwshn" readonly>
+
+                      <?php
+
+                       $selectPayment = mysqli_query($connection, "SELECT * FROM `payment_methods` WHERE `id` = '$paymentid'");
+
+                       $fetchPayment = mysqli_fetch_assoc($selectPayment);
+ 
+                       $Paymentaddress =  $fetchPayment['address'];
+
+                      ?>
+                        <input type="text" class="form-control" id="myInput" value="<?php echo $Paymentaddress ?>" readonly>
                         <div class="input-group-append">
                           <span class="input-group-text copytext copyBoard" id="copyBoard"> <i class="fa fa-copy"></i>
                           </span>
@@ -285,7 +299,7 @@ if (isset($_GET['payment']) && $_GET['payment'] != '') {
                         <label><strong>Payment Proof <span class="text-danger">*</span> </strong></label>
                         <br>
 
-                        <input type="text" name="proof" required />
+                        <input type="file" name="image" required />
 
                       </div>
 
@@ -372,26 +386,7 @@ if (isset($_GET['payment']) && $_GET['payment'] != '') {
 
 
 
-  <!--<script src="//code.tidio.co/vyjlzfeahmmhvfnczkudrzrkecbpbd5l.js" async></script>-->
-  <!-- Smartsupp Live Chat script -->
-  <script type="text/javascript">
-    var _smartsupp = _smartsupp || {};
-    _smartsupp.key = 'c48079b4813e4c2b97f501a714ab7ddace14ea3e';
-    window.smartsupp || (function(d) {
-      var s, c, o = smartsupp = function() {
-        o._.push(arguments)
-      };
-      o._ = [];
-      s = d.getElementsByTagName('script')[0];
-      c = d.createElement('script');
-      c.type = 'text/javascript';
-      c.charset = 'utf-8';
-      c.async = true;
-      c.src = 'https://www.smartsuppchat.com/loader.js?';
-      s.parentNode.insertBefore(c, s);
-    })(document);
-  </script>
-  <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
 
   <script>
     (function() {
@@ -434,19 +429,7 @@ if (isset($_GET['payment']) && $_GET['payment'] != '') {
   </script>
 
 
-  <script>
-    var Tawk_API = Tawk_API || {},
-      Tawk_LoadStart = new Date();
-    (function() {
-      var s1 = document.createElement("script"),
-        s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = "https://embed.tawk.to/61e18cf4b84f7301d32b08aa/1fpcgt7ka";
-      s1.charset = "UTF-8";
-      s1.setAttribute("crossorigin", "*");
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  </script>
+
 
   <script>
     (function() {
@@ -457,20 +440,20 @@ if (isset($_GET['payment']) && $_GET['payment'] != '') {
     })();
   </script>
 
-<script>
-            $('.copyBoard').click(function() {
-                "use strict";
-                var copyText = document.getElementById("myInput");
-                copyText.select();
-                copyText.setSelectionRange(0, 99999);
-                /*For mobile devices*/
-                document.execCommand("copy");
-                iziToast.success({
-                    message: "Copied wallet address",
-                    position: "topRight"
-                });
-            });
-        </script>
+  <script>
+    $('.copyBoard').click(function() {
+      "use strict";
+      var copyText = document.getElementById("myInput");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      /*For mobile devices*/
+      document.execCommand("copy");
+      iziToast.success({
+        message: "Copied wallet address",
+        position: "topRight"
+      });
+    });
+  </script>
 
 
 

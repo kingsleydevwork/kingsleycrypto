@@ -9,8 +9,8 @@ function smtpmailer($to, $from, $from_name, $subject, $body) {
     $mail->SMTPSecure = 'ssl'; // Using 'ssl' with port 465 as per your original configuration
     $mail->Host = 'mail.assetvest-shareholder.com';
     $mail->Port = 465; // Or 587 if using 'tls'
-    $mail->Username = 'support@assetvest-shareholder.com';
-    $mail->Password = 'support@assetvest-shareholder.com'; // Use your actual email password
+    $mail->Username = 'support@kingsleycrypto.com';
+    $mail->Password = 'support@kingsleycrypto.com'; // Use your actual email password
 
     $mail->IsHTML(true);
     $mail->From = $from;

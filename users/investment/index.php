@@ -15,7 +15,7 @@ include('../../server/config.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="ATC3iqVscqeIVw3M1iFFpqMAIKFf1KP3J3VsCgM4">
-    <title><?php  echo $sitename ?> - Investment Plan</title>
+    <title><?php echo $sitename ?> - Investment Plan</title>
     <meta name="description" content="A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers. We help people achieve their goals by providing the right funding, wealth management, and insurance advice.">
     <meta name="keywords" content="bitcoin,investment,trading,capitalvault,asset,asssetvest-trading,capitalvault Shareholder">
     <link rel="shortcut icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/favicon.png" type="image/x-icon">
@@ -24,14 +24,14 @@ include('../../server/config.php');
     <link rel="apple-touch-icon" href="<?php echo $domain  ?>users/assets/images/logoIcon/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="<?php  echo $sitename ?> - Investment Plan">
+    <meta name="apple-mobile-web-app-title" content="<?php echo $sitename ?> - Investment Plan">
 
-    <meta itemprop="name" content="<?php  echo $sitename ?> - Investment Plan">
+    <meta itemprop="name" content="<?php echo $sitename ?> - Investment Plan">
     <meta itemprop="description" content="">
     <meta itemprop="image" content="<?php echo $domain  ?>users/assets/images/seo/636b9388b9a611667994504.png">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<?php  echo $sitename ?> - A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers">
+    <meta property="og:title" content="<?php echo $sitename ?> - A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers">
     <meta property="og:description" content="A Global Full Reserve Equity Investment Management Built On Decentralized Ledgers. We help people achieve their goals by providing the right funding, wealth management, and insurance advice.">
     <meta property="og:image" content="<?php echo $domain  ?>users/assets/images/seo/636b9388b9a611667994504.png" />
     <meta property="og:image:type" content="image/png" />
@@ -103,7 +103,7 @@ include('../../server/config.php');
         <!-- inner hero end -->
         <section class="pt-60 pb-120">
             <div class="container">
-                <div id="planContainer" class="row mb-none-30 justify-content-center">
+                <div >
                     <div class="col-md-12">
                         <div class="right float-right mb-5">
                             <a href="<?php echo $domain  ?>users/investment/investement.php" class="btn cmn-btn">
@@ -112,8 +112,10 @@ include('../../server/config.php');
                         </div>
                     </div>
 
+                    <div id="planContainer" class="row row-payment col-12">
+
+                    </div>
                 </div>
-            </div>
         </section>
 
 
@@ -144,23 +146,23 @@ include('../../server/config.php');
                         $invest_return = $_POST['invest_return'];
                         $invest_min = $_POST['invest_min'];
                         $invest_max = $_POST['invest_max'];
-                    
+
                         $wallet_type = $_POST['wallet_type'];
 
                         $formattedDate = date("Y-m-d");
                         $time = date("H:m:s");
-                    
+
                         $transactionId = generateRandomString(10);
-                    
+
                         if ($invest_amount > $invest_min && $invest_amount < $invest_max) {
-                         
-                    
+
+
                             // Handle deposit
                             if ($wallet_type == 'deposit') {
                                 if ($invest_amount < $deposit && $invest_amount > 0) {
-                                    $query = mysqli_query($connection, "INSERT INTO `investment`(`user`, `plan`, `amount`, `return`, `transactionId`) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId')");
+                                    $query = mysqli_query($connection, "INSERT INTO `investment`(`user`, `plan`, `amount`, `return`, `transactionId`,`date`,`time`) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId','$formattedDate','$time')");
                                     echo mysqli_error($connection);
-                    
+
                                     if ($query) {
                                         echo "<script>
                                             window.onload = () => {
@@ -183,13 +185,13 @@ include('../../server/config.php');
                                     </script>";
                                 }
                             }
-                    
+
                             // Handle investment
                             elseif ($wallet_type == 'invest') {
                                 if ($invest_amount < $interests && $invest_amount > 0) {
                                     $query = mysqli_query($connection, "INSERT INTO `investment`(`user`, `plan`, `amount`, `return`, `transactionId`,`date`,`time`) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId','$formattedDate','$time')");
                                     echo mysqli_error($connection);
-                    
+
                                     if ($query) {
                                         echo "<script>
                                             window.onload = () => {
@@ -222,9 +224,9 @@ include('../../server/config.php');
                             </script>";
                         }
                     }
-                    
 
-                  
+
+
                     ?>
 
                     <form method="post" class="register">
@@ -297,7 +299,7 @@ include('../../server/config.php');
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 text-md-left text-center">
-                            <p>© 2024 <a href="https://www.assetvest-trading.com" class="base--color"><?php  echo $sitename ?></a>. All rights reserved</p>
+                            <p>© 2024 <a href="https://www.assetvest-trading.com" class="base--color"><?php echo $sitename ?></a>. All rights reserved</p>
                         </div>
                         <div class="col-lg-6">
                             <ul class="social-link-list d-flex flex-wrap justify-content-md-end justify-content-center">
@@ -374,39 +376,38 @@ include('../../server/config.php');
 
 
     <script>
-        
-    $(document).ready(function() {
-        // Function to fetch investment plans from the server
-        function fetchInvestmentPlans() {
-            $.ajax({
-                url: '../../server/client/api/plan.php',  // URL of the PHP script
-                type: 'GET',  // HTTP request type
-                success: function(response) {
-                    // Call function to create HTML cards with the fetched data
-                    createPlanCards(JSON.parse(response));
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching investment plans:", error);
-                }
-            });
-        }
+        $(document).ready(function() {
+            // Function to fetch investment plans from the server
+            function fetchInvestmentPlans() {
+                $.ajax({
+                    url: '../../server/client/api/plan.php', // URL of the PHP script
+                    type: 'GET', // HTTP request type
+                    success: function(response) {
+                        // Call function to create HTML cards with the fetched data
+                        createPlanCards(JSON.parse(response));
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching investment plans:", error);
+                    }
+                });
+            }
 
-        // Call the fetchInvestmentPlans function to get the data
-        fetchInvestmentPlans();
-    });
+            // Call the fetchInvestmentPlans function to get the data
+            fetchInvestmentPlans();
+        });
 
-    // Function to create HTML for each investment plan
-    function createPlanCards(plans) {
-        const planContainer = document.getElementById('planContainer');
+        // Function to create HTML for each investment plan
+        function createPlanCards(plans) {
+            const planContainer = document.getElementById('planContainer');
 
-        // Clear any existing content in the container
-        planContainer.innerHTML = '';
+            // Clear any existing content in the container
+            planContainer.innerHTML = '';
 
-        // Iterate over each plan and create the HTML for each
-        plans.forEach(plan => {
-             $imageLink ="<?php echo $domain ?>assets/templates/bit_gold/images/bg" + plan.background
-            const planCard = `
-            <div class="col-lg-4 mb-30">
+            // Iterate over each plan and create the HTML for each
+            plans.forEach(plan => {
+                $imageLink = "<?php echo $domain ?>assets/templates/bit_gold/images/bg" + plan.background
+                const planCard = `
+            <div class="col-4 mb-30">
                 <div class="package-card text-center bg_img" data-background="${plan.background}">
                     <h4 class="package-card__title base--color mb-2">${plan.title}</h4>
                     <ul class="package-card__features mt-4">
@@ -418,11 +419,9 @@ include('../../server/config.php');
                 </div>
             </div>
         `;
-            planContainer.insertAdjacentHTML('beforeend', planCard);
-        });
-    }
-
-
+                planContainer.innerHTML += planCard
+            });
+        }
     </script>
 
 

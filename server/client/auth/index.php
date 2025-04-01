@@ -1,7 +1,7 @@
 
 <?php
 
-$url = $domain . 'login';
+$url = $domain . 'users/login/';
 
 // echo $_SESSION['user_login'] . 'fnnfnf';
 if (isset($_SESSION['user_login']) && $_SESSION['user_login'] != "") {
