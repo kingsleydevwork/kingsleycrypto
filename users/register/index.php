@@ -1,6 +1,7 @@
 <?php 
 include('../../server/connection.php');
 include('../../server/config.php');
+include('../../server/mailer.php');
 
 function generateCode($length = 6) {
     // Define the characters allowed in the code: uppercase letters and digits
@@ -134,6 +135,35 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
 
         // Execute the statement
         if ($stmt->execute()) {
+                $body = "
+                        <html>
+                        <body style='margin: 0; padding: 0; font-family: Roboto, sans-serif; background: #131722;'>
+                        <section style='width: 100%; background-color: #f1f2f3; color: #333;'>
+                        <div style='width: 100%; max-width: 600px; margin: 0 auto;'>
+                        <div style='padding: 20px; background-color: #131722; text-align: center;'>
+                        <h2 style='color: #fff; font-size: 24px;'>Welcome aboard, $firstname $lastname !</h2>
+                        </div>
+                        <div style='padding: 20px; background: #fff; border-radius: 0 0 8px 8px;'>
+                        <p>Dear $firstname,</p>
+                        <p>Thank you for joining $sitename , your gateway to seamless investment exchange trading. We are delighted to have you as part of our community.</p>
+                        <p>Thank you for choosing to invest with us. Our team of experts is committed to helping you achieve your investment goals, and we are here to support you every step of the way.</p>
+                        <p>To begin your journey with us, please make a deposit into your preferred investment plan and start enjoying daily profits with ease.</p>
+                        <p>Best regards,</p>
+                        <p>The $sitename  Team</p>
+                        
+                        </div>
+                        <div style='text-align: center; color: #666; margin-top: 20px; font-size: 12px;'> 
+                        &copy; 2020 $sitename  . All rights reserved. 
+                        </div>
+                        </div>
+                        </section>
+                        </body>
+                        </html>";
+
+                
+                $subj = "Welcome to $sitename  ! ";
+                $result = smtpmailer($email, $siteemail, $sitename, $subj, $body);
+
           echo "<script>
                     window.onload = ()=>{
                         Model('Registration successful','green');

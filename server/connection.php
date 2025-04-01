@@ -6,6 +6,7 @@
     $user = "root";
     $host = "localhost";
     $password = "";
+    $siteemail = 'support@fluxionhub.com';
 
     $connection = mysqli_connect($host,$user,$password,$database);
 
