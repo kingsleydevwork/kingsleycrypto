@@ -1,4 +1,7 @@
-<?php include('../../server/connection.php');
+<?php 
+include('../../server/connection.php');
+include('../../server/config.php');
+
 function generateCode($length = 6) {
     // Define the characters allowed in the code: uppercase letters and digits
     $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
