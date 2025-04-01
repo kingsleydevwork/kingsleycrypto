@@ -158,49 +158,6 @@ if(mysqli_num_rows($selectInvested)){
 
         <div class="pt-90 pb-40">
 
-            <!-- <div class="container mb-3">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12 pl-lg-5 mt-lg-0 my-5">
-                        <div class="row mb-none-30">
-                            <div class="col-md-12">
-
-                                <div class="card">
-                                    <h5 class="card-header">How it works</h5>
-                                    <div class="card-body">
-                                        <h5 class="card-title">This is how to invest on fluxsionhub Shareholders</h5>
-                                        <div class="row">
-                                            <div class="col-md-4 text-center mb-2">
-                                                <span class="fa fa-money-bill fa-3x text-white"></span>
-                                                <p>1) Fund you account using one of our deposit method(cryptocurrency is preferable).</p>
-                                            </div>
-                                            <div class="col-md-4 text-center mb-2">
-                                                <span class="fa fa-list fa-3x text-white"></span>
-                                                <p>2) Choose a package/plan of your choice from our plan menu and activate(you will get a mail once your plans is active.)</p>
-                                            </div>
-                                            <div class="col-md-4 text-center mb-2">
-                                                <span class="fa fa-desktop fa-3x text-white"></span>
-                                                <p>3) Monitor your earning from your dashboard;once a plan expires you can request for a withdrawal.</p>
-                                            </div>
-                                            <div class="col-md-4 text-center mb-2">
-                                                <span class="fa fa-circle-info fa-3x text-white"></span>
-                                                <p>4) Compunding of profits is allowed;profits can be compounded up to 6 Months.</p>
-                                            </div>
-                                            <div class="col-md-4 text-center mb-2">
-                                                <span class="fa fa-headset fa-3x text-white"></span>
-                                                <p>5) If you face any issues or need any information our live support is always available to help you; click on the chat bubble located at them footer.</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-center mt-3">
-                                            <center>fluxsionhub-sharehold.com</center>
-                                            <a href="/plan" class="btn btn-success">Choose Plans <?= $lastname ?></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
 
 
             <div class="container my-3">
@@ -220,7 +177,7 @@ if(mysqli_num_rows($selectInvested)){
                                     </div>
                                     <hr>
                                     <p class="mb-0">Your current Referral earning : </p>
-                                    <h4 class="currency-amount" style="color:#fbc013">$<?= $referral ?></h4>
+                                    <h4 class="currency-amount" style="color:#fbc013">$<php= $referral ?></h4>
                                     <!--<button type="button" class="btn btn-primary">
                   Total Referrals <span class="badge bg-secondary">4</span>
                 </button>-->
@@ -230,47 +187,6 @@ if(mysqli_num_rows($selectInvested)){
                     </div>
                 </div>
             </div>
-<!-- 
-            <div class="container mb-4">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12 pl-lg-5 mt-lg-0 mt-5">
-                        <div class="row mb-none-30">
-                            <div class="col-md-12 mb-4">
-
-                                <div class="card">
-                                    <h5 class="card-header">BECOME A SHAREHOLDER</h5>
-                                    <div class="card-body">
-                                        <p class="card-title">
-                                            We actually made it possible for our investors to own a share in the company and also earn their shares percentage like the masterminds behind asset trading. Becoming a SHAREHOLDER will earn you percentage commission when deposit is been made by any single
-                                            user in our platform.
-                                            <br /> The SHAREHOLDER'S PLAN gives you multiple packages below,you can become a shareholder by minimum deposit of 35,000$ and enjoy more features as a shareholder.
-                                        </p>
-
-                                        <h3 class="my-3">SHAREHOLDER PLAN: </h3>
-
-                                        <div class="row">
-                                            <div class="col-md-4 mb-3">
-                                                <h3>$35,000</h3>
-                                                <p>2% Profit Return Everyday</p>
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                                <h3>$50,000</h3>
-                                                <p>3.5% Profit Return Everyday</p>
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                                <h3>$70,000</h3>
-                                                <p>5% Profit Return Everyday</p>
-                                            </div>
-                                        </div>
-
-                                        <p class="text-bold">Duration: LIFE TIME (no limit)you are more like an owner.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
 
 
             <div class="pt-40 pb-50">
@@ -437,7 +353,7 @@ if(mysqli_num_rows($selectInvested)){
                                                 while ($row = mysqli_fetch_assoc($select)) {
                                                     $count++ ?>
 
-                                                    <tr>
+                                                    <tr style="margin-bottom: 10px;">
                                                         <td data-label="Date"><?php echo $row['date'] ?></td>
                                                         <td data-label="Transaction ID"><span class="text-primary"><?php echo $row['transactionId'] ?></span>
                                                         </td>
