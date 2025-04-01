@@ -167,7 +167,7 @@ include('../../server/config.php');
                                         echo "<script>
                                             window.onload = () => {
                                                 Model('Investment successfully placed', 'green');
-                                                window.onload('./investement.php')
+                                                window.location.href ='./investement.php'
                                             };
                                         </script>";
                                     } else {
