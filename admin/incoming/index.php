@@ -395,16 +395,16 @@ if (isset($_GET['user_id']) && isset($_GET['ap_id'])) {
     if (mysqli_num_rows($sql2)) {
 
       $fetch = mysqli_fetch_assoc($sql2);
-
-      $main_bal = $fetch['bal'];
+      $main_bal = $fetch['deposit'];
       $updated_bal =  $amount + $main_bal;
 
-      $sql3 = mysqli_query($connection, "UPDATE `client` SET `bal`='$updated_bal' WHERE `id` = '$user_id'");
+      $sql3 = mysqli_query($connection, "UPDATE `client` SET `deposit`='$updated_bal' WHERE `id` = '$user_id'");
 
       if ($sql3) {
 
         // email sending
         echo "<script> location.href='index.php' </script>";
+        
       } else {
 
         echo "<script> alert('APPROVED BUT BALANCE DID NOT REFLECT') </script>";
