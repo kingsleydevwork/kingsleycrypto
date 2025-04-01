@@ -103,19 +103,12 @@
                 <div class="row justify-content-center mt-2">
                     <div class="col-md-12">
                         <div class="right float-right mb-5">
-                            <a style="display: none;" href="
-                                                javascript:void(0)
-                        
-                        " class="btn cmn-btn mb-md-0 mb-3 
+                            <a style="display: none;" href="" class="btn cmn-btn mb-md-0 mb-3 
                                                 btn-disabled
                                                 ">
                             Deposit Wallet Transactions                            
                         </a>
-                            <a href="
-
-                                                <?php echo $domain  ?>users/transactions/interest-wallet
-                        
-                        " class="btn cmn-btn mb-md-0
+                            <a class="btn cmn-btn mb-md-0
                                                 ">
                             Interest Wallet Transactions                            
                         </a>

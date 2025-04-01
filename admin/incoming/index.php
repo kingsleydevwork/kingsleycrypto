@@ -264,7 +264,7 @@ function timeAgo($datetime)
                         <td><?php echo $data['email'] ?></td>
                         <td><?php echo $data['amount'] ?></td>
                         <td><?php echo $data['date'] ?></td>
-                        <td><a href="">view payment slip</a></td>
+                        <td><a href="<?php echo $data['payment_imge'] ?>">view payment slip</a></td>
                         <td>
                           <a href="?user_id=<?php echo $data['user'] ?>&ap_id=<?php echo $data['ap_id']  ?>&amount=<?php echo $data['amount']  ?>"><span class="badge border border-success text-success">Approve</span></a>
                         </td>

@@ -2,7 +2,7 @@
 
 use Dom\Mysql;
 
- include('../../server/connection.php')  ?>
+include('../../server/connection.php')  ?>
 <?php include('../../server/auth/admin/index.php')  ?>
 <?php
 function timeAgo($datetime)
@@ -270,11 +270,11 @@ function timeAgo($datetime)
                         <td><?php echo $data['date'] ?></td>
                         <td><?php echo $data['duration'] ?></td>
                         <td>
-                                <a href="?user_id=<?php echo $data['user'] ?>&ap_id=<?php echo $data['ap_id']  ?>&amount=<?php echo $data['amount']  ?>"><span class="badge border border-success text-success">Approve</span></a>
+                          <a href="?user_id=<?php echo $data['user'] ?>&ap_id=<?php echo $data['ap_id']  ?>&amount=<?php echo $data['amount']  ?>"><span class="badge border border-success text-success">Approve</span></a>
                         </td>
 
                         <td>
-                            <a href="?user_id=<?php echo $data['user'] ?>&del_id=<?php echo $data['ap_id']  ?>"><span class="badge border border-danger text-danger">Decline</span></a>
+                          <a href="?user_id=<?php echo $data['user'] ?>&del_id=<?php echo $data['ap_id']  ?>"><span class="badge border border-danger text-danger">Decline</span></a>
                         </td>
 
 
@@ -356,27 +356,24 @@ function timeAgo($datetime)
 </html>
 
 
-<?php  
+<?php
 
-if (isset($_GET['user_id']) && isset($_GET['del_id']) ) {
+if (isset($_GET['user_id']) && isset($_GET['del_id'])) {
 
-    $del_id = $_GET['del_id'];
+  $del_id = $_GET['del_id'];
 
-    $sql = mysqli_query($connection,"UPDATE `investment` SET `status`='running' WHERE `id` = '$del_id'");
+  $sql = mysqli_query($connection, "UPDATE `investment` SET `status`='declined' WHERE `id` = '$del_id'");
 
-    if ($sql) {
+  if ($sql) {
 
-        echo "<script> location.href='index.php' </script>";
-
-
-
-    }else{
+    echo "<script> location.href='index.php' </script>";
+  } else {
 
 
-        echo "<script> alert('UNABLE TO DECLINE DEPOSIT') </script>";
-    }
+    echo "<script> alert('UNABLE TO DECLINE DEPOSIT') </script>";
+  }
 
-    // email sending 
+  // email sending 
 
 
 
@@ -385,27 +382,46 @@ if (isset($_GET['user_id']) && isset($_GET['del_id']) ) {
 
 
 
-if (isset($_GET['user_id']) && isset($_GET['ap_id']) ) {
+if (isset($_GET['user_id']) && isset($_GET['ap_id'])) {
 
-    $del_id = $_GET['ap_id'];
-    $user_id = $_GET['user_id'];
-    $amount = $_GET['amount'];
+  $del_id = $_GET['ap_id'];
+  $user_id = $_GET['user_id'];
+  $amount = $_GET['amount'];
 
-    $sql = mysqli_query($connection,"UPDATE `investment` SET `status`='declined' WHERE `id` = '$del_id'");
+  $sql = mysqli_query($connection, "UPDATE `investment` SET `status`='running' WHERE `id` = '$del_id'");
 
-    if ($sql) {
+  if ($sql) {
 
+
+    $sql2 = mysqli_query($connection, "SELECT * FROM `client` WHERE `id`='$user_id'");
+
+    if (mysqli_num_rows($sql2)) {
+
+      $fetch = mysqli_fetch_assoc($sql2);
+      $main_bal = $fetch['deposit'];
+      $updated_bal = $main_bal - $amount;
+
+      $sql3 = mysqli_query($connection, "UPDATE `client` SET `deposit`='$updated_bal' WHERE `id` = '$user_id'");
+
+      if ($sql3) {
+
+        // email sending
         echo "<script> location.href='index.php' </script>";
+      } else {
 
+        echo "<script> alert('APPROVED BUT BALANCE DID NOT REFLECT') </script>";
+      }
+    } else {
 
-
-    }else{
-
-
-        echo "<script> alert('UNABLE TO APPROVE DEPOSIT') </script>";
+      echo "<script> alert('APPROVED BUT BALANCE DID NOT REFLECT') </script>";
     }
+  } else {
 
-    // email sending 
+
+    echo "<script> alert('UNABLE TO APPROVE DEPOSIT') </script>";
+  }
+
+  // email sending 
 
 
 

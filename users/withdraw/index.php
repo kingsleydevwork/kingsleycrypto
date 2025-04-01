@@ -140,22 +140,22 @@ include('../../server/client/auth/index.php');
                         $paymentImage = $_POST['paymentImage'];
                         $date = date('M-D-Y');
                         $time = date('m:h A');
-
-
-
+                        $from = $_POST['from'];
+                        $sql = mysqli_query($connection, "SELECT * FROM `client`  WHERE `id`='2' ");
+                        $fetch = mysqli_fetch_assoc($sql);
                         $withdrawal_id = generateRandomString();
 
-                        $total = $invested + $referral + $deposit + $interests;
-
-                        echo "<script>alert('$total')</script>";
+                        $total = $fetch[$from];
 
 
 
-                        if ( $amount <= $total && $amount > 0) {
+
+
+                        if ($amount < $total) {
                             $sql_insert = mysqli_query($connection, "INSERT INTO `transations`(`transactionId`, `user`, `Amount`, `wallet`, `postbalance`, `date`,`time`,`type`) VALUES ('$withdrawal_id','$id','$amount','','$deposit','$date','$time','withdrawal')");
 
 
-                            $statement = mysqli_query($connection, "INSERT INTO `withdrawal`(`user`, `amount`, `paymentmethod`, `date`, `charge`, `time`,`transactionId`) VALUES ('$id','$amount','$paymentMethod','$date','0','$time','$withdrawal_id')");
+                            $statement = mysqli_query($connection, "INSERT INTO `withdrawal`(`user`,`from_bal`,`amount`, `paymentmethod`, `date`, `charge`, `time`,`transactionId`) VALUES ('$id','$from','$amount','$paymentMethod','$date','0','$time','$withdrawal_id')");
 
 
 
@@ -168,7 +168,7 @@ include('../../server/client/auth/index.php');
                                 window.open('./withdraw.php','_self')
                                 },1000)
                                 };
-                            </script>";
+                                 </script>";
                             } else {
                                 echo "<script>
                                     window.onload = ()=>{
@@ -176,7 +176,7 @@ include('../../server/client/auth/index.php');
                                     };
                                 </script>";
                             }
-                        }else{
+                        } else {
                             echo "<script>
                                     window.onload = ()=>{
                                         Model('Insufficient Balance','red');
@@ -212,6 +212,30 @@ include('../../server/client/auth/index.php');
                                     <div class="input-group-prepend">
                                         <span class="input-group-text addon-bg currency-addon">USD</span>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>From:</label>
+                                <div class="input-group">
+                                    <!-- <input id="amount" type="text" class="form-control form-control-lg" onkeyup="this.value = this.value.replace (/^\.|[^\d\.]/g, '')" name="amount" placeholder="0.00" required="" value=""> -->
+
+                                    <select name="from">
+
+                                        <option value="invested">invested balance</option>
+                                        <option value="interests">commision balance</option>
+                                        <option value="referral">referal balance</option>
+
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Address:</label>
+                                <div class="input-group">
+                                    <input id="amount" type="text" class="form-control form-control-lg">
+
                                 </div>
                             </div>
 

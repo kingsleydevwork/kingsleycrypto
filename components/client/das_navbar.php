@@ -15,7 +15,6 @@
                                 <li><a href="<?php echo $domain  ?>users/investment">Investment</a></li>
                                 <li><a href="<?php echo $domain  ?>users/deposit">Deposit</a></li>
                                 <li><a href="<?php echo $domain  ?>users/withdraw">Withdraw</a></li>
-                                <li><a href="<?php echo $domain  ?>users/transactions/">Transactions</a></li>
                                 <li style="" class="menu_has_children"><a href="#0">Referrals</a>
                                     <ul class="sub-menu">
                                         <li><a href="<?php echo $domain  ?>users/referral/">Referred userss</a></li>
@@ -29,7 +28,7 @@
                                         <li><a href="<?php echo $domain  ?>users/setting/change-password">Change Password</a></li>
                                         <li><a href="<?php echo $domain  ?>users/support_ticket">
                                                 Support Ticket</a></li>
-                                        <li><a href="#">Promotional Tool</a></li>
+                                        <li><a href="<?php echo $domain  ?>users/transactions">Commision</a></li>
                                         <li><a href="<?php echo $domain  ?>users/two_factor">2FA Security</a></li>
                                         <li><a href="<?php echo $url ?>"> Logout</a></li>
                                     </ul>

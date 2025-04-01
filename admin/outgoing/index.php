@@ -264,7 +264,7 @@ function timeAgo($datetime)
                         <td><?php echo $data['amount'] ?></td>
                         <td><?php echo $data['date'] ?></td>
                         <td>
-                                <a href="?user_id=<?php echo $data['user'] ?>&ap_id=<?php echo $data['ap_id']  ?>&amount=<?php echo $data['amount']  ?>"><span class="badge border border-success text-success">Approve</span></a>
+                                <a href="?user_id=<?php echo $data['user'] ?>&ap_id=<?php echo $data['ap_id']  ?>&amount=<?php echo $data['amount']  ?>&from=<?php echo $data['from_bal']  ?>"><span class="badge border border-success text-success">Approve</span></a>
                         </td>
 
                         <td>
@@ -397,10 +397,10 @@ if (isset($_GET['user_id']) && isset($_GET['ap_id']) ) {
 
             $fetch = mysqli_fetch_assoc($sql2);
 
-            $main_bal = $fetch['bal'];
-            $updated_bal = $main_bal - $amount;
+            $mode = $_GET['from'] ;
+            $updated_bal = $fetch[$mode] - $amount;
 
-            $sql3 = mysqli_query($connection,"UPDATE `client` SET `bal`='$updated_bal' WHERE `id` = '$user_id'");
+            $sql3 = mysqli_query($connection,"UPDATE `client` SET `$mode`='$updated_bal' WHERE `id` = '$user_id'");
 
             if ($sql3 ) {
 

@@ -139,19 +139,19 @@ include('../../server/client/auth/index.php');
 
                                                 <?php
 
-                                                 if($row['status'] == 'pending'){ ?>
-                                                 <span style="text-transform: capitalize;" class="badge text-white badge-warning"><?php echo $row['status']; ?> </span>
+                                                if ($row['status'] == 'pending') { ?>
+                                                    <span style="text-transform: capitalize;" class="badge text-white badge-warning"><?php echo $row['status']; ?> </span>
 
-                                               <?php  }else if($row['status'] == 'declined'){ ?>
-                                                <span style="text-transform: capitalize;" class="badge badge-danger"><?php echo $row['status']; ?> </span>
-                                              <?php  }else if($row['status'] == 'completed'){?>
-                                                <span style="text-transform: capitalize;" class="badge badge-success"><?php echo $row['status']; ?> </span>
-                                             <?php  }
+                                                <?php  } else if ($row['status'] == 'declined') { ?>
+                                                    <span style="text-transform: capitalize;" class="badge badge-danger"><?php echo $row['status']; ?> </span>
+                                                <?php  } else if ($row['status'] == 'approved') { ?>
+                                                    <span style="text-transform: capitalize;" class="badge badge-success"><?php echo $row['status']; ?> </span>
+                                                <?php  }
 
 
                                                 ?>
 
-                                                
+
 
                                             </td>
 
