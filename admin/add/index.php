@@ -1,428 +1,241 @@
-<?php
-
-use Dom\Mysql;
-
-include('../../server/connection.php')  ?>
-<?php include('../../server/auth/admin/index.php')  ?>
-<?php
-function timeAgo($datetime)
-{
-    $timestamp = strtotime($datetime);
-    $difference = time() - $timestamp;
-
-    if ($difference < 60) {
-        return $difference . " seconds ago";
-    } elseif ($difference < 3600) {
-        return floor($difference / 60) . " minutes ago";
-    } elseif ($difference < 86400) {
-        return floor($difference / 3600) . " hours ago";
-    } elseif ($difference < 2592000) { // 30 days
-        return floor($difference / 86400) . " days ago";
-    } elseif ($difference < 31536000) { // 12 months
-        return floor($difference / 2592000) . " months ago";
-    } else {
-        return floor($difference / 31536000) . " years ago";
-    }
-}
-
-// Example usage
-
-?>
+<?php include('../../saver/connection.php');   ?>
+<?php include('../../saver/admin/authorization.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- Mirrored from www.bootstrapget.com/demos/templatemonster/unity-bootstrap-admin-dashboard/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Mar 2025 18:41:27 GMT -->
+<!-- Mirrored from themewagon.github.io/corona-free-dark-bootstrap-admin-template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2024 14:07:52 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Admin Templates - Dashboard Templates - Unify Admin Template</title>
-
-    <!-- Meta -->
-    <meta name="description" content="Marketplace for Bootstrap Admin Dashboards" />
-    <meta name="author" content="Bootstrap Gallery" />
-    <link rel="canonical" href="https://www.bootstrap.gallery/">
-    <meta property="og:url" content="https://www.bootstrap.gallery/">
-    <meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery">
-    <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
-    <meta property="og:type" content="Website">
-    <meta property="og:site_name" content="Bootstrap Gallery">
-    <link rel="shortcut icon" href="../assets/images/favicon.svg" />
-
-    <!-- *************
-			************ CSS Files *************
-		************* -->
-    <link rel="stylesheet" href="../assets/fonts/bootstrap/bootstrap-icons.css" />
-    <link rel="stylesheet" href="../assets/css/main.min.css" />
-
-    <!-- *************
-			************ Vendor Css Files *************
-		************ -->
-
-    <!-- Scrollbar CSS -->
-    <link rel="stylesheet" href="../assets/vendor/overlay-scroll/OverlayScrollbars.min.css" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Corona Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="../assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../assets/images/favicon.png" />
 </head>
 
 <body>
-    <!-- Page wrapper start -->
-    <div class="page-wrapper">
+    <div class="container-scroller">
+        <!-- partial:partials/_sidebar.html -->
+        <?php include('../../components/admin/side.php')  ?>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_navbar.html -->
+            <?php include('../../components/admin/nav.php') ?>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
 
-        <!-- App header starts -->
-        <div class="app-header d-flex align-items-center">
 
-            <!-- Toggle buttons start -->
-            <div class="d-flex col">
-                <button class="toggle-sidebar" id="toggle-sidebar">
-                    <i class="bi bi-list lh-1 text-white"></i>
-                </button>
-                <button class="pin-sidebar" id="pin-sidebar">
-                    <i class="bi bi-list lh-1 text-white"></i>
-                </button>
-            </div>
-            <!-- Toggle buttons end -->
 
-            <!-- App brand starts -->
-            <div class="app-brand py-2 col">
-                <a href="index.php">
-                    <img src="../assets/images/logo.svg" class="logo" alt="Bootstrap Gallery" />
-                </a>
-            </div>
-            <!-- App brand ends -->
+                    <div class="card">
+                        <div class="card-body">
 
-            <!-- App header actions start -->
-            <div class="header-actions col">
-                <div class="d-lg-flex d-none align-items-center gap-2">
-                    <div class="dropdown">
-                        <a class="dropdown-toggle header-action-icon" href="#!" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="bi bi-grid fs-5 lh-1 text-white"></i>
-                        </a>
-                    </div>
-                    <div class="dropdown">
-                        <a class="dropdown-toggle header-action-icon" href="#!" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="bi bi-exclamation-triangle fs-5 lh-1 text-white"></i>
-                            <span class="count-label">7</span>
-                        </a>
-                    </div>
-                    <div class="dropdown">
-                        <a class="dropdown-toggle header-action-icon" href="#!" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="bi bi-bell fs-5 lh-1 text-white"></i>
-                        </a>
+                            <h4 class="card-title">Add Products</h4>
 
-                    </div>
-                    <div class="dropdown">
-                        <a class="dropdown-toggle header-action-icon" href="#!" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="bi bi-envelope-open fs-5 lh-1 text-white"></i>
-                        </a>
+                            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="exampleInputUsername1">name</label>
+                                    <input type="text" name="name" class="form-control" id="exampleInputUsername1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputUsername1">image</label>
+                                    <input type="file" name="file" class="form-control" id="exampleInputUsername1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">price</label>
+                                    <input type="text" name="price" class="form-control" id="exampleInputEmail1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">brand</label>
+                                    <input type="text" name="brand" class="form-control" id="exampleInputPassword1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputConfirmPassword1">categorie</label>
+                                    <!-- <input type="text" name="categorie" class="form-control" id="exampleInputConfirmPassword1" required> -->
+                                     <select name="categorie" style="color: white;" id="exampleInputConfirmPassword1" class="form-control">
 
-                    </div>
-                </div>
-                <div class="dropdown ms-3">
-                    <a id="userSettings" class="dropdown-toggle d-flex py-2 align-items-center text-decoration-none" href="#!"
-                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="../assets/images/user2.png" class="rounded-2 img-3x" alt="Bootstrap Gallery" />
-                        <div class="ms-2 text-truncate d-lg-block d-none text-white">
-                            <span class="d-flex opacity-50 small">Admin</span>
-                            <span><?php echo $username ?></span>
+                                            <option value="">select</option>
+
+                                            <?php 
+
+                                                    $query = mysqli_query($connection, "SELECT * FROM `categories`");
+
+                                                    if(mysqli_num_rows($query) > 0){
+
+
+
+                                                        while ($data = mysqli_fetch_assoc($query)){ ?>
+
+
+
+                                                                    <option value="<?php echo $data['name']   ?>" style="color: white;"><?php echo $data['name']   ?></option>
+
+
+
+                                                     <?php   }
+
+
+                                                    }
+
+
+                                            ?>
+
+                                     </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">model</label>
+                                    <input type="text" name="model" class="form-control" id="exampleInputPassword1" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">description</label>
+                                    <input type="text" name="des" class="form-control" id="exampleInputPassword1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">net weight</label>
+                                    <input type="text" name="weight" class="form-control" id="exampleInputPassword1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputConfirmPassword1">condition</label>
+                                    <input type="text" name="condition" class="form-control" id="exampleInputConfirmPassword1" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputConfirmPassword1">year</label>
+                                    <input type="text" name="year" class="form-control" id="exampleInputConfirmPassword1" required>
+                                </div>
+
+                                <button type="submit" name="submit" class="btn btn-primary mr-2">Submit</button>
+                            </form>
                         </div>
-                    </a>
+                    </div>
 
                 </div>
-            </div>
-            <!-- App header actions end -->
-        </div>
 
-        <!-- App header ends -->
-
-        <!-- Main container start -->
-        <div class="main-container">
-
-            <!-- Sidebar wrapper start -->
-            <nav id="sidebar" class="sidebar-wrapper">
-
-                <!-- Sidebar profile starts -->
-                <div class="sidebar-profile">
+                <?php
 
 
-                    <img src="../assets/images/user3.png" class="profile-user mb-3" alt="Admin Dashboard" />
-                    <div class="text-center">
-                        <h6 class="profile-name m-0 text-nowrap text-truncate">
-                            <?php echo $username   ?>
-                        </h6>
-                    </div>
-                    <div class="d-flex align-items-center mt-lg-3 gap-2">
-                        <a href="" class="icon-box md grd-success-light rounded-2">
-                            <i class="bi bi-calendar2-check fs-5 text-success"></i>
-                        </a>
-                        <a href="" class="icon-box md grd-info-light rounded-2">
-                            <i class="bi bi-stickies fs-5 text-info"></i>
-                        </a>
-                        <a href="" class="icon-box md grd-danger-light rounded-2">
-                            <i class="bi bi-whatsapp fs-5 text-danger"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Sidebar profile ends -->
-                <?php include("../includes/side.php");  ?>
-                <!-- Sidebar menu ends -->
+                if (isset($_POST['submit']) && isset($_FILES['file'])) {
 
-            </nav>
-            <!-- Sidebar wrapper end -->
+                    // Get file details
+                    $file = $_FILES['file'];
+                    $fileName = $file['name'];
+                    $fileTmpName = $file['tmp_name'];
+                    $fileSize = $file['size'];
+                    $fileError = $file['error'];
+                    $fileType = $file['type'];
 
-            <!-- App container starts -->
-            <div class="app-container">
+                    // Set allowed file extensions
+                    $allowed = array('jpg', 'jpeg', 'png', 'gif', 'pdf', 'txt','webp');
 
-                <!-- App hero header starts -->
-                <div class="app-hero-header mb-4">
+                    // Extract file extension
+                    $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-                    <!-- Breadcrumb and Stats start -->
-                    <div class="d-flex align-items-center mb-3">
+                    // Check if the file type is allowed
+                    if (in_array($fileExt, $allowed)) {
+                        if ($fileError === 0) {
+                            // Check if the file size is less than 5MB
+                            if ($fileSize < 5000000) {
+                                // Set a unique file name to avoid overwriting
+                                $fileNewName = uniqid('', true) . "." . $fileExt;
+                                $fileDestination = '../../upload/' . $fileNewName;
 
-                        <!-- Breadcrumb start -->
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <i class="bi bi-house lh-1"></i>
-                                <a href="index.php" class="text-decoration-none">Home</a>
-                            </li>
-                            <li class="breadcrumb-item" aria-current="page">Wallet</li>
-                        </ol>
-                        <!-- Breadcrumb end -->
+                                // Move the file to the 'uploads' directory
+                                if (move_uploaded_file($fileTmpName, $fileDestination)) {
+                                    // Insert the file name into the database
 
-                        <!-- Sales stats start -->
-                        <div class="ms-auto d-lg-flex d-none flex-row">
-                            <div class="d-flex flex-row gap-1">
-                                <button class="btn btn-sm btn-dark">Today</button>
-                                <button class="btn btn-sm btn-dark btn-transparent">
-                                    7 Days
-                                </button>
-                                <button class="btn btn-sm btn-dark btn-transparent">
-                                    15 Days
-                                </button>
-                                <button class="btn btn-sm btn-dark btn-transparent">
-                                    30 Days
-                                </button>
-                                <button class="btn btn-sm btn-dark btn-transparent">
-                                    90 Days
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Sales stats end -->
-                    </div>
-                    <!-- Breadcrumb and stats end -->
+                                    $product_name = $_POST['name'];
+                                    $product_des = $_POST['des'];
+                                    $product_weight = $_POST['weight'];
+                                    $product_price = $_POST['price'];
+                                    $product_model = $_POST['model'];
+                                    $product_year = $_POST['year'];
+                                    $product_brand = $_POST['brand'];
+                                    $product_condition = $_POST['condition'];
+                                    $product_categorie = $_POST['categorie'];
+                                    $product_image = $fileNewName;
+                                    // echo "<script> alert('$product_condition') </script>";
 
-                    <!-- Row start -->
-                    <?php include("../includes/nav.php");  ?>
-                    <!-- Row end -->
-                </div>
-                <!-- App Hero header ends -->
-                <!-- App body starts -->
-                <div class="app-body">
-                    <!-- Row start -->
+                                    $query = mysqli_query($connection,"INSERT INTO `products`(`weight`,`des`,`price`, `name`, `brand`, `categorie`, `model`, `productcondition`, `year`, `image`) 
+                                            VALUES ('$product_weight','$product_des','$product_price', '$product_name', '$product_brand', '$product_categorie', '$product_model', '$product_condition', '$product_year','$product_image')");
 
-                    <!-- <div class="card-body" style="margin-bottom: 10px;">
-                        <form class="row g-3 needs-validation" method="POST">
-                            <div class="col-md-4">
-                                <label for="validationCustom01" class="form-label">Name</label>
-                                <input type="text" class="form-control" name="name" required>
+                                    if ($query) {
 
-                            </div>
-                            <div class="col-md-4">
-                                <label for="validationCustom02" class="form-label">Address</label>
-                                <input type="text" class="form-control" name="address" required>
 
-                            </div>
+                                        echo "<script> alert('product add') </script>";
+                                    } else {
 
-                            <div class="col-12">
-                                <button class="btn btn-primary" name="add" type="submit">
-                                    ADD
-                                </button>
-                            </div>
-                        </form>
 
-                        <?php
-                        if (isset($_POST['add'])) {
-
-                            $name = $_POST['name'];
-                            $address = $_POST['address'];
-
-                            $sql = mysqli_query($connection, "INSERT INTO `payment_method`( `network`, `wallet_address`) VALUES ('$name','$address')");
-
-                            if ($sql) {
-                                echo "<script> alert('ADDED') </script>";
-                                echo "<script> location.href='index.php' </script>";
+                                        echo "<script> alert('unable to add product') </script>";
+                                    }
+                                } else {
+                                    echo "There was an error uploading the file.";
+                                }
                             } else {
-
-
-                                echo "<script> alert('UNABLE TO ADD WALLET ADDRESS ') </script>";
+                                echo "Your file is too big. Please upload a file smaller than 5MB.";
                             }
+                        } else {
+                            echo "There was an error uploading your file.";
                         }
-
-                        ?>
-                    </div> -->
-
-
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table align-middle table-hover m-0">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Method</th>
-                                        <th scope="col">Address</th>
-                                        <th scope="col">limit_range</th>
-                                        <th scope="col">Charges</th>
-                                        <th scope="col">*</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <!-- <tr class="grd-danger-light">
-                                        <th scope="row">
-                                            <img class="rounded-circle img-3x me-2" src="assets/images/user2.png" alt="Bootstrap Gallery">
-                                        </th>
-                                        <td>Sales</td>
-                                        <td>
-                                            913 Alpaca Way, Garden Grove, California, 92643
-                                        </td>
-                                        
-                                        
-                                        <td>
-                                            <a class="btn btn-danger btn-icon btn-sm mb-1" href="#"><i class="bi bi-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr> -->
-
-                                    <?php
-
-                                    $sql = mysqli_query($connection, "SELECT * FROM `payment_methods`");
-                                    $count = 0;
-
-                                    if (mysqli_num_rows($sql)) {
+                    } else {
+                        echo "File type not allowed. Only JPG, JPEG, PNG, GIF, PDF, and TXT are allowed.";
+                    }
+                }
 
 
-                                        while ($data = mysqli_fetch_assoc($sql)) {
-                                            $count++ ?>
 
-                                            <tr class="grd-danger-light">
-
-                                                <td>
-                                                    <?php  echo $count ?>
-                                                </td>
-                                                <td>
-                                                    <?php  echo $data['payment_method'] ?>
-                                                </td>
-
-                                                <td>
-                                                    <?php  echo $data['address'] ?>
-                                                </td>
-                                                <td>
-                                                    <?php  echo $data['limit_range'] ?>
-                                                </td>
-
-                                                <td>
-                                                    <?php  echo $data['charge'] ?>
-                                                </td>
-
-                                                <td>
-                                                    <a class="btn btn-info btn-sm" href="edit.php?id=<?php  echo $data['id'] ?>"><i class="bi bi-pencil"></i>
-                                                    </a>
-                                                </td>
-
-                                            </tr>
+                ?>
 
 
-                                        <?php   }
-                                    } else { ?>
-
-                                        <tr class="grd-danger-light">
-                                            <td>you have no wallet address</td>
-                                        </tr>
 
 
-                                    <?php  }
-
-                                        if (isset($_GET['id'])) {
-
-                                            $id =$_GET['id'];
-
-                                            $sql = mysqli_query($connection,"DELETE FROM `payment_method` WHERE `id`='$id'");
-
-                                            if ($sql) {
-
-                                                echo "<script> location.href='index.php' </script>";
-
-
-                                            }else{
-
-                                                echo "<script> alert('UNABLE TO DELETE') </script>";
-
-                                            }
-
-                                        }
-
-
-                                    ?>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-
-                </div>
-                <!-- App body ends -->
-
-                <!-- App footer start -->
-                <div class="app-footer">
-                    <span>© Bootstrap Gallery 2024</span>
-                </div>
-                <!-- App footer end -->
 
             </div>
-            <!-- App container ends -->
-
+            <!-- main-panel ends -->
         </div>
-        <!-- Main container end -->
-
+        <!-- page-body-wrapper ends -->
     </div>
-    <!-- Page wrapper end -->
-
-    <!-- *************
-			************ JavaScript Files *************
-		************* -->
-    <!-- Required jQuery first, then Bootstrap Bundle JS -->
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-
-    <!-- *************
-			************ Vendor Js Files *************
-		************* -->
-
-    <!-- Overlay Scroll JS -->
-    <script src="../assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js"></script>
-    <script src="../assets/vendor/overlay-scroll/custom-scrollbar.js"></script>
-
-    <!-- Apex Charts -->
-    <script src="../assets/vendor/apex/apexcharts.min.js"></script>
-    <script src="../assets/vendor/apex/custom/dash1/sales.js"></script>
-    <script src="../assets/vendor/apex/custom/dash1/revenue.js"></script>
-    <script src="../assets/vendor/apex/custom/dash1/source.js"></script>
-
-    <!-- Vector Maps -->
-    <script src="../assets/vendor/jvectormap/jquery-jvectormap-2.0.5.min.js"></script>
-    <script src="../assets/vendor/jvectormap/gdp-data.js"></script>
-    <script src="../assets/vendor/jvectormap/continents-mill.js"></script>
-    <script src="../assets/vendor/jvectormap/custom/world-map-markers3.js"></script>
-
-    <!-- Custom JS files -->
-    <script src="../assets/js/custom.js"></script>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="../assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="../assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="../assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="../assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="../assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../assets/js/off-canvas.js"></script>
+    <script src="../assets/js/hoverable-collapse.js"></script>
+    <script src="../assets/js/misc.js"></script>
+    <script src="../assets/js/settings.js"></script>
+    <script src="../assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="../assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
 </body>
 
-
-<!-- Mirrored from www.bootstrapget.com/demos/templatemonster/unity-bootstrap-admin-dashboard/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Mar 2025 18:42:38 GMT -->
+<!-- Mirrored from themewagon.github.io/corona-free-dark-bootstrap-admin-template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2024 14:09:15 GMT -->
 
 </html>
