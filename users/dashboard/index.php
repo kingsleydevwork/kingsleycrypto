@@ -138,20 +138,33 @@ if (mysqli_num_rows($selectInvested)) {
         <!-- header-section end  -->
 
         <!-- inner hero start -->
-        <section class="inner-hero bg_img" data-background="black">
+        <!--<section class="inner-hero bg_img" data-background="black">-->
 
 
-            <div class="container">
+        <!--    <div class="container">-->
+        <!--        <div class="row">-->
+        <!--            <div class="col-lg-6">-->
+        <!--                <h2 class="page-title">Welcome Back!</h2>-->
+        <!--                <ul class="page-breadcrumb">-->
+        <!--                    <li><a href="<?php echo $domain ?>">User</a></li>-->
+        <!--                    <li>Dashboard</li>-->
+        <!--                </ul>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</section>-->
+        <section class="inner-hero bg_img" data-background="https://capitalmulti.com/users/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg" style="background-image: url(&quot;https://capitalmulti.com/users/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg&quot;);">
+              <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <h2 class="page-title">Welcome Back!</h2>
-                        <ul class="page-breadcrumb">
-                            <li><a href="<?php echo $domain ?>">User</a></li>
-                            <li>Dashboard</li>
-                        </ul>
-                    </div>
+                  <div class="col-lg-6">
+                    <h2 class="page-title">Dashboard</h2>
+                    <ul class="page-breadcrumb">
+                      <li><a href="https://capitalmulti.com/users">Home</a></li>
+                      <li>Dashboard</li>
+                    </ul>
+                  </div>
                 </div>
-            </div>
+              </div>
         </section>
         <!-- inner hero end -->
 
@@ -165,24 +178,16 @@ if (mysqli_num_rows($selectInvested)) {
                     <div class="col-lg-12 pl-lg-5 mt-lg-0 mt-5">
                         <div class="row mb-none-30">
                             <div class="col-md-12 mb-4">
-                                <div class="alert alert-info" role="alert">
-                                    <h4 class="alert-heading">*Affiliate Program</h4>
-                                    <p>Copy the link below, share with people and earn 10% on every deposit the make.</p>
+                                
+                                <div class="col-md-12 mb-4">
+                                <label>Referral Link</label>
                                     <div class="input-group">
-                                        <input type="text" name="text" class="form-control" id="referralURL" value="<?php echo $domain . 'register/?user=' . $user_link ?>" readonly>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text copytext copyBoard" id="copyBoard"> <i class="fa fa-copy"></i>
-                                            </span>
-                                        </div>
+                                      <input type="text" name="text" class="form-control" id="referralURL" value="<?php echo $domain . 'register/?user=' . $user_link ?>" readonly="">
+                                      <div class="input-group-append">
+                                        <span class="input-group-text copytext copyBoard" id="copyBoard"> <i class="fa fa-copy"></i> </span>
+                                      </div>
                                     </div>
-                                    <hr>
-                                    <p class="mb-0">Your current Referral earning : </p>
-                                    <h4 class="currency-amount" style="color:#fbc013">$<php= $referral ?>
-                                    </h4>
-                                    <!--<button type="button" class="btn btn-primary">
-                  Total Referrals <span class="badge bg-secondary">4</span>
-                </button>-->
-                                </div>
+                              </div>
                             </div>
                         </div>
                     </div>
@@ -200,14 +205,14 @@ if (mysqli_num_rows($selectInvested)) {
                                 <div class="col-xl-4 col-sm-6 mb-30">
                                     <div class="d-widget d-flex flex-wrap">
                                         <div class="col-8">
-                                            <span class="caption">Deposit Wallet</span>
+                                            <span class="caption">Deposit Wallet Balance</span>
                                             <h4 class="currency-amount">$<?php echo number_format($deposit) ?></h4>
 
 
                                         </div>
                                         <div class="col-4">
                                             <div class="icon ml-auto">
-                                                <i class="las la-dollar-sign"></i>
+                                                <i class="las la-wallet"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -216,7 +221,7 @@ if (mysqli_num_rows($selectInvested)) {
                                 <div class="col-xl-4 col-sm-6 mb-30">
                                     <div class="d-widget d-flex flex-wrap">
                                         <div class="col-8">
-                                            <span class="caption">Interest Wallet </span>
+                                            <span class="caption">Interest Wallet Balance</span>
                                             <h4 class="currency-amount">$<?php echo $interests ?></h4>
 
                                         </div>
@@ -241,47 +246,26 @@ if (mysqli_num_rows($selectInvested)) {
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- d-widget-two end -->
+                                    
                                 </div>
-                                <!--<div class="col-xl-4 col-sm-6 mb-30">
-                        <div class="d-widget d-flex flex-wrap">
-                          <div class="col-8">
-                            <span class="caption">Promo balance</span>
-                            <h4 class="currency-amount">$0</h4>
-                          </div>
-                          <div class="col-4">
-                            <div class="icon ml-auto">
-                              <i class="las la-credit-card"></i>
-                            </div>
-                          </div>
-                        </div><!-- d-widget-two end
-                      </div>
-                      <!--<div class="col-xl-4 col-sm-6 mb-30">
-                        <div class="d-widget  d-flex flex-wrap">
-                          <div class="col-8">
-                            <span class="caption">Total Withdraw</span>
-                            <h4 class="currency-amount">$21500</h4>
-                          </div>
-                          <div class="col-4">
-                            <div class="icon ml-auto">
-                              <i class="las la-cloud-download-alt"></i>
-                            </div>
-                          </div>
-                        </div><!-- d-widget-two end
-                      </div>
-                     <!-- <div class="col-xl-4 col-sm-6 mb-30">
-                        <div class="d-widget  d-flex flex-wrap">
-                          <div class="col-8">
-                            <span class="caption">Referral Earnings</span>
-                            <h4 class="currency-amount">$852.5</h4>
-                          </div>
-                          <div class="col-4">
-                            <div class="icon ml-auto">
-                              <i class="las la-user-friends"></i>
-                            </div>
-                          </div>
-                        </div><!-- d-widget-two end
-                      </div>-->
+                                
+                                <div class="col-xl-4 col-sm-6 mb-30">
+                                    <div class="d-widget  d-flex flex-wrap">
+                                      <div class="col-8">
+                                        <span class="caption">Referral Earnings</span>
+                                        <h4 class="currency-amount">$<?php echo ($referral == '') ? '0.00' : number_format($referral, 2) ?></h4>
+                                      </div>
+                                      <div class="col-4">
+                                        <div class="icon ml-auto">
+                                          <i class="las la-user-friends"></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                </div>    
+                             </div>
+
+                        </div>
                             </div>
                             <!-- row end -->
                             <div class="row mt-50">
@@ -294,6 +278,7 @@ if (mysqli_num_rows($selectInvested)) {
                                                     <th>Transaction ID</th>
                                                     <th>Amount</th>
                                                     <th>Wallet</th>
+                                                    
                                                     <!--<th>Details</th>-->
                                                     <!-- <th>Post Balance</th> -->
                                                 </tr>

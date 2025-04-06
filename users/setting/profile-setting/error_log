@@ -1,0 +1,9 @@
+[02-Apr-2025 08:56:47 UTC] PHP Warning:  Undefined variable $firstname in /home/qsgigqid/fluxionhub.com/users/setting/profile-setting/index.php on line 232
+[02-Apr-2025 08:56:47 UTC] PHP Warning:  Undefined variable $lastname in /home/qsgigqid/fluxionhub.com/users/setting/profile-setting/index.php on line 238
+[02-Apr-2025 08:56:47 UTC] PHP Warning:  Undefined variable $name in /home/qsgigqid/fluxionhub.com/users/setting/profile-setting/index.php on line 244
+[02-Apr-2025 08:56:47 UTC] PHP Warning:  Undefined variable $email in /home/qsgigqid/fluxionhub.com/users/setting/profile-setting/index.php on line 250
+[02-Apr-2025 08:56:47 UTC] PHP Warning:  Undefined variable $mobile in /home/qsgigqid/fluxionhub.com/users/setting/profile-setting/index.php on line 260
+[02-Apr-2025 08:56:47 UTC] PHP Warning:  Undefined variable $country in /home/qsgigqid/fluxionhub.com/users/setting/profile-setting/index.php on line 266
+[02-Apr-2025 08:56:47 UTC] PHP Warning:  Undefined variable $address in /home/qsgigqid/fluxionhub.com/users/setting/profile-setting/index.php on line 272
+[02-Apr-2025 08:56:47 UTC] PHP Warning:  Undefined variable $state in /home/qsgigqid/fluxionhub.com/users/setting/profile-setting/index.php on line 278
+[02-Apr-2025 08:56:47 UTC] PHP Warning:  Undefined variable $city in /home/qsgigqid/fluxionhub.com/users/setting/profile-setting/index.php on line 290

@@ -1,3 +1,47 @@
+
+    
+    <style>
+        
+        body {
+                body {
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                .whatsapp-icon {
+                    position: fixed;
+                    left: 20px;
+                    bottom: 20px;
+                    background-color: #25D366; /* WhatsApp green */
+                    border-radius: 50%;
+                    padding: 15px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    z-index: 9999; /* Ensure it's on top */
+                }
+                
+                .whatsapp-icon img {
+                    width: 30px;
+                    height: 30px;
+                }
+                
+                .whatsapp-icon a {
+                    display: block;
+                    text-align: center;
+                    color: white;
+                    text-decoration: none;
+                }
+
+        
+    </style>
+    
+    
+    
+    <div class="whatsapp-icon">
+        <a href="https://wa.me/15879102053" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+    </div> 
+
 <?php include('../../server/connection.php');
 
 include('../../server/config.php')
@@ -207,6 +251,9 @@ hyip, bitcoin, investment,  hyip business, hyip script, best hyip, buy hyip scri
                   </div>
                   <div class="form-row mt-2">
                     <div class="col-sm-6">
+                    <div class="form-group form-check pl-0">
+                        <p class="f-size-14">Forgot Password? <a onclick="" href="<?php echo $domain ?>users/reset/" class="base--color">Reset Now</a></p>
+                      </div>
                       <div class="form-group form-check pl-0">
                         <p class="f-size-14">Don't have an account? <a onclick="" href="<?php echo $domain ?>users/register/" class="base--color">Register</a></p>
                       </div>

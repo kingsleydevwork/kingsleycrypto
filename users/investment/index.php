@@ -85,21 +85,19 @@ include('../../server/config.php');
         <!-- header-section end  -->
 
         <!-- inner hero start -->
-        <section class="inner-hero bg_img" data-background="black">
-
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h2 class="page-title">Welcome Back!</h2>
-                        <ul class="page-breadcrumb">
-                            <li><a href="#">User</a></li>
-                            <li>Investment Plan</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="inner-hero bg_img" data-background="https://capitalmulti.com/users/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg" style="background-image: url(&quot;https://capitalmulti.com/users/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg&quot;);">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2 class="page-title">Investment Plan</h2>
+            <ul class="page-breadcrumb">
+              <li><a href="https://capitalmulti.com/users">Investment</a></li>
+              <li>Plan</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
         <!-- inner hero end -->
         <section class="pt-60 pb-120">
             <div class="container">
@@ -146,21 +144,23 @@ include('../../server/config.php');
                         $invest_return = $_POST['invest_return'];
                         $invest_min = $_POST['invest_min'];
                         $invest_max = $_POST['invest_max'];
+                        $frequency = $_POST['frequency'];
 
                         $wallet_type = $_POST['wallet_type'];
 
                         $formattedDate = date("Y-m-d");
                         $time = date("H:m:s");
+                        
 
                         $transactionId = generateRandomString(10);
 
-                        if ($invest_amount > $invest_min && $invest_amount < $invest_max) {
+                        if ($invest_amount >= $invest_min && $invest_amount < $invest_max) {
 
 
                             // Handle deposit
                             if ($wallet_type == 'deposit') {
                                 if ($invest_amount < $deposit && $invest_amount > 0) {
-                                    $query = mysqli_query($connection, "INSERT INTO `investment`(`user`, `plan`, `amount`, `return`, `transactionId`,`date`,`time`) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId','$formattedDate','$time')");
+                                    $query = mysqli_query($connection, "INSERT INTO `investment`(`user`, `plan`, `amount`, `return`, `transactionId`,`date`,`time`,`duration`) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId','$formattedDate','$time','$frequency')");
                                     echo mysqli_error($connection);
 
                                     if ($query) {
@@ -189,7 +189,7 @@ include('../../server/config.php');
                             // Handle investment
                             elseif ($wallet_type == 'invest') {
                                 if ($invest_amount < $interests && $invest_amount > 0) {
-                                    $query = mysqli_query($connection, "INSERT INTO `investment`(`user`, `plan`, `amount`, `return`, `transactionId`,`date`,`time`) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId','$formattedDate','$time')");
+                                    $query = mysqli_query($connection, "INSERT INTO `investment`(`user`, `plan`, `amount`, `return`, `transactionId`,`date`,`time`,`duration`) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId','$formattedDate','$time','$frequency')");
                                     echo mysqli_error($connection);
 
                                     if ($query) {
@@ -236,7 +236,7 @@ include('../../server/config.php');
                         <input type="hidden" name="invest_max" class="invest_max">
                         <input type="hidden" name="invest_return" class="invest_return">
                         <input type="hidden" name="wallet_type" class="wallet_type">
-
+                        <input type="hidden" name="frequency" class="frequency">
                         <div class="modal-body">
 
                             <div class="form-group">
@@ -407,17 +407,30 @@ include('../../server/config.php');
             plans.forEach(plan => {
                 $imageLink = "<?php echo $domain ?>assets/templates/bit_gold/images/bg" + plan.background
                 const planCard = `
-            <div class="col-4 mb-30">
-                <div class="package-card text-center bg_img" data-background="${plan.background}">
-                    <h4 class="package-card__title base--color mb-2">${plan.title}</h4>
-                    <ul class="package-card__features mt-4">
-                        <li>Return ${plan.return_rate}</li>
-                        <li>${plan.frequency}</li>
-                    </ul>
-                    <div class="package-card__range mt-5 base--color">${plan.min_amount}-${plan.max_amount ? plan.max_amount : 'Infinit'}</div>
-                    <a href="javascript:void(0)" data-toggle="modal" data-target="#depoModal" data-return="${plan.return_rate}" data-min="${plan.min_amount}" data-max="${plan.max_amount}" data-title="${plan.title}" class="cmn-btn btn-md mt-4 investButton">Invest Now</a>
-                </div>
-            </div>
+    
+                        <div class="col-lg-3 mb-30">
+                            <div class="package-card text-center bg_img" data-background="https://capitalmulti.com/users/assets/templates/bit_gold//images/bg/bg-4.png" style="background-image: url(&quot;https://capitalmulti.com/users/assets/templates/bit_gold//images/bg/bg-4.png&quot;);">
+                                <h4 class="package-card__title base--color mb-2">${plan.title}</h4>
+                    
+                                <ul class="package-card__features mt-4">
+                                    <li>Return 5.9%</li>
+                    
+                                    <li>
+                                         ${plan.frequency == null ? 'Every Day' : plan.frequency + ' Days' }
+                                    </li>
+                                    <li>
+                                        Total ${plan.return_rate}
+                    
+                                        + <span class="badge badge-success">Capital</span>
+                                    </li>
+                                </ul>
+                                <div class="package-card__range mt-5 base--color"> $${plan.min_amount}-$${plan.max_amount ? plan.max_amount : 'Infinit'}
+                                </div>
+                                <a href="javascript:void(0)" data-toggle="modal" data-target="#depoModal" data-return="${plan.return_rate}" data-min="${plan.min_amount}" data-max="${plan.max_amount}" data-title="${plan.title}" data-frequency="${plan.frequency}" class="cmn-btn btn-md mt-4 investButton">Invest Now</a>
+                            </div><!-- package-card end -->
+                        </div>
+
+    
         `;
                 planContainer.innerHTML += planCard
             });
@@ -436,41 +449,19 @@ include('../../server/config.php');
                 var returns = $(this).data('return');
                 var min = $(this).data('min');
                 var max = $(this).data('max');
+                var frequency = $(this).data('frequency');
                 var symbol = "$";
                 var currency = "USD";
 
-                // $('#mySelect').empty();
+                
 
-                // if (data.fixed_amount == '0') {
-                //     $('.investAmountRenge').text(`invest: ${symbol}${data.minimum} - ${symbol}${data.maximum}`);
-                //     $('.fixedAmount').val('');
-                //     $('#fixedAmount').attr('readonly', false);
-
-
-                // } else {
-                //     $('.investAmountRenge').text(`invest: ${symbol}${data.fixed_amount}`);
-                //     $('.fixedAmount').val(data.fixed_amount);
-                //     $('#fixedAmount').attr('readonly', true);
-
-                // }
-
-                // if (data.interest_status == '1') {
-                //     $('.interestDetails').html(`<strong> Interest: ${data.interest} % </strong>`);
-                // } else {
-                //     $('.interestDetails').html(`<strong> Interest: ${data.interest} ${currency}  </strong>`);
-                // }
-                // if (data.lifetime_status == '0') {
-                //     $('.interestValidaty').html(`<strong>  per ${data.times} hours ,  ${data.repeat_time} times</strong>`);
-                // } else {
-                //     $('.interestValidaty').html(`<strong>  per ${data.times} hours,  life time </strong>`);
-                // }
-
-                $('.planName').html(min);
+                $('.planName').html(title);
                 $('.invest_title').val(title);
                 $('.invest_return').val(returns)
                 $('.invest_min').val(min)
                 $('.invest_max').val(max)
                 $('.wallet_type').val()
+                $('.frequency').val(frequency)
                 // $('.plan_id').val(data.id);
             });
 

@@ -75,7 +75,7 @@
     <div class="page-wraper">
         	
         <!-- HEADER START -->
-        <?php echo include('../include/header.php') ?>
+        <?php  include('../include/header.php') ?>
         <!-- HEADER END -->       
         <!-- CONTENT START -->
         <div class="page-content">
@@ -226,39 +226,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <!--<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b40">
-                                        <div class="pricingtable-wrapper">
-                                            <div class="pricingtable-inner">
-                                            
-                                            	<div class="pricingtable-title">
-                                                    <h3>PLATINUM</h3><p>PLAN</p>
-                                                </div>
-                                                
-                                                <div class="pricingtable-price">
-                                                    <span class="pricingtable-bx">$10000+</span>
-                                                </div>
-                                                
-                                                <ul class="pricingtable-features">
-                                                    <li><i class="fa fa-check"></i>$10000 - (ABOVE)$50000+ Deposit</li>
-                                                    <li><i class="fa fa-check"></i>At least $21,000 - $105,000 expected return  </li>
-                                                    <li><i class="fa fa-check"></i> Full access to all features </li>
-                                                    <li><i class="fa fa-check"></i> More than 75 assets  </li>
-                                                    <li><i class="fa fa-check"></i> 60% Daily Profit</li>
-                                                    <li><i class="fa fa-check"></i> Withdrawal takes less than 48 hours to process</li>
-                                                    <li><i class="fa fa-check"></i> Personal account manager</li>
-                                                    <li><i class="fa fa-check"></i> Withdrawal fees: &nbsp;5% </li>
-                                                    <li><i class="fa fa-check"></i> Plan Duration:  1 WEEK </li>
-                                                </ul>
-                                                
-                                                <div class="pricingtable-footer">
-                                                    <a href="login/en/signup.php?ref" class="site-button  text-uppercase">Open Account</a>
-                                                </div>
-                                            
-                                            </div>
-                                        </div>
-                                    </div>-->
-                                    
+
                                 </div>
                             </div>
                         </div>

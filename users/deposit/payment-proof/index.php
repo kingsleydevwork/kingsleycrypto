@@ -4,6 +4,7 @@ include('../../../server/connection.php');
 include('../../../server/client/auth/index.php');
 include('../../../server/config.php');
 include('../../../server/mailer.php');
+require "../../../PHPMailer-5.2-stable/PHPMailerAutoload.php";
 
 
 $reset = $domain . 'users/deposit';

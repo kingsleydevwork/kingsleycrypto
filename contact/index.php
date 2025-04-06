@@ -119,7 +119,7 @@
                                             
                                             <div class="icon-content">
                                                 <h5>Phone</h5>
-                                                <p>(240) 233-4837</p>
+                                                <p>+1 (587) 910-2053</p>
                                               
                                             </div>
                                         </div>

@@ -82,21 +82,19 @@ include('../../server/client/auth/index.php');
 
 
         <!-- inner hero start -->
-        <section class="inner-hero bg_img" data-background="black">
-
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h2 class="page-title">Welcome Back!</h2>
-                        <ul class="page-breadcrumb">
-                            <li><a href="<?php echo $domain  ?>user/deposit/">User</a></li>
-                            <li>Deposit History</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="inner-hero bg_img" data-background="https://capitalmulti.com/users/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg" style="background-image: url(&quot;https://capitalmulti.com/users/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg&quot;);">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2 class="page-title">Deposit Methods</h2>
+            <ul class="page-breadcrumb">
+              <li><a href="https://capitalmulti.com/users">Deposit</a></li>
+              <li>Deposit History</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
         <!-- inner hero end -->
         <section class="cmn-section pt-60">
 

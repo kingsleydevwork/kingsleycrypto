@@ -1,0 +1,28 @@
+[02-Apr-2025 13:27:53 UTC] PHP Warning:  Undefined array key "admin" in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php on line 3
+[02-Apr-2025 13:27:53 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php:4
+Stack trace:
+#0 /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php(4): mysqli_query(Object(mysqli), 'SELECT * FROM `...')
+#1 /home/qsgigqid/fluxionhub.com/admin/incoming/index.php(6): include('/home/qsgigqid/...')
+#2 {main}
+  thrown in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php on line 4
+[02-Apr-2025 13:28:03 UTC] PHP Warning:  Undefined array key "admin" in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php on line 3
+[02-Apr-2025 13:28:03 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php:4
+Stack trace:
+#0 /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php(4): mysqli_query(Object(mysqli), 'SELECT * FROM `...')
+#1 /home/qsgigqid/fluxionhub.com/admin/incoming/index.php(6): include('/home/qsgigqid/...')
+#2 {main}
+  thrown in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php on line 4
+[02-Apr-2025 13:28:08 UTC] PHP Warning:  Undefined array key "admin" in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php on line 3
+[02-Apr-2025 13:28:08 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php:4
+Stack trace:
+#0 /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php(4): mysqli_query(Object(mysqli), 'SELECT * FROM `...')
+#1 /home/qsgigqid/fluxionhub.com/admin/incoming/index.php(6): include('/home/qsgigqid/...')
+#2 {main}
+  thrown in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php on line 4
+[02-Apr-2025 13:36:32 UTC] PHP Warning:  Undefined array key "admin" in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php on line 3
+[02-Apr-2025 13:36:32 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php:4
+Stack trace:
+#0 /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php(4): mysqli_query(Object(mysqli), 'SELECT * FROM `...')
+#1 /home/qsgigqid/fluxionhub.com/admin/incoming/index.php(6): include('/home/qsgigqid/...')
+#2 {main}
+  thrown in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php on line 4

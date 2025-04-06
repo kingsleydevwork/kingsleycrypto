@@ -82,7 +82,7 @@ include('../../server/config.php');
         <!-- header-section end  -->
 
         <!-- inner hero start -->
-        <section class="inner-hero bg_img" data-background="black">
+        <section class="inner-hero bg_img" data-background="https://capitalmulti.com/users/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg"  style="background-image: url(&quot;https://capitalmulti.com/users/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg&quot;);">
 
 
             <div class="container">

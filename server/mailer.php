@@ -1,16 +1,16 @@
 <?php
 
-require "../../PHPMailer/PHPMailerAutoload.php";
+// require "../../PHPMailer/PHPMailerAutoload.php";
 function smtpmailer($to, $from, $from_name, $subject, $body) {
     $mail = new PHPMailer();
     $mail->IsSMTP();
     $mail->SMTPAuth = true;
 
     $mail->SMTPSecure = 'ssl'; // Using 'ssl' with port 465 as per your original configuration
-    $mail->Host = 'mail.assetvest-shareholder.com';
+    $mail->Host = 'mail.heavyquips.com';
     $mail->Port = 465; // Or 587 if using 'tls'
-    $mail->Username = 'support@kingsleycrypto.com';
-    $mail->Password = 'support@kingsleycrypto.com'; // Use your actual email password
+    $mail->Username = 'support@fluxionhub.com';
+    $mail->Password = 'support@fluxionhub.com'; // Use your actual email password
 
     $mail->IsHTML(true);
     $mail->From = $from;

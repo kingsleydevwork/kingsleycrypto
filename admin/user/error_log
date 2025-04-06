@@ -1,0 +1,17 @@
+[01-Apr-2025 15:46:06 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/qsgigqid/fluxionhub.com/admin/user/index.php:255
+Stack trace:
+#0 /home/qsgigqid/fluxionhub.com/admin/user/index.php(255): mysqli_fetch_assoc(true)
+#1 {main}
+  thrown in /home/qsgigqid/fluxionhub.com/admin/user/index.php on line 255
+[02-Apr-2025 08:57:05 UTC] PHP Warning:  Undefined array key "admin" in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php on line 3
+[02-Apr-2025 08:57:05 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php:4
+Stack trace:
+#0 /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php(4): mysqli_query(Object(mysqli), 'SELECT * FROM `...')
+#1 /home/qsgigqid/fluxionhub.com/admin/user/index.php(2): include('/home/qsgigqid/...')
+#2 {main}
+  thrown in /home/qsgigqid/fluxionhub.com/server/auth/admin/index.php on line 4
+[05-Apr-2025 14:06:32 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/qsgigqid/fluxionhub.com/admin/user/index.php:255
+Stack trace:
+#0 /home/qsgigqid/fluxionhub.com/admin/user/index.php(255): mysqli_fetch_assoc(true)
+#1 {main}
+  thrown in /home/qsgigqid/fluxionhub.com/admin/user/index.php on line 255

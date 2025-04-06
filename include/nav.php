@@ -1,4 +1,46 @@
-     <!-- HEADER START -->
+
+    
+    <style>
+        
+        body {
+                body {
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                .whatsapp-icon {
+                    position: fixed;
+                    left: 20px;
+                    bottom: 20px;
+                    background-color: #25D366; /* WhatsApp green */
+                    border-radius: 50%;
+                    padding: 15px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    z-index: 9999; /* Ensure it's on top */
+                }
+                
+                .whatsapp-icon img {
+                    width: 30px;
+                    height: 30px;
+                }
+                
+                .whatsapp-icon a {
+                    display: block;
+                    text-align: center;
+                    color: white;
+                    text-decoration: none;
+                }
+
+        
+    </style>
+    
+    
+    
+    <div class="whatsapp-icon">
+        <a href="https://wa.me/15879102053" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+    </div>     <!-- HEADER START -->
      <header class="site-header header-style-3 topbar-transparent">
 
 <div class="top-bar">
@@ -56,79 +98,17 @@
                     }
                     </style>
 
-                    <select class="select" onchange="doGTranslate(this);">
-                        <option value="">Translate Language</option>
-                        <option value="en|af">Afrikaans</option>
-                        <option value="en|sq">Albanian</option>
-                        <option value="en|ar">Arabic</option>
-                        <option value="en|hy">Armenian</option>
-                        <option value="en|az">Azerbaijani</option>
-                        <option value="en|eu">Basque</option>
-                        <option value="en|be">Belarusian</option>
-                        <option value="en|bg">Bulgarian</option>
-                        <option value="en|ca">Catalan</option>
-                        <option value="en|zh-CN">Chinese (Simplified)</option>
-                        <option value="en|zh-TW">Chinese (Traditional)</option>
-                        <option value="en|hr">Croatian</option>
-                        <option value="en|cs">Czech</option>
-                        <option value="en|da">Danish</option>
-                        <option value="en|nl">Dutch</option>
-                        <option value="en|en">English</option>
-                        <option value="en|et">Estonian</option>
-                        <option value="en|tl">Filipino</option>
-                        <option value="en|fi">Finnish</option>
-                        <option value="en|fr">French</option>
-                        <option value="en|gl">Galician</option>
-                        <option value="en|ka">Georgian</option>
-                        <option value="en|de">German</option>
-                        <option value="en|el">Greek</option>
-                        <option value="en|ht">Haitian Creole</option>
-                        <option value="en|iw">Hebrew</option>
-                        <option value="en|hi">Hindi</option>
-                        <option value="en|hu">Hungarian</option>
-                        <option value="en|is">Icelandic</option>
-                        <option value="en|id">Indonesian</option>
-                        <option value="en|ga">Irish</option>
-                        <option value="en|it">Italian</option>
-                        <option value="en|ja">Japanese</option>
-                        <option value="en|ko">Korean</option>
-                        <option value="en|lv">Latvian</option>
-                        <option value="en|lt">Lithuanian</option>
-                        <option value="en|mk">Macedonian</option>
-                        <option value="en|ms">Malay</option>
-                        <option value="en|mt">Maltese</option>
-                        <option value="en|no">Norwegian</option>
-                        <option value="en|fa">Persian</option>
-                        <option value="en|pl">Polish</option>
-                        <option value="en|pt">Portuguese</option>
-                        <option value="en|ro">Romanian</option>
-                        <option value="en|ru">Russian</option>
-                        <option value="en|sr">Serbian</option>
-                        <option value="en|sk">Slovak</option>
-                        <option value="en|sl">Slovenian</option>
-                        <option value="en|es">Spanish</option>
-                        <option value="en|sw">Swahili</option>
-                        <option value="en|sv">Swedish</option>
-                        <option value="en|th">Thai</option>
-                        <option value="en|tr">Turkish</option>
-                        <option value="en|uk">Ukrainian</option>
-                        <option value="en|ur">Urdu</option>
-                        <option value="en|vi">Vietnamese</option>
-                        <option value="en|cy">Welsh</option>
-                        <option value="en|yi">Yiddish</option>
-                    </select>
-                    <div id="google_translate_element2"></div>
-                    <script type="text/javascript">
-                    function googleTranslateElementInit2() {
-                        new google.translate.TranslateElement({
-                            pageLanguage: 'en',
-                            autoDisplay: false
-                        }, 'google_translate_element2');
-                    }
-                    </script>
-                    <script type="text/javascript"
-                        src="translate.google.com/translate_a/element78767876.js?cb=googleTranslateElementInit2">
-                    </script>
+<div id="google_translate_element" div>
+
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        } 
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
                     <script type="text/javascript">
@@ -221,6 +201,11 @@
                         <a href="<?php echo $domain ?>about/">About us</a>
 
                     </li>
+                    
+                    <li>
+                        <a href="<?php echo $domain ?>plans/">Plans</a>
+
+                    </li>
 
 
                     <li>
@@ -240,3 +225,13 @@
 </div>
 <!-- MAIN NAV END-->
 </header>
+<!-- Start of LiveChat (www.livechat.com) code -->
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 19116501;
+    window.__lc.integration_name = "manual_onboarding";
+    window.__lc.product_name = "livechat";
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/19116501/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<!-- End of LiveChat code -->
