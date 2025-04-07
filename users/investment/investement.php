@@ -174,7 +174,7 @@ include('../../server/client/auth/index.php');
                                                 <?php  } else if ($row['status'] == 'completed') { ?>
                                                     <span style="text-transform: capitalize;" class="badge badge-success"><?php echo $row['status']; ?> </span>
                                                 <?php  } else if ($row['status'] == 'running') { ?>
-                                                    <span class="myDiv"></span>
+                                                    <span data-payment-time="<?php echo $row['payment-time']; ?>" class="myDiv payment-time"></span>
 
                                                 <?php } ?>
 
@@ -429,27 +429,37 @@ include('../../server/client/auth/index.php');
         })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.js" integrity="sha512-aWlTsIGUhEq2+LQNA7Wq+OsLaouCcGGaHBWzoU9duKy26ImHe12gRtQnj4688p7QUHG+J4CMb+XwgZ8LYqQ+kQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $('.myDiv').each(function() {
-            var today = new Date();
-            var targetDate = new Date(today);
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.js"></script>
 
-            // Set targetDate to the beginning of the next day
-            targetDate.setDate(today.getDate() + 1);
-            targetDate.setHours(0, 0, 0, 0); // Set hours, minutes, seconds, and milliseconds to 0
+<script>
+    $('.myDiv').each(function () {
+        var paymentTime = $(this).data('payment-time'); // e.g., "15:30"
+        var [hour, minute] = paymentTime.split(':').map(Number);
 
-            console.log(targetDate + 'mhk'); // Optional: Output the targetDate to verify
+        var now = new Date();
+        var target = new Date();
 
-            $(this).countdown(targetDate, function(event) {
-                if (event.elapsed) {
-                    $(this).text('Investment not yet activated.');
-                } else {
-                    $(this).text(event.strftime('%H Hours: %M Minutes'));
-                }
-            });
+        // Set today's payment time
+        target.setHours(hour, minute, 0, 0);
+
+        // If it's already past today's payment time, set it for tomorrow
+        if (target <= now) {
+            target.setDate(target.getDate() + 1);
+        }
+
+        // Optional: for debugging
+        console.log("Next crediting time for this investment: " + target.toString());
+
+        $(this).countdown(target, function (event) {
+            if (event.elapsed) {
+                $(this).text('Investment not yet activated.');
+            } else {
+                $(this).text(event.strftime('%H Hours %M Minutes remaining'));
+            }
         });
-    </script>
+    });
+</script>
+
 
 
 

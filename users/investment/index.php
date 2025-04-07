@@ -150,6 +150,12 @@ include('../../server/config.php');
 
                         $formattedDate = date("Y-m-d");
                         $time = date("H:m:s");
+
+
+                        //  the time there will be credit the user throughr cron job
+                        $payment_time = date("H:i");
+
+
                         
 
                         $transactionId = generateRandomString(10);
@@ -160,7 +166,7 @@ include('../../server/config.php');
                             // Handle deposit
                             if ($wallet_type == 'deposit') {
                                 if ($invest_amount < $deposit && $invest_amount > 0) {
-                                    $query = mysqli_query($connection, "INSERT INTO `investment`(`user`, `plan`, `amount`, `return`, `transactionId`,`date`,`time`,`duration`) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId','$formattedDate','$time','$frequency')");
+                                    $query = mysqli_query($connection, "INSERT INTO `investment`(`user`, `plan`, `amount`, `return`, `transactionId`,`date`,`time`,`duration`,`payment_time`) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId','$formattedDate','$time','$frequency')");
                                     echo mysqli_error($connection);
 
                                     if ($query) {
@@ -224,9 +230,6 @@ include('../../server/config.php');
                             </script>";
                         }
                     }
-
-
-
                     ?>
 
                     <form method="post" class="register">
