@@ -174,7 +174,7 @@ include('../../server/client/auth/index.php');
                                                 <?php  } else if ($row['status'] == 'completed') { ?>
                                                     <span style="text-transform: capitalize;" class="badge badge-success"><?php echo $row['status']; ?> </span>
                                                 <?php  } else if ($row['status'] == 'running') { ?>
-                                                    <span data-payment-time="<?php echo $row['payment-time']; ?>" class="myDiv payment-time"></span>
+                                                    <span data-payment_time="<?php echo $row['next_credit_time']; ?>" class="myDiv payment_time"></span>
 
                                                 <?php } ?>
 
@@ -433,7 +433,7 @@ include('../../server/client/auth/index.php');
 
 <script>
     $('.myDiv').each(function () {
-        var paymentTime = $(this).data('payment-time'); // e.g., "15:30"
+        var paymentTime = $(this).data('payment_time'); // e.g., "15:30"
         var [hour, minute] = paymentTime.split(':').map(Number);
 
         var now = new Date();

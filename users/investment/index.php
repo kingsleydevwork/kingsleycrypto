@@ -85,23 +85,23 @@ include('../../server/config.php');
         <!-- header-section end  -->
 
         <!-- inner hero start -->
-<section class="inner-hero bg_img" data-background="https://capitalmulti.com/users/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg" style="background-image: url(&quot;https://capitalmulti.com/users/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg&quot;);">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <h2 class="page-title">Investment Plan</h2>
-            <ul class="page-breadcrumb">
-              <li><a href="https://capitalmulti.com/users">Investment</a></li>
-              <li>Plan</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+        <section class="inner-hero bg_img" data-background="https://fluxionhub.com/users/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg" style="background-image: url(&quot;https://fluxionhub.com/users/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg&quot;);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="page-title">Investment Plan</h2>
+                        <ul class="page-breadcrumb">
+                            <li><a href="https://fluxionhub.com/users">Investment</a></li>
+                            <li>Plan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- inner hero end -->
         <section class="pt-60 pb-120">
             <div class="container">
-                <div >
+                <div>
                     <div class="col-md-12">
                         <div class="right float-right mb-5">
                             <a href="<?php echo $domain  ?>users/investment/investement.php" class="btn cmn-btn">
@@ -136,6 +136,7 @@ include('../../server/config.php');
                     {
                         return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
                     }
+
                     error_reporting(E_ALL);
 
                     if (isset($_POST['next'])) {
@@ -145,93 +146,83 @@ include('../../server/config.php');
                         $invest_min = $_POST['invest_min'];
                         $invest_max = $_POST['invest_max'];
                         $frequency = $_POST['frequency'];
-
                         $wallet_type = $_POST['wallet_type'];
 
                         $formattedDate = date("Y-m-d");
-                        $time = date("H:m:s");
-
-
-                        //  the time there will be credit the user throughr cron job
-                        $payment_time = date("H:i");
-
-
-                        
+                        $formattedDateTime = date("Y-m-d H:i:s");
+                        $nextCreditDateTime = date("Y-m-d H:i:s", strtotime('+24 hours'));
 
                         $transactionId = generateRandomString(10);
 
-                        if ($invest_amount >= $invest_min && $invest_amount < $invest_max) {
+                        echo "<script>mysqli_error($connection)</script>";
 
-
-                            // Handle deposit
+                        if ($invest_amount >= $invest_min && $invest_amount <= $invest_max) {
                             if ($wallet_type == 'deposit') {
-                                if ($invest_amount < $deposit && $invest_amount > 0) {
-                                    $query = mysqli_query($connection, "INSERT INTO `investment`(`user`, `plan`, `amount`, `return`, `transactionId`,`date`,`time`,`duration`,`payment_time`) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId','$formattedDate','$time','$frequency')");
-                                    echo mysqli_error($connection);
+                                if ($invest_amount <= $deposit && $invest_amount > 0) {
+
+                                    $query = mysqli_query($connection, "INSERT INTO investment(user, plan, amount, return, transactionId, date, time, duration, payment_time, next_credit_time) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId', '$formattedDate', '$formattedDateTime', '$frequency', NOW(), '$nextCreditDateTime')");
+
+
 
                                     if ($query) {
                                         echo "<script>
-                                            window.onload = () => {
-                                                Model('Investment successfully placed', 'green');
-                                                window.location.href ='./investement.php'
-                                            };
-                                        </script>";
+                        window.onload = () => {
+                            Model('Investment successfully placed', 'green');
+                            window.location.href = './investement.php';
+                        };
+                    </script>";
                                     } else {
                                         echo "<script>
-                                            window.onload = () => {
-                                                Model('An error occurred while placing the Deposit.', 'red');
-                                            };
-                                        </script>";
+                        window.onload = () => {
+                            Model('An error occurred while placing the Deposit.', 'red');
+                        };
+                    </script>";
                                     }
                                 } else {
                                     echo "<script>
-                                        window.onload = () => {
-                                            Model('Check if invested amount is greater than zero and within the balance', 'red');
-                                        };
-                                    </script>";
+                    window.onload = () => {
+                        Model('Check if invested amount is greater than zero and within the balance', 'red');
+                    };
+                </script>";
                                 }
-                            }
-
-                            // Handle investment
-                            elseif ($wallet_type == 'invest') {
-                                if ($invest_amount < $interests && $invest_amount > 0) {
-                                    $query = mysqli_query($connection, "INSERT INTO `investment`(`user`, `plan`, `amount`, `return`, `transactionId`,`date`,`time`,`duration`) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId','$formattedDate','$time','$frequency')");
+                            } elseif ($wallet_type == 'invest') {
+                                if ($invest_amount <= $interests && $invest_amount > 0) {
+                                    $query = mysqli_query($connection, "INSERT INTO investment(user, plan, amount, return, transactionId, date, time, duration, payment_time, next_credit_time) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId', '$formattedDate', '$formattedDateTime', '$frequency', NOW(), '$nextCreditDateTime')");
                                     echo mysqli_error($connection);
 
                                     if ($query) {
                                         echo "<script>
-                                            window.onload = () => {
-                                                Model('Investment successfully placed', 'green');
-                                                setTimeout(()=>{
-                                                    window.location.href = './investement.php'
-                                                },1000)
-                                            };
-                                        </script>";
+                        window.onload = () => {
+                            Model('Investment successfully placed', 'green');
+                            setTimeout(() => {
+                                window.location.href = './investement.php';
+                            }, 1000);
+                        };
+                    </script>";
                                     } else {
                                         echo "<script>
-                                            window.onload = () => {
-                                                Model('An error occurred while placing the investment.', 'red');
-                                            };
-                                        </script>";
+                        window.onload = () => {
+                            Model('An error occurred while placing the investment.', 'red');
+                        };
+                    </script>";
                                     }
                                 } else {
                                     echo "<script>
-                                        window.onload = () => {
-                                            Model('Ensure that the amount is below the available investment balance and above zero.', 'red');
-                                        };
-                                    </script>";
+                    window.onload = () => {
+                        Model('Ensure that the amount is below the available investment balance and above zero.', 'red');
+                    };
+                </script>";
                                 }
                             }
                         } else {
                             echo "<script>
-                                window.onload = () => {
-                                    Model('Amount is supposed to be within the specified limits', 'red');
-                                };
-                            </script>";
+            window.onload = () => {
+                Model('Amount is supposed to be within the specified limits', 'red');
+            };
+        </script>";
                         }
                     }
                     ?>
-
                     <form method="post" class="register">
                         <input type="hidden" class="invest_title" name="invest_title">
                         <input type="hidden" name="invest_amount" class="invest_amount">
@@ -271,6 +262,7 @@ include('../../server/config.php');
                         </div>
 
                     </form>
+
                 </div>
             </div>
         </div>
@@ -412,7 +404,7 @@ include('../../server/config.php');
                 const planCard = `
     
                         <div class="col-lg-3 mb-30">
-                            <div class="package-card text-center bg_img" data-background="https://capitalmulti.com/users/assets/templates/bit_gold//images/bg/bg-4.png" style="background-image: url(&quot;https://capitalmulti.com/users/assets/templates/bit_gold//images/bg/bg-4.png&quot;);">
+                            <div class="package-card text-center bg_img" data-background="https://fluxionhub.com/users/assets/templates/bit_gold//images/bg/bg-4.png" style="background-image: url(&quot;https://fluxionhub.com/users/assets/templates/bit_gold//images/bg/bg-4.png&quot;);">
                                 <h4 class="package-card__title base--color mb-2">${plan.title}</h4>
                     
                                 <ul class="package-card__features mt-4">
@@ -456,7 +448,7 @@ include('../../server/config.php');
                 var symbol = "$";
                 var currency = "USD";
 
-                
+
 
                 $('.planName').html(title);
                 $('.invest_title').val(title);
