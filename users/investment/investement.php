@@ -127,7 +127,7 @@ include('../../server/client/auth/index.php');
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($connection, "SELECT * FROM `investment`");
+                                    $query = mysqli_query($connection, "SELECT * FROM `investment` WHERE `user`='$id'");
                                     while ($row = mysqli_fetch_assoc($query)) {
                                     ?>
                                         <tr>

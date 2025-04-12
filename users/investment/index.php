@@ -154,13 +154,18 @@ include('../../server/config.php');
 
                         $transactionId = generateRandomString(10);
 
-                        echo "<script>mysqli_error($connection)</script>";
+                        
 
                         if ($invest_amount >= $invest_min && $invest_amount <= $invest_max) {
                             if ($wallet_type == 'deposit') {
                                 if ($invest_amount <= $deposit && $invest_amount > 0) {
 
-                                    $query = mysqli_query($connection, "INSERT INTO investment(user, plan, amount, return, transactionId, date, time, duration, payment_time, next_credit_time) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId', '$formattedDate', '$formattedDateTime', '$frequency', NOW(), '$nextCreditDateTime')");
+                                   
+
+                                    $query = mysqli_query($connection, "INSERT INTO investment(`user`, `plan`, `amount`, `return`, `transactionId`, `date`, `time`, `duration`, `payment_time`, `next_credit_time`) VALUES ('$id', '$invest_title', '$invest_amount', '$invest_return', '$transactionId', '$formattedDate', '$formattedDateTime', '$frequency', NOW(), '$nextCreditDateTime')");
+
+
+                                    
 
 
 
